@@ -12,35 +12,35 @@ På den måde, kan brugeren undgå overflødige køb, samt få påmindelser over
 
 User Stories.
 
-Som en bruger vil jeg gerne have mulighed for at oprette og tilføje produkter til en liste.
+Som en bruger vil jeg gerne have mulighed for at oprette og tilføje produkter til min beholdning. (Pantry)
 
-Som en bruger vil jeg gerne have mulighed for at fjerne produkter fra en liste.
+Som en bruger vil jeg gerne have mulighed for at fjerne produkter fra min beholdning. (pantry)
 
-Som en bruger vil jeg gerne have mulighed for at se min liste.
+Som en bruger vil jeg gerne have mulighed for at se min beholdning. (pantry)
 
-Som en bruger vil jeg gerne have mulighed for at se alle oprettede produkter.
+Som en bruger vil jeg gerne have mulighed for at se alle oprettede produkter. (produkter)
 
-Som en bruger vil jeg gerne have mulighed for at tildele mine produkter en kategori.
+Som en bruger vil jeg gerne have mulighed for at tildele mine produkter en kategori. (proukter)
 
-Som en bruger vil jeg gerne have mulighed for at ændre produktets kategori.
-
-
-
-Som bruger vil jeg gerne have mulighed for at definere mængden af produktet.
-
-Som bruger vil jeg gerne have mulighed for at redigere mængden af produktet.
-
-Som bruger vil jeg gerne have mulighed for at tilføje produktdetaljer.
-
-Som bruger vil jeg gerne blive påmindet om at mit produkt er tæt på udløbsdatoen.
-
-
-Som bruger vil jeg gerne have mulighed for at oprette en indkøbsliste 
-
-Som bruger vil jeg gerne have mulighed tilføje og fjerne oprettede produkter til min indkøbsliste
+Som en bruger vil jeg gerne have mulighed for at ændre produktets kategori.(produkter)
 
 
 
-Som en bruger vil jeg gerne have mulighed for at dele min liste med andre så de kan se den.
+Som bruger vil jeg gerne have mulighed for at definere mængden af produktet. (pantry)
 
-Som en bruger vil jeg gerne have mulighed for at dele min liste med andre så de kan både se og redigere den.
+Som bruger vil jeg gerne have mulighed for at redigere mængden af produktet.(pantry)
+
+Som bruger vil jeg gerne have mulighed for at tilføje produktdetaljer. (pantry)
+
+Som bruger vil jeg gerne have muligheden for at blive påmindet om at mit produkt er tæt på udløbsdatoen. (pantry)
+
+
+Som bruger vil jeg gerne have mulighed for at oprette en indkøbsliste (shopping list)
+
+Som bruger vil jeg gerne have mulighed tilføje og fjerne oprettede produkter til min indkøbsliste (shopping list)
+
+
+
+Som en bruger vil jeg gerne have mulighed for at dele min liste med andre så de kan se den. (man kan dele inde fra de enkkelte lister)
+
+Som en bruger vil jeg gerne have mulighed for at dele min liste med andre så de kan både se og redigere den. (man kan dele inde fra de enkkelte lister)
