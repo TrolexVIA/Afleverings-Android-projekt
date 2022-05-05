@@ -44,3 +44,42 @@ Som bruger vil jeg gerne have mulighed tilføje og fjerne oprettede produkter ti
 Som en bruger vil jeg gerne have mulighed for at dele min liste med andre så de kan se den. (man kan dele inde fra de enkkelte lister)
 
 Som en bruger vil jeg gerne have mulighed for at dele min liste med andre så de kan både se og redigere den. (man kan dele inde fra de enkkelte lister)
+
+
+Bankan board(?)
+
+Produckt Backlog:
+
+minimal viable product:
+Opsætning af architectur
+opstilling af common fragments
+navigation
+
+navigation imellem activitis og fragments
+
+
+opstilling af lists (kan genbruges i de forskellige shoppinglists og pantry)
+
+opstilling af Panty
+opstlling af shoppinglist
+opsætning af menu for valg af lister & de forskellige pantries
+opstilling af delte lister (mocking netværket)
+
+implementering af persistense. gemme en log fil af profilen og hvilke vare der er blevet brugt.
+
+UX for lists
+UX for for Menu
+
+
+minimums onboarding (der har plads til udvidning)
+
+
+
+
+In Progress:
+
+
+Waiting for another:
+
+
+Done
