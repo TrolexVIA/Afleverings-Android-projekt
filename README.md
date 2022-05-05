@@ -46,17 +46,20 @@ Som en bruger vil jeg gerne have mulighed for at dele min liste med andre så de
 Som en bruger vil jeg gerne have mulighed for at dele min liste med andre så de kan både se og redigere den. (man kan dele inde fra de enkkelte lister)
 
 
+
+
 Bankan board(?)
 
-Produckt Backlog:
 
+Produckt Backlog:
 minimal viable product:
-Opsætning af architectur
-opstilling af common fragments
-navigation
+
+Opstilling af main activity/menu (in progress)
+Opsætning af architectur (in progress)
+opstilling af common fragments (in progress)
+opstilling af list activity (in progress)
 
 navigation imellem activitis og fragments
-
 
 opstilling af lists (kan genbruges i de forskellige shoppinglists og pantry)
 
@@ -71,15 +74,25 @@ UX for lists
 UX for for Menu
 
 
+further mandatory features (der ikke alle er nødvendige, men bør privoriteres):
 minimums onboarding (der har plads til udvidning)
 
+
+nice to have:
+en yderligere udbygning af onboarding
+ux til onbaording
+Implementering af en settings menu
+flere sprog for strings reasurces
 
 
 
 In Progress:
+Opstilling af main activity/menu
+Opsætning af architectur
+opstilling af common fragments
+opstilling af list activity
+
+Waiting for another feature:
 
 
-Waiting for another:
-
-
-Done
+Done features:
