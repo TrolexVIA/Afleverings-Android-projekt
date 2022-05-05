@@ -76,6 +76,11 @@ UX for for Menu
 
 further mandatory features (der ikke alle er nødvendige, men bør privoriteres):
 minimums onboarding (der har plads til udvidning)
+opsætning af server og implementering af netværking (eller implementering af firebase )
+muligheden for at tilføje til listerne
+mulighed for at tilføje vare til pantry
+muligheden for at slette fra pantry eller listen
+
 
 
 nice to have:
@@ -83,6 +88,11 @@ en yderligere udbygning af onboarding
 ux til onbaording
 Implementering af en settings menu
 flere sprog for strings reasurces
+muligheden for at tildele kategorier til producter
+muligheden for at ændre producters kategori
+muligheden for at tilføje producters mængde og dets udløbsdato.
+implementering af en advarsel når et produkt er tæt på dets udløbsdato
+Tilføje detaljer til produkter (måske serverside).
 
 
 
