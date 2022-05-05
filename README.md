@@ -1,7 +1,7 @@
 # Afleverings-Android-projekt
 android projekt med Mia og Troels
 
-Idé
+#Idé
 
 MyPantry
 
@@ -10,7 +10,7 @@ På den måde, kan brugeren undgå overflødige køb, samt få påmindelser over
 
 
 
-User Stories.
+#User Stories.
 
 Som en bruger vil jeg gerne have mulighed for at oprette og tilføje produkter til min beholdning. (Pantry)
 
@@ -48,11 +48,11 @@ Som en bruger vil jeg gerne have mulighed for at dele min liste med andre så de
 
 
 
-Bankan board(?)
+#Bankan board(?)
 
 
-Produckt Backlog:
-minimal viable product:
+#Produckt Backlog:
+##minimal viable product:
 
 Opstilling af main activity/menu (in progress)
 Opsætning af architectur (in progress)
@@ -74,7 +74,7 @@ UX for lists
 UX for for Menu
 
 
-further mandatory features (der ikke alle er nødvendige, men bør privoriteres):
+##further mandatory features (der ikke alle er nødvendige, men bør privoriteres):
 minimums onboarding (der har plads til udvidning)
 opsætning af server og implementering af netværking (eller implementering af firebase )
 muligheden for at tilføje til listerne
@@ -83,7 +83,7 @@ muligheden for at slette fra pantry eller listen
 
 
 
-nice to have:
+##nice to have:
 en yderligere udbygning af onboarding
 ux til onbaording
 Implementering af en settings menu
@@ -96,13 +96,13 @@ Tilføje detaljer til produkter (måske serverside).
 
 
 
-In Progress:
+#In Progress:
 Opstilling af main activity/menu
 Opsætning af architectur
 opstilling af common fragments
 opstilling af list activity
 
-Waiting for another feature:
+#Waiting for another feature:
 
 
-Done features:
+#Done features:
