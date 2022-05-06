@@ -48,7 +48,7 @@ Som en bruger vil jeg gerne have mulighed for at dele min liste med andre så de
 
 
 
-# Bankan board(?)
+# Kanban board(?)
 
 
 # Produckt Backlog:
