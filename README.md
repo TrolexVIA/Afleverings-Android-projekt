@@ -66,7 +66,7 @@ navigation imellem activitis og fragments (in progress)
 
 implementering af lists (kan genbruges i de forskellige shoppinglists og pantry)
 
-opstilling af Panty
+opstilling af Pantry
 
 opstlling af shoppinglist
 
