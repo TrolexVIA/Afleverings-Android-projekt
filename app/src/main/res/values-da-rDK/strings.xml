@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">MyPantry</string>
     <string name="changed">Ændret</string>
+    <string name="title_activity_main_view_model">MainActivityViewModel</string>
 </resources>
