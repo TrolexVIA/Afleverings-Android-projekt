@@ -60,11 +60,11 @@ Opsætning af architectur (in progress)
 
 opstilling af common fragments (in progress)
 
-opstilling af list activity (in progress)
+opstilling af myshopinglist activity (in progress)
 
 navigation imellem activitis og fragments
 
-opstilling af lists (kan genbruges i de forskellige shoppinglists og pantry)
+implementering af lists (kan genbruges i de forskellige shoppinglists og pantry)
 
 opstilling af Panty
 
@@ -126,7 +126,7 @@ Opsætning af architectur
 
 opstilling af common fragments
 
-opstilling af list activity
+opstilling af myshopinglist activity
 
 # Waiting for another feature:
 
