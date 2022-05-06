@@ -5,26 +5,33 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import troels1.com.organisation.mypantry.R;
 import troels1.com.organisation.mypantry.databinding.ActivityMenuViewBinding;
 
-public class MenuView extends AppCompatActivity {
+public class MenuActivity extends AppCompatActivity {
 
     private ActivityMenuViewBinding binding;
+    private MenuActivityViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
         setContentView(R.layout.activity_main);
+        //viewmodel til observerpattern og til at sende infromation ned i lasangen
+        viewModel = new ViewModelProvider(this).get(MenuActivityViewModel.class);
+
+        //midlertidigt stuff
         TextView textOnMain = findViewById(R.id.TextInMain);
         Button testButton = findViewById(R.id.testButton);
 
