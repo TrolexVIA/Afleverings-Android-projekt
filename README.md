@@ -58,11 +58,9 @@ Opstilling af main activity/menu (in progress)
 
 Opsætning af architectur (Wating)
 
-opstilling af common fragments (in progress)
-
 opstilling af myshopinglist activity (in progress)
 
-navigation imellem activitis og fragments (in progress)
+navigation imellem activitis og fragments (wating)
 
 implementering af lists (kan genbruges i de forskellige shoppinglists og pantry) (In progress - Mia)
 
@@ -122,11 +120,8 @@ Tilføje detaljer til produkter (måske serverside).
 
 Opstilling af main activity/menu
 
-opstilling af common fragments
-
 opstilling af myshopinglist activity
 
-navigation imellem activitis og fragments
 
 implementering af lists
 
@@ -136,5 +131,7 @@ opstilling af Pantry
 # Waiting for another feature:
 
 Opsætning af architectur
+
+navigation imellem activitis og fragments
 
 # Done features:
