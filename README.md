@@ -64,9 +64,9 @@ opstilling af myshopinglist activity (in progress)
 
 navigation imellem activitis og fragments (in progress)
 
-implementering af lists (kan genbruges i de forskellige shoppinglists og pantry)
+implementering af lists (kan genbruges i de forskellige shoppinglists og pantry) (In progress - Mia)
 
-opstilling af Pantry
+opstilling af Pantry (in progress)
 
 opstlling af shoppinglist
 
@@ -127,6 +127,10 @@ opstilling af common fragments
 opstilling af myshopinglist activity
 
 navigation imellem activitis og fragments
+
+implementering af lists
+
+opstilling af Pantry
 
 
 # Waiting for another feature:
