@@ -1,5 +1,6 @@
 package troels1.com.organisation.mypantry.Pantry;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -13,7 +14,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import troels1.com.organisation.mypantry.MainListVIew.MenuActivity;
+import troels1.com.organisation.mypantry.MyShoppingLists.MyShoppingListActivity;
 import troels1.com.organisation.mypantry.Pantry.ui.main.SectionsPagerAdapter;
+import troels1.com.organisation.mypantry.R;
 import troels1.com.organisation.mypantry.databinding.ActivityPantryBinding;
 
 
@@ -41,6 +45,18 @@ public class PantryActivity extends AppCompatActivity {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
+        });
+
+        View menuitem = findViewById(R.id.MainMenuTopBar);
+        menuitem.setOnClickListener(x -> {
+            Intent intent = new Intent(this, MenuActivity.class);
+            startActivity(intent);
+        });
+
+        View listitem = findViewById(R.id.listTopBar);
+        listitem.setOnClickListener(y -> {
+            Intent intent = new Intent(this, MyShoppingListActivity.class);
+            startActivity(intent);
         });
     }
 }
