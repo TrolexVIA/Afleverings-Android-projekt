@@ -4,8 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import troels1.com.organisation.mypantry.MainListVIew.MenuActivity;
 import troels1.com.organisation.mypantry.R;
-import troels1.com.organisation.mypantry.databinding.ActivityMenuViewBinding;
-
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -17,6 +15,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.ArrayList;
+import troels1.com.organisation.mypantry.databinding.ActivityMenuViewBinding;
 
 public class MyShoppingListActivity extends AppCompatActivity {
 
@@ -27,7 +26,7 @@ public class MyShoppingListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_my_shoping_list);
 
         listView=(ListView)findViewById(R.id.listview);
 
@@ -45,8 +44,7 @@ public class MyShoppingListActivity extends AppCompatActivity {
 
 
         // midertidigt stuff
-        TextView textOnMain = findViewById(R.id.TextInMain);
-        Button testButton = findViewById(R.id.MyShoppingButton);
+        Button testButton = findViewById(R.id.backToMain);
 
         testButton.setOnClickListener( v -> {
             Intent intent = new Intent(this, MenuActivity.class);

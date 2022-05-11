@@ -1,7 +1,9 @@
 package troels1.com.organisation.mypantry.MainListVIew;
 
+import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -28,21 +30,20 @@ public class MenuActivity extends AppCompatActivity {
         viewModel = new ViewModelProvider(this).get(MenuActivityViewModel.class);
 
         //midlertidigt stuff
-        TextView textOnMain = findViewById(R.id.TextInMain);
-        Button myShoppingButton = findViewById(R.id.MyShoppingButton);
-        Button pantryButton = findViewById(R.id.PantryButton);
+
 
         //navigation
-        myShoppingButton.setOnClickListener(v -> {
+        View listitem = findViewById(R.id.listTopBar);
+        listitem.setOnClickListener(x -> {
             Intent intent = new Intent(this, MyShoppingListActivity.class);
             startActivity(intent);
         });
 
-        pantryButton.setOnClickListener(w -> {
+        View pantryitem = findViewById(R.id.pantryTopBar);
+        listitem.setOnClickListener(y -> {
             Intent intent = new Intent(this, PantryActivity.class);
             startActivity(intent);
         });
-
     }
 
 }
