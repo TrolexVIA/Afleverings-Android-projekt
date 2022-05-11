@@ -1,33 +1,39 @@
 package troels1.com.organisation.mypantry.MyShoppingLists;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import troels1.com.organisation.mypantry.MainListVIew.MenuActivity;
+import troels1.com.organisation.mypantry.MainListVIew.MenuActivityViewModel;
 import troels1.com.organisation.mypantry.Pantry.PantryActivity;
 import troels1.com.organisation.mypantry.R;
 import android.content.Intent;
 import android.os.Bundle;
 
 import android.view.View;
-import android.widget.AdapterView;
+
 import android.widget.ArrayAdapter;
-import android.widget.Button;
+
 import android.widget.ListView;
-import android.widget.TextView;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.ArrayList;
+import java.util.List;
+
 import troels1.com.organisation.mypantry.databinding.ActivityMenuViewBinding;
 
 public class MyShoppingListActivity extends AppCompatActivity {
 
    private ActivityMenuViewBinding binding;
+   private MyShoppingListActivityViewModel viewModel;
 
-   ListView listView;
+   private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_shoping_list);
+        viewModel = new ViewModelProvider(this).get(MyShoppingListActivityViewModel.class);
 
         listView=(ListView)findViewById(R.id.listview);
 
@@ -46,6 +52,19 @@ public class MyShoppingListActivity extends AppCompatActivity {
 
         // midertidigt stuff
 
+
+        // list observer metode
+      //  String listname = "fisk"; // denne bør nok ikke være her, men holder det lige samlet indtil det virker
+//
+  //          viewModel.getListInfo(listname).observe(this, new Observer<List<String>>() {
+    //            @Override
+      //          public void onChanged(List<String> list) {
+        //            arrayList.clear();
+          //          for(int i = 0; i < list.size(); i++) {
+           //             arrayList.add(list.get(i));
+            //        }
+            //    }
+          //  });
 
         //navigation
 
