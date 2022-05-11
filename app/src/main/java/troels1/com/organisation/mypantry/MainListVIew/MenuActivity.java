@@ -40,7 +40,7 @@ public class MenuActivity extends AppCompatActivity {
         });
 
         View pantryitem = findViewById(R.id.pantryTopBar);
-        listitem.setOnClickListener(y -> {
+        pantryitem.setOnClickListener(y -> {
             Intent intent = new Intent(this, PantryActivity.class);
             startActivity(intent);
         });

@@ -3,6 +3,7 @@ package troels1.com.organisation.mypantry.MyShoppingLists;
 import androidx.appcompat.app.AppCompatActivity;
 
 import troels1.com.organisation.mypantry.MainListVIew.MenuActivity;
+import troels1.com.organisation.mypantry.Pantry.PantryActivity;
 import troels1.com.organisation.mypantry.R;
 import android.content.Intent;
 import android.os.Bundle;
@@ -44,23 +45,20 @@ public class MyShoppingListActivity extends AppCompatActivity {
 
 
         // midertidigt stuff
-        Button testButton = findViewById(R.id.backToMain);
 
-        testButton.setOnClickListener( v -> {
+
+        //navigation
+
+        View menuitem = findViewById(R.id.MainMenuTopBar);
+        menuitem.setOnClickListener(x -> {
             Intent intent = new Intent(this, MenuActivity.class);
             startActivity(intent);
         });
 
-        //navigation
-//        binding = ActivityMenuViewBinding.inflate(getLayoutInflater());
-  //      setContentView(binding.getRoot());
-//
-   //     BottomNavigationView navView = findViewById(R.id.nav_view);
-  //      AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-   //             R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
-     //           .build();
-     //   NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_menu_view);
-      //  NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-    //    NavigationUI.setupWithNavController(binding.navView, navController);
+        View pantryitem = findViewById(R.id.pantryTopBar);
+        pantryitem.setOnClickListener(y -> {
+            Intent intent = new Intent(this, PantryActivity.class);
+            startActivity(intent);
+        });
     }
 }
