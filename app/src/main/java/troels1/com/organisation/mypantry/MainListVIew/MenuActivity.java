@@ -1,5 +1,6 @@
 package troels1.com.organisation.mypantry.MainListVIew;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +15,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import troels1.com.organisation.mypantry.MyShoppingLists.MyShoppingListActivity;
 import troels1.com.organisation.mypantry.R;
 import troels1.com.organisation.mypantry.databinding.ActivityMenuViewBinding;
 
@@ -35,24 +37,26 @@ public class MenuActivity extends AppCompatActivity {
         TextView textOnMain = findViewById(R.id.TextInMain);
         Button testButton = findViewById(R.id.testButton);
 
-        testButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                textOnMain.setText(R.string.changed);
-            }
-        });
+        testButton.setOnClickListener( v -> {
+            Intent intent = new Intent(this,MyShoppingListActivity.class);
+            startActivity(intent);
+            });
+
+
 
         //navigation
-        binding = ActivityMenuViewBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+     //       binding = ActivityMenuViewBinding.inflate(getLayoutInflater());
+       //     setContentView(binding.getRoot());
 
-        BottomNavigationView navView = findViewById(R.id.nav_view);
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
-                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_menu_view);
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-        NavigationUI.setupWithNavController(binding.navView, navController);
+         //   BottomNavigationView navView = findViewById(R.id.nav_view);
+         //   AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
+           //         R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
+            //        .build();
+         //   NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_menu_view);
+       // NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+      //  NavigationUI.setupWithNavController(binding.navView, navController);
+
+
     }
 
 }
