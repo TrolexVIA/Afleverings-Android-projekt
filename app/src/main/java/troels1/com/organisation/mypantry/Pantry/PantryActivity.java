@@ -10,8 +10,6 @@ import com.google.android.material.tabs.TabLayout;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 
 import troels1.com.organisation.mypantry.MainListVIew.MenuActivity;
@@ -24,10 +22,13 @@ import troels1.com.organisation.mypantry.databinding.ActivityPantryBinding;
 public class PantryActivity extends AppCompatActivity {
 
     private ActivityPantryBinding binding;
+    private PantryActivityViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        viewModel = PantryActivityViewModel.getInstancePantryViewModel();
 
         binding = ActivityPantryBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -39,6 +40,9 @@ public class PantryActivity extends AppCompatActivity {
         tabs.setupWithViewPager(viewPager);
         FloatingActionButton fab = binding.fab;
 
+
+
+        //floating button
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,6 +51,8 @@ public class PantryActivity extends AppCompatActivity {
             }
         });
 
+
+        //navigation
         View menuitem = findViewById(R.id.MainMenuTopBar);
         menuitem.setOnClickListener(x -> {
             Intent intent = new Intent(this, MenuActivity.class);

@@ -8,32 +8,26 @@ import java.util.List;
 public class Repository {
 
     private static Repository instance;
-    //midlertidigt arrayliste for at have noget at vise i lister indtil backend kommer på plads
-    private MutableLiveData<List<String>> holeList = new MutableLiveData<>();
-    private List<String> list = new ArrayList<>();
+    private DatabasePlaceholder database;
 
-    private Repository() {
-        holeList.setValue(list);
+    private Repository (
+    ) {
+        database = new DatabasePlaceholder(); //midlertidig skal slettes
     }
 
-
     public static Repository getInstance() {
-     if (instance == null) {
-         instance = new Repository();
-     }
+        if (instance == null) {
+            instance = new Repository();
+        }
         return instance;
     }
 
 
     public LiveData<List<String>> getListInfo() {
-        return holeList;
+         return database.getListInfo();
     }
 
     public boolean addToList(String text) {
-        List<String> templist = holeList.getValue();
-        templist.add(text);
-        holeList.setValue(templist);
-        return true;
-    } //return en boolean for at kunne lave en toeast
-
+        return database.addToList(text);
+    }
 }
