@@ -56,17 +56,17 @@ Som en bruger vil jeg gerne have mulighed for at dele min liste med andre så de
 
 Opstilling af main activity/menu (in progress)
 
-Opsætning af architectur (in progress)
+Opsætning af architectur (Wating)
 
 opstilling af common fragments (in progress)
 
-opstilling af list activity (in progress)
+opstilling af myshopinglist activity (in progress)
 
-navigation imellem activitis og fragments
+navigation imellem activitis og fragments (in progress)
 
-opstilling af lists (kan genbruges i de forskellige shoppinglists og pantry)
+implementering af lists (kan genbruges i de forskellige shoppinglists og pantry)
 
-opstilling af Panty
+opstilling af Pantry
 
 opstlling af shoppinglist
 
@@ -122,13 +122,15 @@ Tilføje detaljer til produkter (måske serverside).
 
 Opstilling af main activity/menu
 
-Opsætning af architectur
-
 opstilling af common fragments
 
-opstilling af list activity
+opstilling af myshopinglist activity
+
+navigation imellem activitis og fragments
+
 
 # Waiting for another feature:
 
+Opsætning af architectur
 
 # Done features:
