@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">MyPantry</string>
     <string name="changed">Changed</string>
-    <string name="title_activity_main_view_model" translatable="false">MainActivityViewModel</string>
+    <string name="title_activity_main_view_model">MainActivityViewModel</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label" translatable="false">First Fragment</string>
     <string name="second_fragment_label" translatable="false">Second Fragment</string>
@@ -18,4 +18,9 @@
     <string name="title_activity_shared_shoping_lists_activitity_view" translatable="false">
         SharedShopingListsActivitityView
     </string>
+    <string name="title_activity_pantry" translatable="false">PantryActivity</string>
+    <string name="tab_text_1" translatable="false">Tab 1</string>
+    <string name="tab_text_2" translatable="false">Tab 2</string>
+    <string name="Pantry">Pantry</string>
+    <string name="MyShopping">My Shopping Lists</string>
 </resources>
