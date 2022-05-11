@@ -1,4 +1,4 @@
-package troels1.com.organisation.mypantry.CommonUI.notifications;
+package troels1.com.organisation.mypantry.CommonElements.notifications;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

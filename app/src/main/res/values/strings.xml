@@ -13,9 +13,9 @@
     <string name="title_activity_menu_view" translatable="false">MenuView</string>
     <string name="title_home" translatable="false">Home</string>
     <string name="title_dashboard" translatable="false">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
-    <string name="title_activity_repository">Repository</string>
-    <string name="title_activity_shared_shoping_lists_activitity_view">
+    <string name="title_notifications" translatable="false">Notifications</string>
+    <string name="title_activity_repository" translatable="false">Repository</string>
+    <string name="title_activity_shared_shoping_lists_activitity_view" translatable="false">
         SharedShopingListsActivitityView
     </string>
 </resources>

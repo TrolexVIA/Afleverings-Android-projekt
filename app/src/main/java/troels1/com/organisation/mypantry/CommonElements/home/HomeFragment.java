@@ -1,4 +1,4 @@
-package troels1.com.organisation.mypantry.CommonUI.home;
+package troels1.com.organisation.mypantry.CommonElements.home;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
