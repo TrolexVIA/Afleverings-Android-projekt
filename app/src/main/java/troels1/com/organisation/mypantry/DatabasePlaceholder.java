@@ -13,10 +13,10 @@ public class DatabasePlaceholder {
 
     public DatabasePlaceholder() {
         //testdata der skal slettes senere
-       // addToList("fiks");
-       // addToList("henning");
-       // addToList("motren");
-       // addToList("smør");
+       list.add("fiks");
+       list.add("henning");
+       list.add("motren");
+       list.add("smør");
         // ikke slettes bruges i singelton pattern
         holeList.setValue(list);
     }
