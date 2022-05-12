@@ -56,7 +56,7 @@ Som en bruger vil jeg gerne have mulighed for at dele min liste med andre så de
 
 Opstilling af main activity/menu (in progress)
 
-Opsætning af architectur (Wating)
+Opsætning af architectur (in progress)
 
 opstilling af myshopinglist activity (in progress)
 
@@ -64,7 +64,7 @@ navigation imellem activitis og fragments (wating)
 
 implementering af lists (kan genbruges i de forskellige shoppinglists og pantry) (In progress - Mia)
 
-opstilling af Pantry (in progress)
+opstilling af Pantry (wating)
 
 opstlling af shoppinglist
 
@@ -72,7 +72,7 @@ opsætning af menu for valg af lister & de forskellige pantries
 
 opstilling af delte lister (mocking netværket)
 
-implementering af persistense. gemme en log fil af profilen og hvilke vare der er blevet brugt.
+implementering af persistense. gemme en log fil af profilen og hvilke vare der er blevet brugt. (in progress)
 
 UX for lists
 
@@ -122,16 +122,17 @@ Opstilling af main activity/menu
 
 opstilling af myshopinglist activity
 
-
 implementering af lists
 
-opstilling af Pantry
+implementering af persistense. gemme en log fil af profilen og hvilke vare der er blevet brugt.
+
+Opsætning af architectur
 
 
 # Waiting for another feature:
 
-Opsætning af architectur
-
 navigation imellem activitis og fragments
+
+opstilling af Pantry
 
 # Done features:
