@@ -1,4 +1,4 @@
-package troels1.com.organisation.mypantry.Repository;
+package troels1.com.organisation.mypantry.repository;
 
 import androidx.lifecycle.LiveData;
 import java.util.List;

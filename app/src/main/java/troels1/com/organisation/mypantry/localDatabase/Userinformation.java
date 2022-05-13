@@ -1,13 +1,15 @@
 package troels1.com.organisation.mypantry.localDatabase;
 
-import androidx.room.ColumnInfo;
+
 import androidx.room.Entity;
+import androidx.room.ColumnInfo;
 import androidx.room.PrimaryKey;
+
 
 @Entity
 public class Userinformation {
 
-    @PrimaryKey (autoGenerate = true)
+    @PrimaryKey(autoGenerate = true)
     public int userID;
 
     @ColumnInfo(name = "first_name")

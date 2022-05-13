@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModel;
 
 import java.util.List;
 
-import troels1.com.organisation.mypantry.Repository.Repository;
+import troels1.com.organisation.mypantry.repository.Repository;
 
 public class PantryActivityViewModel extends AndroidViewModel {
 
