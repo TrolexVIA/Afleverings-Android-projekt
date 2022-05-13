@@ -1,11 +1,11 @@
 package troels1.com.organisation.mypantry.myShoppingLists;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import troels1.com.organisation.mypantry.databinding.ActivityMenuViewBinding;
-import troels1.com.organisation.mypantry.mainListVIew.MenuActivity;
-import troels1.com.organisation.mypantry.pantry.PantryActivity;
+
+import troels1.com.organisation.mypantry.MyShoppingLists.Products;
 import troels1.com.organisation.mypantry.R;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,39 +15,48 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import troels1.com.organisation.mypantry.databinding.ActivityMenuViewBinding;
 
 public class MyShoppingListActivity extends AppCompatActivity {
 
    private ActivityMenuViewBinding binding;
    private MyShoppingListActivityViewModel viewModel;
 
-   private ListView listView;
+
+ public RecyclerView pokemonList;
+   public troels1.com.organisation.mypantry.MyShoppingLists.ShoppingAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_shoping_list);
-        viewModel = new ViewModelProvider(this).get(MyShoppingListActivityViewModel.class);
+        setContentView(R.layout.activity_main);
 
-        listView=(ListView)findViewById(R.id.listview);
+        pokemonList = findViewById(R.id.rv);
+        pokemonList.hasFixedSize();
+        pokemonList.setLayoutManager(new LinearLayoutManager(this));
 
-        ArrayList<String> arrayList= new ArrayList<>();
-        arrayList.add("Hej");
-        arrayList.add("Troels");
-        arrayList.add("Så");
-        arrayList.add("Er");
-        arrayList.add("Der");
-        arrayList.add("Liste");
-
-        ArrayAdapter arrayAdapter= new ArrayAdapter(this, android.R.layout.simple_list_item_1,arrayList);
-
-        listView.setAdapter(arrayAdapter);
+        ArrayList<Products> products = new ArrayList<Products>();
+        products.add(new Products("Apples"));
 
 
-        // midertidigt stuff
 
+        ShoppingAdapter = new ShoppingAdapter(products);
+
+        ShoppingAdapter.setOnClickListener(pokemon -> {
+            Toast.makeText(this, pokemon.getName(), Toast.LENGTH_SHORT).show();
+        });
+
+      productsList.setAdapter(ShoppingAdapter);
+    }
+}
 
         // list observer metode
       //  String listname = "fisk"; // denne bør nok ikke være her, men holder det lige samlet indtil det virker
