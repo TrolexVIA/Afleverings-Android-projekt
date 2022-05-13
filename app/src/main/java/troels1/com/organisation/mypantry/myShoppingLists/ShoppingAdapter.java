@@ -1,4 +1,4 @@
-package troels1.com.organisation.mypantry.MyShoppingLists;
+package troels1.com.organisation.mypantry.myShoppingLists;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,10 +12,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import troels1.com.organisation.mypantry.R;
-
+import troels1.com.organisation.mypantry.MyShoppingLists.Products;
 public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.ViewHolder> {
 
     public ArrayList<Products> products;
+    private View.OnClickListener onClickListener;
     ShoppingAdapter (ArrayList<Products>products) {
         this.products = products;
     }
@@ -43,7 +44,9 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.ViewHo
             super(itemView);
             productName = itemView.findViewById(R.id.productName);
             productIcon = itemView.findViewById (R.id.productIcon);
+
+            }
         }
 
     }
-}
+
