@@ -5,4 +5,5 @@
     <string name="title_activity_main_view_model">MainActivityViewModel</string>
     <string name="Pantry">Fadebur</string>
     <string name="MyShopping">Mine Indkøbslister</string>
+    <string name="NotYou">Ikke dig?</string>
 </resources>

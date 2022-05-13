@@ -18,7 +18,7 @@ public class MyShoppingListActivityViewModel extends AndroidViewModel {
         repository = Repository.getInstance(app);
     }
 
-    public LiveData<List<String>> getListInfo(String list) {
-        return repository.getListInfo();
+    public void getListInfo() {
+        repository.getListInfoOnUser();
     }
 }

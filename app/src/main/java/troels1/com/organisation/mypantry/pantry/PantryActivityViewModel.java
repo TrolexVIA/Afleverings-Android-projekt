@@ -4,7 +4,6 @@ import android.app.Application;
 
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.ViewModel;
 
 import java.util.List;
 
@@ -19,8 +18,8 @@ public class PantryActivityViewModel extends AndroidViewModel {
         repository = Repository.getInstance(app);
     }
 
-    public LiveData<List<String>> getListInfo(String list) {
-        return repository.getListInfo();
+    public void getListInfo(String list) {
+        repository.getListInfoOnUser();
     }
 
 }
