@@ -12,15 +12,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import troels1.com.organisation.mypantry.R;
-import troels1.com.organisation.mypantry.MyShoppingLists.Products;
+import troels1.com.organisation.mypantry.myShoppingLists.Products;
+
 public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.ViewHolder> {
 
-    public ArrayList<Products> products;
-    private View.OnClickListener onClickListener;
-    ShoppingAdapter (ArrayList<Products>products) {
+    private ArrayList<Products> products;
+
+    ShoppingAdapter(ArrayList<Products> products) {
         this.products = products;
     }
-    public int getItemCount(){
+
+    public int getItemCount() {
         return products.size();
     }
 
@@ -32,21 +34,22 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewholder, int position) {
-    viewholder.productName.setText(products.get(position).getName());
-    viewholder.productIcon.setImageResource(products.get(position).getIconId());
+        viewholder.productName.setText(products.get(position).getName());
+        viewholder.productIcon.setImageResource(products.get(position).getIconId());
 
     }
+
     class ViewHolder extends RecyclerView.ViewHolder {
         private final TextView productName;
         private final ImageView productIcon;
 
-        ViewHolder(View itemView){
+        ViewHolder(View itemView) {
             super(itemView);
             productName = itemView.findViewById(R.id.productName);
-            productIcon = itemView.findViewById (R.id.productIcon);
+            productIcon = itemView.findViewById(R.id.productIcon);
 
-            }
         }
-
     }
+
+}
 

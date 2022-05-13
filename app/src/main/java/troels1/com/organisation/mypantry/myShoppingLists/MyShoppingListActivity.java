@@ -5,8 +5,11 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 
-import troels1.com.organisation.mypantry.MyShoppingLists.Products;
+import troels1.com.organisation.mypantry.mainListVIew.MenuActivity;
+import troels1.com.organisation.mypantry.myShoppingLists.Products;
 import troels1.com.organisation.mypantry.R;
+import troels1.com.organisation.mypantry.databinding.ActivityMenuViewBinding;
+import troels1.com.organisation.mypantry.pantry.PantryActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,7 +27,6 @@ import java.util.List;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import troels1.com.organisation.mypantry.databinding.ActivityMenuViewBinding;
 
 public class MyShoppingListActivity extends AppCompatActivity {
 
@@ -53,8 +55,22 @@ public class MyShoppingListActivity extends AppCompatActivity {
 
 
         shoppingList.setAdapter((RecyclerView.Adapter) ShoppingAdapter);
+
+
+        //navigation
+        View menuitem = findViewById(R.id.MainMenuTopBar);
+        menuitem.setOnClickListener(x -> {
+            Intent intent = new Intent(this, MenuActivity.class);
+            startActivity(intent);
+        });
+
+        View pantryitem = findViewById(R.id.pantryTopBar);
+        pantryitem.setOnClickListener(y -> {
+            Intent intent = new Intent(this, PantryActivity.class);
+            startActivity(intent);
+        });
     }
-}
+
 
 // list observer metode
 //  String listname = "fisk"; // denne bør nok ikke være her, men holder det lige samlet indtil det virker
@@ -69,17 +85,5 @@ public class MyShoppingListActivity extends AppCompatActivity {
 //    }
 //  });
 
-//navigation
 
-//     View menuitem = findViewById(R.id.MainMenuTopBar);
-//    menuitem.setOnClickListener(x -> {
-//        Intent intent = new Intent(this, MenuActivity.class);
-//        startActivity(intent);
-//   });
-
-//    View pantryitem = findViewById(R.id.pantryTopBar);
-//     pantryitem.setOnClickListener(y -> {
-//        Intent intent = new Intent(this, PantryActivity.class);
-//         startActivity(intent);
-//     });
-// }
+}

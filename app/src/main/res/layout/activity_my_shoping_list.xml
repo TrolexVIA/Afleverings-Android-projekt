@@ -16,7 +16,6 @@
     android:layout_width="match_parent"
     android:layout_height="70dp"
     android:layout_weight="1"
-    android:background ="FCF3CF"
     android:layout_gravity ="center"
     android:orientation = "horizontal"/>
 
@@ -32,7 +31,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="F0B27A"
         app:menu="@menu/bottom_nav_menu" />
 
 

@@ -1,4 +1,4 @@
-package troels1.com.organisation.mypantry.MyShoppingLists;
+package troels1.com.organisation.mypantry.myShoppingLists;
 
 import java.util.ArrayList;
 
@@ -7,12 +7,13 @@ public class Products {
 
     private int iconId;
 
-    Products (String name, int iconId) {
+   public Products (String name, int iconId) {
         this.name = name;
         this.iconId = iconId;
     }
 
     public Products(String hej) {
+       this.name = hej;
     }
 
     public String getName(){
