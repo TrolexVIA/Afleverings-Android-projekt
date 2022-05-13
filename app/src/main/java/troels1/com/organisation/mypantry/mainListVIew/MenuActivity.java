@@ -1,20 +1,17 @@
-package troels1.com.organisation.mypantry.MainListVIew;
+package troels1.com.organisation.mypantry.mainListVIew;
 
-import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 
-import troels1.com.organisation.mypantry.MyShoppingLists.MyShoppingListActivity;
-import troels1.com.organisation.mypantry.Pantry.PantryActivity;
-import troels1.com.organisation.mypantry.R;
 import troels1.com.organisation.mypantry.databinding.ActivityMenuViewBinding;
+import troels1.com.organisation.mypantry.myShoppingLists.MyShoppingListActivity;
+import troels1.com.organisation.mypantry.pantry.PantryActivity;
+import troels1.com.organisation.mypantry.R;
 
 public class MenuActivity extends AppCompatActivity {
 

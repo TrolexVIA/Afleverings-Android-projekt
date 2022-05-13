@@ -1,4 +1,4 @@
-package troels1.com.organisation.mypantry.Pantry;
+package troels1.com.organisation.mypantry.pantry;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,11 +12,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
 
-import troels1.com.organisation.mypantry.MainListVIew.MenuActivity;
-import troels1.com.organisation.mypantry.MyShoppingLists.MyShoppingListActivity;
-import troels1.com.organisation.mypantry.Pantry.ui.main.SectionsPagerAdapter;
-import troels1.com.organisation.mypantry.R;
 import troels1.com.organisation.mypantry.databinding.ActivityPantryBinding;
+import troels1.com.organisation.mypantry.mainListVIew.MenuActivity;
+import troels1.com.organisation.mypantry.myShoppingLists.MyShoppingListActivity;
+import troels1.com.organisation.mypantry.pantry.ui.main.SectionsPagerAdapter;
+import troels1.com.organisation.mypantry.R;
 
 
 public class PantryActivity extends AppCompatActivity {

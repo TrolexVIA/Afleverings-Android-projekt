@@ -1,4 +1,4 @@
-package troels1.com.organisation.mypantry.Pantry.ui.main;
+package troels1.com.organisation.mypantry.pantry.ui.main;
 
 import androidx.arch.core.util.Function;
 import androidx.lifecycle.LiveData;

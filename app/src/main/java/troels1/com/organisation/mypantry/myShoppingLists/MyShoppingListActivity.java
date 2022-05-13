@@ -1,12 +1,11 @@
-package troels1.com.organisation.mypantry.MyShoppingLists;
+package troels1.com.organisation.mypantry.myShoppingLists;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import troels1.com.organisation.mypantry.MainListVIew.MenuActivity;
-import troels1.com.organisation.mypantry.MainListVIew.MenuActivityViewModel;
-import troels1.com.organisation.mypantry.Pantry.PantryActivity;
+import troels1.com.organisation.mypantry.databinding.ActivityMenuViewBinding;
+import troels1.com.organisation.mypantry.mainListVIew.MenuActivity;
+import troels1.com.organisation.mypantry.pantry.PantryActivity;
 import troels1.com.organisation.mypantry.R;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,9 +17,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-import java.util.List;
-
-import troels1.com.organisation.mypantry.databinding.ActivityMenuViewBinding;
 
 public class MyShoppingListActivity extends AppCompatActivity {
 

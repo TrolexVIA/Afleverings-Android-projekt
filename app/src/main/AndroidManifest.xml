@@ -10,19 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyPantry">
         <activity
-            android:name=".Pantry.PantryActivity"
+            android:name=".pantry.PantryActivity"
             android:exported="false"
             android:label="@string/title_activity_pantry"
             android:theme="@style/Theme.MyPantry.NoActionBar" />
         <activity
-            android:name=".MyShoppingLists.MyShoppingListActivity"
+            android:name=".myShoppingLists.MyShoppingListActivity"
             android:exported="false" />
         <activity
-            android:name=".MainListVIew.MenuActivity"
+            android:name=".mainListVIew.MenuActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

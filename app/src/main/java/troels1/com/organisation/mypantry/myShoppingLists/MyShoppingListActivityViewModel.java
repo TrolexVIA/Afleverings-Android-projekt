@@ -1,13 +1,11 @@
-package troels1.com.organisation.mypantry.MyShoppingLists;
+package troels1.com.organisation.mypantry.myShoppingLists;
 
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModel;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import troels1.com.organisation.mypantry.Repository;
+import troels1.com.organisation.mypantry.Repository.Repository;
 
 public class MyShoppingListActivityViewModel extends ViewModel {
 
