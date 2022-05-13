@@ -12,7 +12,7 @@ import java.util.List;
 public interface UserDAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    public LiveData<Boolean> insert(Userinformation user);
+    public void insert(Userinformation user);
 
     @Query ("Select * from Userinformation")
     public LiveData<List<Userinformation>> loadAllUsers();

@@ -21,7 +21,6 @@ public class MenuActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_menu_view);
         //viewmodel til observerpattern og til at sende infromation ned i lasangen
         viewModel = new ViewModelProvider(this).get(MenuActivityViewModel.class);

@@ -24,8 +24,7 @@ public class QueryExecuter implements Executor, UserDAO {
     }
 
     @Override
-    public LiveData<Boolean> insert(Userinformation user) {
-        return null;
+    public void insert(Userinformation user) {
     }
 
     @Override

@@ -4,17 +4,16 @@ import android.app.Application;
 
 import androidx.lifecycle.AndroidViewModel;
 
-import troels1.com.organisation.mypantry.Repository.Interfaceses.MenuRepositoryIF;
-import troels1.com.organisation.mypantry.Repository.Repository;
+import troels1.com.organisation.mypantry.repository.Repository;
 
 
 public class MenuActivityViewModel extends AndroidViewModel {
 
-    private MenuRepositoryIF repository;
+    private Repository repository;
 
     public MenuActivityViewModel(Application app) {
         super(app);
-        repository = MenuRepositoryIF.getInstance(app);
+        repository = Repository.getInstance(app);
     }
 
 }

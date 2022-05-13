@@ -1,5 +1,6 @@
 package troels1.com.organisation.mypantry.pantry;
 
+import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -7,6 +8,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,6 +17,7 @@ import android.view.View;
 
 import troels1.com.organisation.mypantry.databinding.ActivityPantryBinding;
 import troels1.com.organisation.mypantry.mainListVIew.MenuActivity;
+import troels1.com.organisation.mypantry.mainListVIew.MenuActivityViewModel;
 import troels1.com.organisation.mypantry.myShoppingLists.MyShoppingListActivity;
 import troels1.com.organisation.mypantry.pantry.ui.main.SectionsPagerAdapter;
 import troels1.com.organisation.mypantry.R;
@@ -28,7 +32,7 @@ public class PantryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        viewModel = PantryActivityViewModel.getInstancePantryViewModel();
+        viewModel = new ViewModelProvider(this).get(PantryActivityViewModel.class);
 
         binding = ActivityPantryBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
