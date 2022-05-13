@@ -31,30 +31,28 @@ public class MyShoppingListActivity extends AppCompatActivity {
    private MyShoppingListActivityViewModel viewModel;
 
 
- public RecyclerView pokemonList;
-   public troels1.com.organisation.mypantry.MyShoppingLists.ShoppingAdapter;
+ public RecyclerView shoppingList;
+    private Object ShoppingAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_my_shoping_list);
 
-        pokemonList = findViewById(R.id.rv);
-        pokemonList.hasFixedSize();
-        pokemonList.setLayoutManager(new LinearLayoutManager(this));
+       shoppingList = findViewById(R.id.rv);
+   shoppingList.hasFixedSize();
+       shoppingList.setLayoutManager(new LinearLayoutManager(this));
 
-        ArrayList<Products> products = new ArrayList<Products>();
+        ArrayList<Products> products = new ArrayList<>();
         products.add(new Products("Apples"));
 
 
 
         ShoppingAdapter = new ShoppingAdapter(products);
 
-        ShoppingAdapter.setOnClickListener(pokemon -> {
-            Toast.makeText(this, pokemon.getName(), Toast.LENGTH_SHORT).show();
-        });
 
-      productsList.setAdapter(ShoppingAdapter);
+      shoppingList.setAdapter((RecyclerView.Adapter) ShoppingAdapter);
     }
 }
 
@@ -73,16 +71,15 @@ public class MyShoppingListActivity extends AppCompatActivity {
 
         //navigation
 
-        View menuitem = findViewById(R.id.MainMenuTopBar);
-        menuitem.setOnClickListener(x -> {
-            Intent intent = new Intent(this, MenuActivity.class);
-            startActivity(intent);
-        });
+   //     View menuitem = findViewById(R.id.MainMenuTopBar);
+    //    menuitem.setOnClickListener(x -> {
+    //        Intent intent = new Intent(this, MenuActivity.class);
+    //        startActivity(intent);
+     //   });
 
-        View pantryitem = findViewById(R.id.pantryTopBar);
-        pantryitem.setOnClickListener(y -> {
-            Intent intent = new Intent(this, PantryActivity.class);
-            startActivity(intent);
-        });
-    }
-}
+    //    View pantryitem = findViewById(R.id.pantryTopBar);
+   //     pantryitem.setOnClickListener(y -> {
+    //        Intent intent = new Intent(this, PantryActivity.class);
+   //         startActivity(intent);
+   //     });
+   // }
