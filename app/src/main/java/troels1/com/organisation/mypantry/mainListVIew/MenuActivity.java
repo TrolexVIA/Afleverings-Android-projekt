@@ -2,6 +2,7 @@ package troels1.com.organisation.mypantry.mainListVIew;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -30,7 +31,7 @@ public class MenuActivity extends AppCompatActivity {
     private MenuActivityViewModel viewModel;
     private ArrayList<String> listOfUsers;
     private PropertyChangeSupport propertyChangeSupport;
-    private LiveData<List<Userinformation>> list;
+    private List<Userinformation> list;
     private TextView menuText;
 
 
@@ -42,6 +43,7 @@ public class MenuActivity extends AppCompatActivity {
 
         //viewmodel til observerpattern og til at sende infromation ned i lasangen
         viewModel = new ViewModelProvider(this).get(MenuActivityViewModel.class);
+        viewModel.getUpdate();
 
         //navigation
         View listitem = findViewById(R.id.listTopBar);
@@ -61,30 +63,34 @@ public class MenuActivity extends AppCompatActivity {
         Button notYou = findViewById(R.id.insert);
         notYou.setOnClickListener(z -> {
                 toast(viewModel.insert()); //midlertidigt sp vi kan se om det virker
-                updateList();
+                viewModel.SendUserQuery();
             }
         );
 
 
         // retrival af information fra databasen
         propertyChangeSupport = new PropertyChangeSupport(this);
-        viewModel.addPropertyChangeListener("eventUser", (PropertyChangeEvent evt) -> this.updateList());
+        viewModel.addPropertyChangeListener("EventUserview", (PropertyChangeEvent evt) -> this.updateList());
     }
 
     public void updateList() {
         list = viewModel.getUpdate();
+        Log.d("call", "updateList: viewcontroller");
         String test = "hej ";
         if (list == null) {
             test += "virker ikke";
         } else {
-            test += "virker";
+            test = "";
+            for (int i = 0; i < list.size(); i++) {
+                test += list.get(i).getFirstName() + list.get(i).getLastName() + "\n";
+            }
         }
         menuText.setText(test);
     }
 
     public void toast(boolean bool) {
         if (bool == true) {
-            Toast.makeText(this, "Repository", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Repository er der hul til", Toast.LENGTH_LONG).show();
         }
     }
 

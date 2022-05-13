@@ -3,9 +3,6 @@ package troels1.com.organisation.mypantry.myShoppingLists;
 import android.app.Application;
 
 import androidx.lifecycle.AndroidViewModel;
-import androidx.lifecycle.LiveData;
-
-import java.util.List;
 
 import troels1.com.organisation.mypantry.repository.Repository;
 
@@ -19,6 +16,6 @@ public class MyShoppingListActivityViewModel extends AndroidViewModel {
     }
 
     public void getListInfo() {
-        repository.getListInfoOnUser();
+        repository.SendUserQuery();
     }
 }
