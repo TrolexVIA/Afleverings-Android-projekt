@@ -6,7 +6,7 @@ android projekt med Mia og Troels
 ### MyPantry
 
 En app som kan hjælpe brugeren med at have et tilgængeligt og kategoriseret overblik over hvilke fødevarer man har på lager. 
-På den måde, kan brugeren undgå overflødige køb, samt få påmindelser over hvilke produkter der mangler i hustanden.
+På den måde, kan brugeren undgå overflødige køb, samt få påmindelser over hvilke produkter der mangler i hustanden og let kunne tilføje disse til en indkøbsliste.
 
 
 
