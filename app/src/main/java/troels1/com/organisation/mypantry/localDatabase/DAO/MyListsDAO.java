@@ -14,6 +14,8 @@ import troels1.com.organisation.mypantry.localDatabase.Entity.Product;
 @Dao
 public interface MyListsDAO {
 
+    //denne DAO er ikke implementeret i databasen endnu
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     public void insertProduct(MyLists myLists);
 
