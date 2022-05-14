@@ -17,24 +17,28 @@ import java.util.concurrent.Executors;
 import troels1.com.organisation.mypantry.localDatabase.UserDAO;
 import troels1.com.organisation.mypantry.localDatabase.UserDatabase;
 import troels1.com.organisation.mypantry.localDatabase.Userinformation;
+import troels1.com.organisation.mypantry.repository.interfaces.MenuRepositoryInterface;
+import troels1.com.organisation.mypantry.repository.interfaces.PantryRepositoryInterface;
 
-public class Repository {
+public class Repository implements MenuRepositoryInterface, PantryRepositoryInterface {
 
     private static Repository instance;
-    private UserDAO dao;
+    private UserDAO userDAO;
     private ExecutorService executorService;
     private PropertyChangeSupport propertyChangeSupport;
     private List<Userinformation> listUserinformation;
     private Handler mainThreadHandler;
+    private Userinformation activUser; //saettes så de andre aktiviteter ved hvilke lister de skal vise
 
     private Repository(Application application) {
         UserDatabase userDatabase = UserDatabase.getInstance(application);
         propertyChangeSupport = new PropertyChangeSupport(this);
-        dao = userDatabase.userDAO();
+        userDAO = userDatabase.userDAO();
         executorService = Executors.newFixedThreadPool(2);
         mainThreadHandler = HandlerCompat.createAsync(Looper.getMainLooper());
     }
 
+    //instance
     public static Repository getInstance(Application app) {
         if (instance == null) {
             instance = new Repository(app);
@@ -42,35 +46,37 @@ public class Repository {
         return instance;
     }
 
-    // executable metoder
+
+    //Menu Userinformation
     public void SendUserQuery() {
-    //    List<Userinformation> list = new ArrayList<>();
-    //    list.add(new Userinformation("fisk", "henning"));
-    //    Log.d("Callonclick", "getListInfoOnUser: ");
-    //    callbackUser(list);
             executorService.execute(() -> {
-            List<Userinformation> list = dao.loadAllUsers();
+            List<Userinformation> list = userDAO.loadAllUsers();
             mainThreadHandler.post(() -> { callbackUser(list);});
         });
     }
 
-    // CRUD
+    @Override
+    public void setActivUser(Userinformation activUser) {
+        this.activUser = activUser;
+    }
+
+    //Menu CRUD
 
     public boolean insertNewUser(Userinformation newUser) {
         executorService.execute(() -> {
-            dao.deleteAll();
-            dao.insert(newUser);
+            userDAO.deleteAll();
+            userDAO.insert(newUser);
         });
         return true;
     }
 
     public void deleteUser(Userinformation user) {
         executorService.execute(() -> {
-            dao.delete(user);
+            userDAO.delete(user);
         });
     }
 
-    //property change
+    //Menu property change
 
     public void addPropertyChangeListener(String name, PropertyChangeListener listener) {
         propertyChangeSupport.addPropertyChangeListener(name, listener);
@@ -86,4 +92,12 @@ public class Repository {
         listUserinformation = list;
         propertyChangeSupport.firePropertyChange("eventUser", null, listUserinformation);
     }
+
+
+    // Pantry Activ user
+    @Override
+    public Userinformation getActivUser() {
+        return activUser;
+    }
+
 }

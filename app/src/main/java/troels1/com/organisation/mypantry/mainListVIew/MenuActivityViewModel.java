@@ -12,27 +12,28 @@ import java.util.List;
 
 import troels1.com.organisation.mypantry.localDatabase.Userinformation;
 import troels1.com.organisation.mypantry.repository.Repository;
+import troels1.com.organisation.mypantry.repository.interfaces.MenuRepositoryInterface;
 
 
 public class MenuActivityViewModel extends AndroidViewModel {
 
-    private Repository repository;
+    private MenuRepositoryInterface repositoryIF;
     private PropertyChangeSupport propertyChangeSupport;
     private List<Userinformation> list;
 
     public MenuActivityViewModel(Application app) {
         super(app);
-        repository = Repository.getInstance(app);
+        repositoryIF = Repository.getInstance(app);
         propertyChangeSupport = new PropertyChangeSupport(this);
-        repository.addPropertyChangeListener("eventUser", (PropertyChangeEvent evt) -> this.updateList());
+        repositoryIF.addPropertyChangeListener("eventUser", (PropertyChangeEvent evt) -> this.updateList());
     }
 
     public void SendUserQuery() {
-         repository.SendUserQuery();
+         repositoryIF.SendUserQuery();
     }
 
     private void updateList() {
-       list =  repository.getListUserinformation();
+       list =  repositoryIF.getListUserinformation();
         Log.d("call", "updateList: viewmodel ");
        propertyChangeSupport.firePropertyChange("EventUserview", null, list);
     }
@@ -50,6 +51,6 @@ public class MenuActivityViewModel extends AndroidViewModel {
         String first = "hej mia";
         String last = " det virker";
         Userinformation newUser = new Userinformation(first, last);
-        return repository.insertNewUser(newUser);
+        return repositoryIF.insertNewUser(newUser);
     }
 }
