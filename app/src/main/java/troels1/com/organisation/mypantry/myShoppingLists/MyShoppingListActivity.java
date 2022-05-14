@@ -14,6 +14,7 @@ import troels1.com.organisation.mypantry.pantry.PantryActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.View;
 
 import android.widget.ArrayAdapter;
@@ -24,18 +25,17 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.navigation.fragment.DialogFragmentNavigatorDestinationBuilder;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-public class MyShoppingListActivity extends AppCompatActivity {
+public class MyShoppingListActivity extends AppCompatActivity implements ShoppingAdapter.OnClickListener {
 
+    private static final String TAG = "hey";
     private ActivityMenuViewBinding binding;
     private MyShoppingListActivityViewModel viewModel;
-
-
     public RecyclerView shoppingList;
-    private Object ShoppingAdapter;
 
 
     @Override
@@ -49,12 +49,36 @@ public class MyShoppingListActivity extends AppCompatActivity {
 
         ArrayList<Products> products = new ArrayList<>();
         products.add(new Products("Apples"));
+        products.add(new Products("jbjnbjnjndf"));
+        products.add(new Products("Apples"));
+        products.add(new Products("Apples"));
+        products.add(new Products("Apples"));
+        products.add(new Products("Apples"));
+        products.add(new Products("Apples"));
+        products.add(new Products("Apples"));
+        products.add(new Products("Apples"));
+        products.add(new Products("Apples"));
+        products.add(new Products("Apples"));
+        products.add(new Products("Apples"));
+        products.add(new Products("Apples"));
+        products.add(new Products("Apples"));
+        products.add(new Products("Apples"));
+        products.add(new Products("Apples"));
+        products.add(new Products("Apples"));
+        products.add(new Products("Apples"));
+        products.add(new Products("Apples"));
+        products.add(new Products("Apples"));
+        products.add(new Products("Apples"));
+        products.add(new Products("Apples"));
+        products.add(new Products("Apples"));
 
 
-        ShoppingAdapter = new ShoppingAdapter(products);
+        Object shoppingAdapter = new ShoppingAdapter(products, this);
 
 
-        shoppingList.setAdapter((RecyclerView.Adapter) ShoppingAdapter);
+
+        shoppingList.setAdapter((RecyclerView.Adapter) shoppingAdapter);
+
 
 
         //navigation
@@ -69,7 +93,15 @@ public class MyShoppingListActivity extends AppCompatActivity {
             Intent intent = new Intent(this, PantryActivity.class);
             startActivity(intent);
         });
+
+
+
     }
+
+    public void onClick(int position) {
+        Toast.makeText(this, "Virker", Toast.LENGTH_LONG).show();
+    }
+
 
 
 // list observer metode
