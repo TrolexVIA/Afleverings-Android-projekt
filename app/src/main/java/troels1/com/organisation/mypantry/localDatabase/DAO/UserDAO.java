@@ -28,7 +28,4 @@ public interface UserDAO {
     @Query("select * from Userinformation where userID > 0")
     public List<Userinformation> loadspecificUser();
 
-    @Query("Delete from Userinformation where userID >= 0")
-    public void delteAllother();
-
 }
