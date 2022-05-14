@@ -15,6 +15,7 @@ import troels1.com.organisation.mypantry.localDatabase.Entity.Product;
 @Dao
 public interface InStockDAO {
 
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     public void insertProduct(InStock inStock);
 
