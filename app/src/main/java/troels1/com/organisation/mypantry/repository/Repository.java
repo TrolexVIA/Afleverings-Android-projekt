@@ -14,13 +14,14 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import troels1.com.organisation.mypantry.localDatabase.UserDAO;
+import troels1.com.organisation.mypantry.localDatabase.DAO.UserDAO;
 import troels1.com.organisation.mypantry.localDatabase.UserDatabase;
-import troels1.com.organisation.mypantry.localDatabase.Userinformation;
+import troels1.com.organisation.mypantry.localDatabase.Entity.Userinformation;
 import troels1.com.organisation.mypantry.repository.interfaces.MenuRepositoryInterface;
+import troels1.com.organisation.mypantry.repository.interfaces.MyShoppingListRepositoryInterface;
 import troels1.com.organisation.mypantry.repository.interfaces.PantryRepositoryInterface;
 
-public class Repository implements MenuRepositoryInterface, PantryRepositoryInterface {
+public class Repository implements MenuRepositoryInterface, PantryRepositoryInterface, MyShoppingListRepositoryInterface {
 
     private static Repository instance;
     private UserDAO userDAO;

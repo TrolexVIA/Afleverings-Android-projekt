@@ -1,6 +1,5 @@
-package troels1.com.organisation.mypantry.localDatabase;
+package troels1.com.organisation.mypantry.localDatabase.DAO;
 
-import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -8,6 +7,8 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
 import java.util.List;
+
+import troels1.com.organisation.mypantry.localDatabase.Entity.Userinformation;
 
 @Dao
 public interface UserDAO {

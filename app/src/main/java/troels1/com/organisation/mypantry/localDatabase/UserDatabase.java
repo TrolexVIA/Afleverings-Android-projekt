@@ -6,6 +6,9 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+import troels1.com.organisation.mypantry.localDatabase.DAO.UserDAO;
+import troels1.com.organisation.mypantry.localDatabase.Entity.Userinformation;
+
 @Database(entities = {Userinformation.class}, version = 1)
 public abstract class UserDatabase extends RoomDatabase {
 

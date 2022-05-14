@@ -1,4 +1,4 @@
-package troels1.com.organisation.mypantry.localDatabase;
+package troels1.com.organisation.mypantry.localDatabase.Entity;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;

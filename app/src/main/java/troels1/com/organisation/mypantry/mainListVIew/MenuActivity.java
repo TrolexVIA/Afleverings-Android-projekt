@@ -9,8 +9,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 
@@ -20,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import troels1.com.organisation.mypantry.databinding.ActivityMenuViewBinding;
-import troels1.com.organisation.mypantry.localDatabase.Userinformation;
+import troels1.com.organisation.mypantry.localDatabase.Entity.Userinformation;
 import troels1.com.organisation.mypantry.myShoppingLists.MyShoppingListActivity;
 import troels1.com.organisation.mypantry.pantry.PantryActivity;
 import troels1.com.organisation.mypantry.R;

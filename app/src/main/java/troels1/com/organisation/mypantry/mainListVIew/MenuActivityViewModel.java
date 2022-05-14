@@ -10,7 +10,7 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.List;
 
-import troels1.com.organisation.mypantry.localDatabase.Userinformation;
+import troels1.com.organisation.mypantry.localDatabase.Entity.Userinformation;
 import troels1.com.organisation.mypantry.repository.Repository;
 import troels1.com.organisation.mypantry.repository.interfaces.MenuRepositoryInterface;
 

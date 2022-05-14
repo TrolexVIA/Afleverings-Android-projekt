@@ -1,11 +1,13 @@
-package troels1.com.organisation.mypantry.localDatabase;
+package troels1.com.organisation.mypantry.localDatabase.Entity;
 
 import androidx.room.ColumnInfo;
+import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import java.time.LocalDate;
 
-public class InStock {
+@Entity
+public class MyLists {
 
     @PrimaryKey(autoGenerate = true)
     public int productID;
@@ -22,11 +24,10 @@ public class InStock {
     @ColumnInfo(name = "udloebsdato")
     public LocalDate udloebsdato;
 
-
     @ColumnInfo
     public int maengde;
 
-    public InStock(String name, String description, String kategori, LocalDate udloebsdato, int maengde) {
+    public MyLists(String name, String description, String kategori, LocalDate udloebsdato, int maengde) {
         this.name = name;
         this.kategori = kategori;
         this.udloebsdato = udloebsdato;

@@ -5,17 +5,18 @@ import android.app.Application;
 import androidx.lifecycle.AndroidViewModel;
 
 import troels1.com.organisation.mypantry.repository.Repository;
+import troels1.com.organisation.mypantry.repository.interfaces.MyShoppingListRepositoryInterface;
 
 public class MyShoppingListActivityViewModel extends AndroidViewModel {
 
-    private Repository repository;
+    private MyShoppingListRepositoryInterface repository;
 
-    public MyShoppingListActivityViewModel (Application app) {
+    public MyShoppingListActivityViewModel(Application app) {
         super(app);
         repository = Repository.getInstance(app);
     }
 
-    public void getListInfo() {
-        repository.SendUserQuery();
+    public void getInfo() {
+        repository.getActivUser();
     }
 }
