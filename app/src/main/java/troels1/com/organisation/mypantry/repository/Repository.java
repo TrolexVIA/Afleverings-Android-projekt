@@ -10,6 +10,7 @@ import androidx.core.os.HandlerCompat;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -31,8 +32,8 @@ public class Repository<addPropertyChangeListner> implements MenuRepositoryInter
     private ProductDAO productDAO;
     private ExecutorService executorService;
     private PropertyChangeSupport propertyChangeSupport;
-    private List<Userinformation> listUserinformation;
-    private List<Product> listOfProducts;
+    private List<Userinformation> listUserinformation = new ArrayList<>();
+    private List<Product> listOfProducts = new ArrayList<>();
     private Handler mainThreadHandler;
     private Userinformation activUser; //saettes så de andre aktiviteter ved hvilke lister de skal vise
 
@@ -93,7 +94,7 @@ public class Repository<addPropertyChangeListner> implements MenuRepositoryInter
         if (name.equals("eventUser")) {
             listener.propertyChange(new PropertyChangeEvent(this, "eventUser", null, listUserinformation));
         } else if (name.equals("eventProduct")) {
-            listener.propertyChange(new PropertyChangeEvent(this, "eventProduct", null, listUserinformation));
+            listener.propertyChange(new PropertyChangeEvent(this, "EventProductView", null, listOfProducts));
         } else {
             Log.d("call", "Der var en fejl i propertychangelistner");
         }

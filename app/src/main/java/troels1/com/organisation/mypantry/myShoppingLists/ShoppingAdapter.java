@@ -25,6 +25,9 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.ViewHo
         this.pOnClickListener = onClickListener;
     }
 
+    public void changeDataset(List<Product> list) {
+        products = list;
+    }
 
     public int getItemCount() {
         return products.size();
@@ -42,6 +45,9 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.ViewHo
         viewholder.productName.setText(products.get(position).getName());
         // den her der trækker informationen ud
     }
+
+
+
 
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 

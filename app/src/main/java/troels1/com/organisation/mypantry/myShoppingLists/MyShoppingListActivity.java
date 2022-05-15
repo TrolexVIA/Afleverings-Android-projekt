@@ -39,11 +39,14 @@ public class MyShoppingListActivity extends AppCompatActivity implements Shoppin
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_shoping_list);
-        productsList.add(new Product(" ",null,null,null,false,false)); //for at initiere productsList
+        productsList.add(new Product("hej<3", null, null, null, false, false)); //for at initiere productsList
         shoppingList = findViewById(R.id.rv);
         shoppingList.hasFixedSize();
         shoppingList.setLayoutManager(new LinearLayoutManager(this));
+        Object shoppingAdapter = new ShoppingAdapter(productsList, this);
+        shoppingList.setAdapter((RecyclerView.Adapter) shoppingAdapter);
 
+        //requesting inforation fra repository
         propertyChangeSupport = new PropertyChangeSupport(this);
 
         viewModel.addPropertyChangeListener("EventProductView", (PropertyChangeEvent evt) -> this.listSetup());
@@ -63,10 +66,14 @@ public class MyShoppingListActivity extends AppCompatActivity implements Shoppin
         });
     }
 
+    //sender update request til adapter
     public void listSetup() {
-        Object shoppingAdapter = new ShoppingAdapter(productsList, this);
-        shoppingList.setAdapter((RecyclerView.Adapter) shoppingAdapter);
+        productsList = viewModel.getProductList();
+        Toast.makeText(this, "load done", Toast.LENGTH_LONG).show();
+        //updataing information fra viewcontroller
+        shoppingList.getAdapter().notifyDataSetChanged();
     }
+
 
     public void onClick(int position) {
         Toast.makeText(this, "tryk på " + position + " Virker", Toast.LENGTH_LONG).show();
