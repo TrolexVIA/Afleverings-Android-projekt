@@ -36,6 +36,7 @@ public class MyShoppingListActivity extends AppCompatActivity implements Shoppin
     private ActivityMenuViewBinding binding;
     private MyShoppingListActivityViewModel viewModel;
     public RecyclerView shoppingList;
+    private List<Products> productsList = ;
 
 
     @Override
@@ -46,38 +47,6 @@ public class MyShoppingListActivity extends AppCompatActivity implements Shoppin
         shoppingList = findViewById(R.id.rv);
         shoppingList.hasFixedSize();
         shoppingList.setLayoutManager(new LinearLayoutManager(this));
-
-        ArrayList<Products> products = new ArrayList<>();
-        products.add(new Products("Apples"));
-        products.add(new Products("jbjnbjnjndf"));
-        products.add(new Products("Apples"));
-        products.add(new Products("Apples"));
-        products.add(new Products("Apples"));
-        products.add(new Products("Apples"));
-        products.add(new Products("Apples"));
-        products.add(new Products("Apples"));
-        products.add(new Products("Apples"));
-        products.add(new Products("Apples"));
-        products.add(new Products("Apples"));
-        products.add(new Products("Apples"));
-        products.add(new Products("Apples"));
-        products.add(new Products("Apples"));
-        products.add(new Products("Apples"));
-        products.add(new Products("Apples"));
-        products.add(new Products("Apples"));
-        products.add(new Products("Apples"));
-        products.add(new Products("Apples"));
-        products.add(new Products("Apples"));
-        products.add(new Products("Apples"));
-        products.add(new Products("Apples"));
-        products.add(new Products("Apples"));
-
-
-        Object shoppingAdapter = new ShoppingAdapter(products, this);
-
-
-
-        shoppingList.setAdapter((RecyclerView.Adapter) shoppingAdapter);
 
 
 
@@ -94,6 +63,10 @@ public class MyShoppingListActivity extends AppCompatActivity implements Shoppin
             startActivity(intent);
         });
 
+        public void listSetup(){
+            Object shoppingAdapter = new ShoppingAdapter(productsList, this);
+            shoppingList.setAdapter((RecyclerView.Adapter) shoppingAdapter);
+        }
 
 
     }
