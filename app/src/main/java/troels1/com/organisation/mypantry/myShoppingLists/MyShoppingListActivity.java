@@ -49,7 +49,6 @@ public class MyShoppingListActivity extends AppCompatActivity implements Shoppin
         shoppingList.setLayoutManager(new LinearLayoutManager(this));
 
 
-
         //navigation
         View menuitem = findViewById(R.id.MainMenuTopBar);
         menuitem.setOnClickListener(x -> {
