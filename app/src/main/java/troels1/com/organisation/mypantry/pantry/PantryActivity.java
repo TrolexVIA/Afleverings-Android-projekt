@@ -55,8 +55,7 @@ public class PantryActivity extends AppCompatActivity implements ViewAdapter.OnC
 
         FloatingActionButton fab = binding.fab;
 
-
-        pantryList = findViewById(R.id.rv);
+        pantryList = findViewById(R.id.rvPantry);
         pantryList.hasFixedSize();
         pantryList.setLayoutManager(new LinearLayoutManager(this));
         adapter = new ViewAdapter(productsList, this);
@@ -95,12 +94,12 @@ public class PantryActivity extends AppCompatActivity implements ViewAdapter.OnC
     //sender update request til adapter
     public void listSetup() {
         productsList = viewModel.getProductList();
-        if (productsList.size() != 0) {
-            Log.d("call", productsList.get(0).getName() + "her skal der stå fisk" + productsList.get(1).getName());
-            //updataing information fra viewcontroller
-            adapter.changeDataset(productsList);
-            adapter.notifyDataSetChanged();
-        }
+       // if (productsList.size() != 0) {
+        //    Log.d("call", productsList.get(0).getName() + "her skal der stå fisk" + productsList.get(1).getName());
+         //   //updataing information fra viewcontroller
+         //   adapter.changeDataset(productsList);
+         //   adapter.notifyDataSetChanged();
+      //  }
     }
 
     public void onClick(int position) {

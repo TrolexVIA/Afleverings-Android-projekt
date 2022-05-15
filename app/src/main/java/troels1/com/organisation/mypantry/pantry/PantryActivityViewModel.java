@@ -7,6 +7,7 @@ import androidx.lifecycle.AndroidViewModel;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.ArrayList;
 import java.util.List;
 
 import troels1.com.organisation.mypantry.localDatabase.Entity.Product;
@@ -17,11 +18,12 @@ public class PantryActivityViewModel extends AndroidViewModel {
 
     private PantryRepositoryInterface repository;
     private PropertyChangeSupport propertyChangeSupport;
-    private List<Product> list;
+    private List<Product> list = new ArrayList<>();
 
     public PantryActivityViewModel (Application app) {
         super(app);
         repository = Repository.getInstance(app);
+        propertyChangeSupport = new PropertyChangeSupport(this);
     }
 
     public void getActivUser(String list) {
