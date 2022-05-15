@@ -23,7 +23,7 @@ public class MyShoppingListActivityViewModel extends AndroidViewModel {
     public MyShoppingListActivityViewModel(Application app) {
         super(app);
         repository = Repository.getInstance(app);
-      //  repository.insertProduct(new Product("Fisk","lækker fisk", null, null,false,true));
+        repository.insertProduct(new Product("Havergryn","Nærende morgenmad", null, null,false,true));
         propertyChangeSupport = new PropertyChangeSupport(this);
         repository.addPropertyChangeListener("eventProduct", (PropertyChangeEvent evt) -> this.getProductListRepository());
     }

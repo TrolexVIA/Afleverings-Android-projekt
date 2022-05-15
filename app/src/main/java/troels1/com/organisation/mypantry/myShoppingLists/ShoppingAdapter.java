@@ -42,7 +42,7 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewholder, int position) {
-        viewholder.productName.setText(products.get(position).getName());
+        viewholder.productName.setText(products.get(position).getName() +": "+ products.get(position).getDescription());
         // den her der trækker informationen ud
     }
 

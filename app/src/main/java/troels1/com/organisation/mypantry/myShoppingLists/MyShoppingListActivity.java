@@ -12,6 +12,7 @@ import troels1.com.organisation.mypantry.pantry.PantryActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.View;
 
 import android.widget.Toast;
@@ -34,6 +35,7 @@ public class MyShoppingListActivity extends AppCompatActivity implements Shoppin
     public RecyclerView shoppingList;
     private List<Product> productsList = new ArrayList<Product>();
     private PropertyChangeSupport propertyChangeSupport;
+    private ShoppingAdapter adapter;
 
 
     @Override
@@ -45,8 +47,8 @@ public class MyShoppingListActivity extends AppCompatActivity implements Shoppin
         shoppingList = findViewById(R.id.rv);
         shoppingList.hasFixedSize();
         shoppingList.setLayoutManager(new LinearLayoutManager(this));
-        Object shoppingAdapter = new ShoppingAdapter(productsList, this);
-        shoppingList.setAdapter((RecyclerView.Adapter) shoppingAdapter);
+        adapter = new ShoppingAdapter(productsList, this);
+        shoppingList.setAdapter((RecyclerView.Adapter) adapter);
 
         //requesting inforation fra repository
         propertyChangeSupport = new PropertyChangeSupport(this);
@@ -70,9 +72,12 @@ public class MyShoppingListActivity extends AppCompatActivity implements Shoppin
     //sender update request til adapter
     public void listSetup() {
         productsList = viewModel.getProductList();
-        Toast.makeText(this, "load done", Toast.LENGTH_LONG).show();
-        //updataing information fra viewcontroller
-        shoppingList.getAdapter().notifyDataSetChanged();
+        if (productsList.size() != 0) {
+            Log.d("call", productsList.get(0).getName() + "her skal der stå fisk" + productsList.get(1).getName());
+            //updataing information fra viewcontroller
+            adapter.changeDataset(productsList);
+            adapter.notifyDataSetChanged();
+        }
     }
 
 
