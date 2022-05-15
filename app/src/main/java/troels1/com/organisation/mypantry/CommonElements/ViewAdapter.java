@@ -1,4 +1,4 @@
-package troels1.com.organisation.mypantry.myShoppingLists;
+package troels1.com.organisation.mypantry.CommonElements;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -9,18 +9,17 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import troels1.com.organisation.mypantry.R;
 import troels1.com.organisation.mypantry.localDatabase.Entity.Product;
 
-public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.ViewHolder> {
+public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.ViewHolder> {
 
     private List<Product> products;
     private OnClickListener pOnClickListener;
 
-    public ShoppingAdapter(List<Product> products, OnClickListener onClickListener) {
+    public ViewAdapter(List<Product> products, OnClickListener onClickListener) {
         this.products = products;
         this.pOnClickListener = onClickListener;
     }
@@ -45,9 +44,6 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.ViewHo
         viewholder.productName.setText(products.get(position).getName() +": "+ products.get(position).getDescription());
         // den her der trækker informationen ud
     }
-
-
-
 
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 

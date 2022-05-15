@@ -3,6 +3,7 @@ package troels1.com.organisation.mypantry.myShoppingLists;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import troels1.com.organisation.mypantry.CommonElements.ViewAdapter;
 import troels1.com.organisation.mypantry.localDatabase.Entity.Product;
 import troels1.com.organisation.mypantry.mainListVIew.MenuActivity;
 import troels1.com.organisation.mypantry.R;
@@ -27,7 +28,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-public class MyShoppingListActivity extends AppCompatActivity implements ShoppingAdapter.OnClickListener {
+public class MyShoppingListActivity extends AppCompatActivity implements ViewAdapter.OnClickListener {
 
 
     private ActivityMenuViewBinding binding;
@@ -35,7 +36,7 @@ public class MyShoppingListActivity extends AppCompatActivity implements Shoppin
     public RecyclerView shoppingList;
     private List<Product> productsList = new ArrayList<Product>();
     private PropertyChangeSupport propertyChangeSupport;
-    private ShoppingAdapter adapter;
+    private ViewAdapter adapter;
 
 
     @Override
@@ -47,7 +48,7 @@ public class MyShoppingListActivity extends AppCompatActivity implements Shoppin
         shoppingList = findViewById(R.id.rv);
         shoppingList.hasFixedSize();
         shoppingList.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new ShoppingAdapter(productsList, this);
+        adapter = new ViewAdapter(productsList, this);
         shoppingList.setAdapter((RecyclerView.Adapter) adapter);
 
         //requesting inforation fra repository

@@ -10,40 +10,62 @@ import com.google.android.material.tabs.TabLayout;
 
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeSupport;
+import java.util.ArrayList;
+import java.util.List;
+
+import troels1.com.organisation.mypantry.CommonElements.ViewAdapter;
+import troels1.com.organisation.mypantry.databinding.ActivityMenuViewBinding;
 import troels1.com.organisation.mypantry.databinding.ActivityPantryBinding;
+import troels1.com.organisation.mypantry.localDatabase.Entity.Product;
 import troels1.com.organisation.mypantry.mainListVIew.MenuActivity;
 import troels1.com.organisation.mypantry.mainListVIew.MenuActivityViewModel;
 import troels1.com.organisation.mypantry.myShoppingLists.MyShoppingListActivity;
-import troels1.com.organisation.mypantry.pantry.ui.main.SectionsPagerAdapter;
 import troels1.com.organisation.mypantry.R;
+import troels1.com.organisation.mypantry.myShoppingLists.MyShoppingListActivityViewModel;
 
 
-public class PantryActivity extends AppCompatActivity {
+public class PantryActivity extends AppCompatActivity implements ViewAdapter.OnClickListener {
 
     private ActivityPantryBinding binding;
     private PantryActivityViewModel viewModel;
+    public RecyclerView pantryList;
+    private List<Product> productsList = new ArrayList<Product>();
+    private PropertyChangeSupport propertyChangeSupport;
+    private ViewAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         viewModel = new ViewModelProvider(this).get(PantryActivityViewModel.class);
-
+        setContentView(R.layout.activity_pantry);
         binding = ActivityPantryBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
-        ViewPager viewPager = binding.viewPager;
-        viewPager.setAdapter(sectionsPagerAdapter);
-        TabLayout tabs = binding.tabs;
-        tabs.setupWithViewPager(viewPager);
         FloatingActionButton fab = binding.fab;
 
+
+        pantryList = findViewById(R.id.rv);
+        pantryList.hasFixedSize();
+        pantryList.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new ViewAdapter(productsList, this);
+        pantryList.setAdapter((RecyclerView.Adapter) adapter);
+
+        //requesting inforation fra repository
+        propertyChangeSupport = new PropertyChangeSupport(this);
+        viewModel.addPropertyChangeListener("EventProductView", (PropertyChangeEvent evt) -> this.listSetup());
+        viewModel.loadProducts();
 
 
         //floating button
@@ -54,7 +76,6 @@ public class PantryActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-
 
         //navigation
         View menuitem = findViewById(R.id.MainMenuTopBar);
@@ -68,5 +89,21 @@ public class PantryActivity extends AppCompatActivity {
             Intent intent = new Intent(this, MyShoppingListActivity.class);
             startActivity(intent);
         });
+    }
+
+
+    //sender update request til adapter
+    public void listSetup() {
+        productsList = viewModel.getProductList();
+        if (productsList.size() != 0) {
+            Log.d("call", productsList.get(0).getName() + "her skal der stå fisk" + productsList.get(1).getName());
+            //updataing information fra viewcontroller
+            adapter.changeDataset(productsList);
+            adapter.notifyDataSetChanged();
+        }
+    }
+
+    public void onClick(int position) {
+        Toast.makeText(this, "tryk på " + position + " Virker", Toast.LENGTH_LONG).show();
     }
 }
