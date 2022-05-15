@@ -12,6 +12,9 @@ public class Product {
     @PrimaryKey(autoGenerate = true)
     public int productID;
 
+    @ColumnInfo(name = "UserID")
+    public int userID;
+
     @ColumnInfo(name = "name")
     public String name;
 
@@ -24,11 +27,19 @@ public class Product {
     @ColumnInfo(name = "udloebsdato")
     public String udloebsdato;
 
-    public Product(String name, String description, String kategori, String udloebsdato) {
+    @ColumnInfo(name = "inStock")
+    public Boolean inStock;
+
+    @ColumnInfo(name = "inList")
+    public Boolean inList;
+
+    public Product(String name, String description, String kategori, String udloebsdato, Boolean inStock, Boolean inList) {
         this.name = name;
         this.kategori = kategori;
         this.udloebsdato = udloebsdato;
         this.description = description;
+        this.inStock = inStock;
+        this.inList = inList;
     }
 
     public String getName() {
@@ -61,6 +72,23 @@ public class Product {
 
     public void setUdloebsdato(String udloebsdato) {
         this.udloebsdato = udloebsdato;
+    }
+
+
+    public Boolean getInStock() {
+        return inStock;
+    }
+
+    public void setInStock(Boolean inStock) {
+        this.inStock = inStock;
+    }
+
+    public Boolean getInList() {
+        return inList;
+    }
+
+    public void setInList(Boolean inList) {
+        this.inList = inList;
     }
 
 }

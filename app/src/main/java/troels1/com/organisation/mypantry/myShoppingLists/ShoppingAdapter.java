@@ -18,7 +18,7 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.ViewHo
     private ArrayList<Products> products;
     private OnClickListener pOnClickListener;
 
-    public ShoppingAdapter (ArrayList<Products> products,OnClickListener onClickListener)  {
+    public ShoppingAdapter(ArrayList<Products> products, OnClickListener onClickListener) {
         this.products = products;
         this.pOnClickListener = onClickListener;
     }
@@ -47,6 +47,7 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.ViewHo
         TextView productName;
         ImageView productIcon;
         OnClickListener OnClickListener;
+
         ViewHolder(View itemView, OnClickListener onClickListener) {
             super(itemView);
             productName = itemView.findViewById(R.id.productName);
@@ -58,18 +59,16 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.ViewHo
 
         @Override
         public void onClick(View v) {
-          pOnClickListener.onClick(getBindingAdapterPosition());
+            pOnClickListener.onClick(getAdapterPosition());
         }
     }
-   public interface OnClickListener {
+
+    public interface OnClickListener {
         void onClick(int position);
     }
 
 
-
-
-
-    }
 }
+
 
 

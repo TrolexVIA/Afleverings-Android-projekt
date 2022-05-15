@@ -51,7 +51,9 @@ public class Repository implements MenuRepositoryInterface, PantryRepositoryInte
     //Menu Userinformation
     public void SendUserQuery() {
             executorService.execute(() -> {
+                Log.d("call", "executable");
             List<Userinformation> list = userDAO.loadAllUsers();
+                Log.d("call", "executable done");
             mainThreadHandler.post(() -> { callbackUser(list);});
         });
     }
