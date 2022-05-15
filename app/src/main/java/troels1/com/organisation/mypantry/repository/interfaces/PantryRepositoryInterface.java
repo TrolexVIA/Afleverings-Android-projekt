@@ -15,4 +15,5 @@ public interface PantryRepositoryInterface {
     List<Product> getProductsPantry();
 
     void loadProductsPantry();
+
 }

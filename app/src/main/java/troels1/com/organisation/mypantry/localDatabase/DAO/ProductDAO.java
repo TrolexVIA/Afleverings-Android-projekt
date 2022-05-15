@@ -29,4 +29,6 @@ public interface ProductDAO {
     @Query("select * from Product where name = :name")
     public List<Product> loadspecificProduct(String name);
 
+    @Query("Select * from Product where inStock = 1")
+    public List<Product> getAllInPantry();
 }

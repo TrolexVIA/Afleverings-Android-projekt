@@ -53,7 +53,7 @@ public class PantryActivity extends AppCompatActivity implements ViewAdapter.OnC
         binding = ActivityPantryBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        FloatingActionButton fab = binding.fab;
+//        FloatingActionButton fab = binding.fab;
 
         pantryList = findViewById(R.id.rvPantry);
         pantryList.hasFixedSize();
@@ -63,18 +63,18 @@ public class PantryActivity extends AppCompatActivity implements ViewAdapter.OnC
 
         //requesting inforation fra repository
         propertyChangeSupport = new PropertyChangeSupport(this);
-        viewModel.addPropertyChangeListener("EventProductView", (PropertyChangeEvent evt) -> this.listSetup());
+        viewModel.addPropertyChangeListener("EventProductPantryView", (PropertyChangeEvent evt) -> this.listSetup());
         viewModel.loadProducts();
 
 
         //floating button
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+ //       fab.setOnClickListener(new View.OnClickListener() {
+ //           @Override
+ //           public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+  //                      .setAction("Action", null).show();
+  //          }
+  //      });
 
         //navigation
         View menuitem = findViewById(R.id.MainMenuTopBar);
@@ -94,12 +94,12 @@ public class PantryActivity extends AppCompatActivity implements ViewAdapter.OnC
     //sender update request til adapter
     public void listSetup() {
         productsList = viewModel.getProductList();
-       // if (productsList.size() != 0) {
-        //    Log.d("call", productsList.get(0).getName() + "her skal der stå fisk" + productsList.get(1).getName());
-         //   //updataing information fra viewcontroller
-         //   adapter.changeDataset(productsList);
-         //   adapter.notifyDataSetChanged();
-      //  }
+        if (productsList.size() != 0) {
+            Log.d("call", productsList.get(0).getName() + "her skal der stå fisk" + productsList.get(1).getName());
+            //updataing information fra viewcontroller
+            adapter.changeDataset(productsList);
+            adapter.notifyDataSetChanged();
+        }
     }
 
     public void onClick(int position) {

@@ -93,8 +93,10 @@ public class Repository<addPropertyChangeListner> implements MenuRepositoryInter
         propertyChangeSupport.addPropertyChangeListener(name, listener);
         if (name.equals("eventUser")) {
             listener.propertyChange(new PropertyChangeEvent(this, "eventUser", null, listUserinformation));
-        } else if (name.equals("eventProduct")) {
+        } else if (name.equals("EventProduct")) {
             listener.propertyChange(new PropertyChangeEvent(this, "EventProductView", null, listOfProducts));
+        } else if (name.equals("EventProductPantry")) {
+            listener.propertyChange(new PropertyChangeEvent(this, "EventProductPantry", null, listOfProducts));
         } else {
             Log.d("call", "Der var en fejl i propertychangelistner");
         }
@@ -125,6 +127,10 @@ public class Repository<addPropertyChangeListner> implements MenuRepositoryInter
                     mainThreadHandler.post(() -> {
                         callbackProduct(lists);
                     });
+                   // productDAO.insertProduct(new Product("kartoffeler",null, null, null,true,false));
+                    //productDAO.insertProduct(new Product("franske kartofler",null, null, null,true,false));
+                   // productDAO.insertProduct(new Product("Honning",null, null, null,false,true));
+                   // productDAO.insertProduct(new Product("Sæbe",null, null, null,false,true));
                 }
         );
     }
@@ -133,7 +139,8 @@ public class Repository<addPropertyChangeListner> implements MenuRepositoryInter
     public void callbackProduct(List<Product> list) {
         Log.d("callback", "callbackUser: repository");
         listOfProducts = list;
-        propertyChangeSupport.firePropertyChange("eventProduct", null, listUserinformation);
+        propertyChangeSupport.firePropertyChange("EventProductPantry", null, listOfProducts);
+        propertyChangeSupport.firePropertyChange("EventProduct", null, listOfProducts);
     }
 
     public void insertProduct(Product product) {
@@ -145,5 +152,27 @@ public class Repository<addPropertyChangeListner> implements MenuRepositoryInter
     @Override
     public List<Product> getProducts() {
         return listOfProducts;
+    }
+
+
+    //Pantry metoder
+
+    @Override
+    public List<Product> getProductsPantry() {
+        Log.d("call","sender til viewmodel");
+        return listOfProducts;
+    }
+
+    //retunere alle hvor inPantry er True
+    @Override
+    public void loadProductsPantry() {
+        Log.d("call", "Pantry er bliver loaded");
+        executorService.execute(() -> {
+            List<Product> list = productDAO.getAllInPantry();
+            Log.d("call", "Pantry er: "+ list.size());
+            mainThreadHandler.post(() -> {
+                callbackProduct(list);
+            });
+        });
     }
 }

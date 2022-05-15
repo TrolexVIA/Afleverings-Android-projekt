@@ -1,6 +1,7 @@
 package troels1.com.organisation.mypantry.pantry;
 
 import android.app.Application;
+import android.util.Log;
 
 import androidx.lifecycle.AndroidViewModel;
 
@@ -24,6 +25,7 @@ public class PantryActivityViewModel extends AndroidViewModel {
         super(app);
         repository = Repository.getInstance(app);
         propertyChangeSupport = new PropertyChangeSupport(this);
+        repository.addPropertyChangeListener("EventProductPantry", (PropertyChangeEvent evt) -> this.getProductPantryRepository());
     }
 
     public void getActivUser(String list) {
@@ -32,13 +34,20 @@ public class PantryActivityViewModel extends AndroidViewModel {
 
     public void addPropertyChangeListener(String name, PropertyChangeListener listener) {
         propertyChangeSupport.addPropertyChangeListener(name, listener);
-        listener.propertyChange(new PropertyChangeEvent(this, "EventProductView", null, list));
+        listener.propertyChange(new PropertyChangeEvent(this, "EventProductPantryView", null, list));
+    }
+
+    public void getProductPantryRepository() {
+        list = repository.getProductsPantry();
+        propertyChangeSupport.firePropertyChange("EventProductPantryView", null, list);
+        Log.d("call", "jeg blev kalt. liste er: " + list.size());
     }
 
     public void loadProducts() {
+        repository.loadProductsPantry();
     }
 
     public List<Product> getProductList() {
-        return null;
+        return list;
     }
 }
