@@ -22,12 +22,12 @@ public class MyLists {
     public String kategori;
 
     @ColumnInfo(name = "udloebsdato")
-    public LocalDate udloebsdato;
+    public String udloebsdato;
 
     @ColumnInfo
     public int maengde;
 
-    public MyLists(String name, String description, String kategori, LocalDate udloebsdato, int maengde) {
+    public MyLists(String name, String description, String kategori, String udloebsdato, int maengde) {
         this.name = name;
         this.kategori = kategori;
         this.udloebsdato = udloebsdato;
@@ -59,11 +59,11 @@ public class MyLists {
         this.kategori = kategori;
     }
 
-    public LocalDate getUdloebsdato() {
+    public String getUdloebsdato() {
         return udloebsdato;
     }
 
-    public void setUdloebsdato(LocalDate udloebsdato) {
+    public void setUdloebsdato(String udloebsdato) {
         this.udloebsdato = udloebsdato;
     }
 

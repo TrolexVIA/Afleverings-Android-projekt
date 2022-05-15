@@ -61,8 +61,6 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.ViewHo
           pOnClickListener.onClick(getBindingAdapterPosition());
         }
     }
-
-
    public interface OnClickListener {
         void onClick(int position);
     }
@@ -72,6 +70,6 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.ViewHo
 
 
     }
-
+}
 
 
