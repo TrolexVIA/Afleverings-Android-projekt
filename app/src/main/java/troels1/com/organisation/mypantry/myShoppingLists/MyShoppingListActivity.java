@@ -21,6 +21,7 @@ import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -38,8 +39,9 @@ public class MyShoppingListActivity extends AppCompatActivity implements Shoppin
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        viewModel = new ViewModelProvider(this).get(MyShoppingListActivityViewModel.class);
         setContentView(R.layout.activity_my_shoping_list);
-        productsList.add(new Product("hej<3", null, null, null, false, false)); //for at initiere productsList
+        productsList.add(new Product("virker ikke", null, null, null, false, false)); //for at initiere productsList
         shoppingList = findViewById(R.id.rv);
         shoppingList.hasFixedSize();
         shoppingList.setLayoutManager(new LinearLayoutManager(this));
@@ -48,7 +50,6 @@ public class MyShoppingListActivity extends AppCompatActivity implements Shoppin
 
         //requesting inforation fra repository
         propertyChangeSupport = new PropertyChangeSupport(this);
-
         viewModel.addPropertyChangeListener("EventProductView", (PropertyChangeEvent evt) -> this.listSetup());
         viewModel.loadProducts();
 

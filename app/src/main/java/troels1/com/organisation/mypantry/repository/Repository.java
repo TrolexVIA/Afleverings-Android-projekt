@@ -129,10 +129,17 @@ public class Repository<addPropertyChangeListner> implements MenuRepositoryInter
         );
     }
 
+    // Myshopping metoder
     public void callbackProduct(List<Product> list) {
         Log.d("callback", "callbackUser: repository");
         listOfProducts = list;
         propertyChangeSupport.firePropertyChange("eventProduct", null, listUserinformation);
+    }
+
+    public void insertProduct(Product product) {
+        executorService.execute(() -> {
+            productDAO.insertProduct(product);
+        });
     }
 
     @Override
