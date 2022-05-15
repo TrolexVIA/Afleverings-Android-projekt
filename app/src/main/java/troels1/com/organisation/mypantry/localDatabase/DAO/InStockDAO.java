@@ -29,6 +29,6 @@ public interface InStockDAO {
     @Query("DELETE from InStock where productID > 0")
     public void deleteAllProduct();
 
-    @Query("select * from Product where name = :name")
+    @Query("select * from InStock where name = :name")
     public List<InStock> loadspecificProduct(String name);
 }

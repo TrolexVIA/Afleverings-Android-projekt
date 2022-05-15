@@ -70,20 +70,4 @@ public class MyShoppingListActivity extends AppCompatActivity {
             startActivity(intent);
         });
     }
-
-
-// list observer metode
-//  String listname = "fisk"; // denne bør nok ikke være her, men holder det lige samlet indtil det virker
-//
-//          viewModel.getListInfo(listname).observe(this, new Observer<List<String>>() {
-//            @Override
-//          public void onChanged(List<String> list) {
-//            arrayList.clear();
-//          for(int i = 0; i < list.size(); i++) {
-//             arrayList.add(list.get(i));
-//        }
-//    }
-//  });
-
-
 }

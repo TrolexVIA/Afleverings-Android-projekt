@@ -27,7 +27,6 @@ public class MenuActivity extends AppCompatActivity {
 
     private ActivityMenuViewBinding binding;
     private MenuActivityViewModel viewModel;
-    private ArrayList<String> listOfUsers;
     private PropertyChangeSupport propertyChangeSupport;
     private List<Userinformation> list;
     private TextView menuText;
@@ -61,6 +60,7 @@ public class MenuActivity extends AppCompatActivity {
         Button notYou = findViewById(R.id.insert);
         notYou.setOnClickListener(z -> {
                 toast(viewModel.insert()); //midlertidigt sp vi kan se om det virker
+                Log.d("call", "onclick");
                 viewModel.SendUserQuery();
             }
         );

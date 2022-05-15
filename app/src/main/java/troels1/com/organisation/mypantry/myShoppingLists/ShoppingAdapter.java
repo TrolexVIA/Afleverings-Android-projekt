@@ -50,6 +50,5 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.ViewHo
 
         }
     }
-
 }
 

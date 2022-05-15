@@ -94,7 +94,6 @@ public class Repository implements MenuRepositoryInterface, PantryRepositoryInte
         propertyChangeSupport.firePropertyChange("eventUser", null, listUserinformation);
     }
 
-
     // Pantry Activ user
     @Override
     public Userinformation getActivUser() {
