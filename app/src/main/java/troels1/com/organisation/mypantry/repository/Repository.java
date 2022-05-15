@@ -14,27 +14,32 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import troels1.com.organisation.mypantry.localDatabase.DAO.ProductDAO;
 import troels1.com.organisation.mypantry.localDatabase.DAO.UserDAO;
+import troels1.com.organisation.mypantry.localDatabase.Entity.Product;
+import troels1.com.organisation.mypantry.localDatabase.ProductsDatabase;
 import troels1.com.organisation.mypantry.localDatabase.UserDatabase;
 import troels1.com.organisation.mypantry.localDatabase.Entity.Userinformation;
 import troels1.com.organisation.mypantry.repository.interfaces.MenuRepositoryInterface;
 import troels1.com.organisation.mypantry.repository.interfaces.MyShoppingListRepositoryInterface;
 import troels1.com.organisation.mypantry.repository.interfaces.PantryRepositoryInterface;
 
-public class Repository implements MenuRepositoryInterface, PantryRepositoryInterface, MyShoppingListRepositoryInterface {
+public class Repository<addPropertyChangeListner> implements MenuRepositoryInterface, PantryRepositoryInterface, MyShoppingListRepositoryInterface {
 
     private static Repository instance;
     private UserDAO userDAO;
+    private ProductDAO productDAO;
     private ExecutorService executorService;
     private PropertyChangeSupport propertyChangeSupport;
     private List<Userinformation> listUserinformation;
+    private List<Product> listOfProducts;
     private Handler mainThreadHandler;
     private Userinformation activUser; //saettes så de andre aktiviteter ved hvilke lister de skal vise
 
     private Repository(Application application) {
-        UserDatabase userDatabase = UserDatabase.getInstance(application);
+        userDAO = UserDatabase.getInstance(application).userDAO();
+        productDAO = ProductsDatabase.getInstance(application).productDAO();
         propertyChangeSupport = new PropertyChangeSupport(this);
-        userDAO = userDatabase.userDAO();
         executorService = Executors.newFixedThreadPool(2);
         mainThreadHandler = HandlerCompat.createAsync(Looper.getMainLooper());
     }
@@ -50,11 +55,13 @@ public class Repository implements MenuRepositoryInterface, PantryRepositoryInte
 
     //Menu Userinformation
     public void SendUserQuery() {
-            executorService.execute(() -> {
-                Log.d("call", "executable");
+        executorService.execute(() -> {
+            Log.d("call", "executable");
             List<Userinformation> list = userDAO.loadAllUsers();
-                Log.d("call", "executable done");
-            mainThreadHandler.post(() -> { callbackUser(list);});
+            Log.d("call", "executable done");
+            mainThreadHandler.post(() -> {
+                callbackUser(list);
+            });
         });
     }
 
@@ -79,11 +86,17 @@ public class Repository implements MenuRepositoryInterface, PantryRepositoryInte
         });
     }
 
-    //Menu property change
+    //property change listner
 
     public void addPropertyChangeListener(String name, PropertyChangeListener listener) {
         propertyChangeSupport.addPropertyChangeListener(name, listener);
-        listener.propertyChange(new PropertyChangeEvent(this, "eventUser", null, listUserinformation));
+        if (name.equals("eventUser")) {
+            listener.propertyChange(new PropertyChangeEvent(this, "eventUser", null, listUserinformation));
+        } else if (name.equals("eventProduct")) {
+            listener.propertyChange(new PropertyChangeEvent(this, "eventProduct", null, listUserinformation));
+        } else {
+            Log.d("call", "Der var en fejl i propertychangelistner");
+        }
     }
 
     public List<Userinformation> getListUserinformation() {
@@ -102,4 +115,27 @@ public class Repository implements MenuRepositoryInterface, PantryRepositoryInte
         return activUser;
     }
 
+
+    // MyShoppingList CRUD
+
+    public void loadProducts() {
+        executorService.execute(() -> {
+                    List<Product> lists = productDAO.loadAllProduct();
+                    mainThreadHandler.post(() -> {
+                        callbackProduct(lists);
+                    });
+                }
+        );
+    }
+
+    public void callbackProduct(List<Product> list) {
+        Log.d("callback", "callbackUser: repository");
+        listOfProducts = list;
+        propertyChangeSupport.firePropertyChange("eventProduct", null, listUserinformation);
+    }
+
+    @Override
+    public List<Product> getProducts() {
+        return listOfProducts;
+    }
 }

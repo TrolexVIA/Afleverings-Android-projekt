@@ -10,15 +10,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import troels1.com.organisation.mypantry.R;
+import troels1.com.organisation.mypantry.localDatabase.Entity.Product;
 
 public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.ViewHolder> {
 
-    private ArrayList<Products> products;
+    private List<Product> products;
     private OnClickListener pOnClickListener;
 
-    public ShoppingAdapter(ArrayList<Products> products, OnClickListener onClickListener) {
+    public ShoppingAdapter(List<Product> products, OnClickListener onClickListener) {
         this.products = products;
         this.pOnClickListener = onClickListener;
     }
@@ -38,8 +40,7 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewholder, int position) {
         viewholder.productName.setText(products.get(position).getName());
-        viewholder.productIcon.setImageResource(products.get(position).getIconId());
-
+        // den her der trækker informationen ud
     }
 
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -66,8 +67,6 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.ViewHo
     public interface OnClickListener {
         void onClick(int position);
     }
-
-
 }
 
 
