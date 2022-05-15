@@ -16,5 +16,4 @@ public interface MyShoppingListRepositoryInterface {
 
     void loadProducts();
 
-    public void insertProduct(Product product);
 }

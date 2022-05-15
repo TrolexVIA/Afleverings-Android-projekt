@@ -23,7 +23,6 @@ public class MyShoppingListActivityViewModel extends AndroidViewModel {
     public MyShoppingListActivityViewModel(Application app) {
         super(app);
         repository = Repository.getInstance(app);
-        repository.insertProduct(new Product("Havergryn","Nærende morgenmad", null, null,false,true));
         propertyChangeSupport = new PropertyChangeSupport(this);
         repository.addPropertyChangeListener("eventProduct", (PropertyChangeEvent evt) -> this.getProductListRepository());
     }
@@ -50,10 +49,6 @@ public class MyShoppingListActivityViewModel extends AndroidViewModel {
 
     public List<Product> getProductList() {
         return list;
-    }
-
-    public void insertProduct(Product product) {
-        repository.insertProduct(product);
     }
 }
 
