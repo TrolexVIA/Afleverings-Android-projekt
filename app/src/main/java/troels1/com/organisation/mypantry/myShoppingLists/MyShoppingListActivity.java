@@ -32,7 +32,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class MyShoppingListActivity extends AppCompatActivity implements ShoppingAdapter.OnClickListener {
 
-    private static final String TAG = "hey";
+
     private ActivityMenuViewBinding binding;
     private MyShoppingListActivityViewModel viewModel;
     public RecyclerView shoppingList;
