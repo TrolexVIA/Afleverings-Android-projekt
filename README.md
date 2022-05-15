@@ -3,10 +3,10 @@ android projekt med Mia og Troels
 
 # Idé
 
-## MyPantry
+### MyPantry
 
 En app som kan hjælpe brugeren med at have et tilgængeligt og kategoriseret overblik over hvilke fødevarer man har på lager. 
-På den måde, kan brugeren undgå overflødige køb, samt få påmindelser over hvilke produkter der mangler i hustanden.
+På den måde, kan brugeren undgå overflødige køb, samt få påmindelser over hvilke produkter der mangler i hustanden og let kunne tilføje disse til en indkøbsliste.
 
 
 
@@ -48,7 +48,7 @@ Som en bruger vil jeg gerne have mulighed for at dele min liste med andre så de
 
 
 
-# Kanban board(?)
+# Kanban board
 
 
 # Produckt Backlog:
@@ -56,7 +56,7 @@ Som en bruger vil jeg gerne have mulighed for at dele min liste med andre så de
 
 Opstilling af main activity/menu (in progress)
 
-Opsætning af architectur (in progress)
+Opsætning af architectur (Done)
 
 opstilling af myshopinglist activity (in progress)
 
@@ -66,13 +66,11 @@ implementering af lists (kan genbruges i de forskellige shoppinglists og pantry)
 
 opstilling af Pantry (wating)
 
-opstlling af shoppinglist
+opstlling af shoppinglist (in progress - Mia)
 
-opsætning af menu for valg af lister & de forskellige pantries
+opsætning af UX for menu til valg af lister & de forskellige pantries (In progress)
 
-opstilling af delte lister (mocking netværket)
-
-implementering af persistense. gemme en log fil af profilen og hvilke vare der er blevet brugt. (in progress)
+implementering af persistense. gemme en log fil af profilen og hvilke vare der er blevet brugt. (Done)
 
 UX for lists
 
@@ -83,14 +81,15 @@ UX for for Menu
 
 minimums onboarding (der har plads til udvidning)
 
-opsætning af server og implementering af netværking (eller implementering af firebase )
-
 muligheden for at tilføje til listerne
 
 mulighed for at tilføje vare til pantry
 
 muligheden for at slette fra pantry eller listen
 
+opsætning af server og implementering af netværking (eller implementering af firebase )
+
+opstilling af delte lister (mocking netværket)
 
 
 ## nice to have:
@@ -98,7 +97,6 @@ muligheden for at slette fra pantry eller listen
 en yderligere udbygning af onboarding
 
 ux til onbaording
-
 
 Implementering af en settings menu
 
@@ -124,15 +122,15 @@ opstilling af myshopinglist activity
 
 implementering af lists
 
-implementering af persistense. gemme en log fil af profilen og hvilke vare der er blevet brugt.
-
-Opsætning af architectur
-
-
 # Waiting for another feature:
 
 navigation imellem activitis og fragments
 
 opstilling af Pantry
 
+
 # Done features:
+
+Opsætning af architectur
+
+implementering af persistense. gemme en log fil af profilen og hvilke vare der er blevet brugt.
