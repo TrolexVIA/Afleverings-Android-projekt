@@ -56,7 +56,7 @@ public class AddProductActivity extends AppCompatActivity {
                     {
                         public void onClick(View view)
                         {
-                            Toast.makeText(this, "tryk på Virker", Toast.LENGTH_LONG).show();
+
                         }
 
 
