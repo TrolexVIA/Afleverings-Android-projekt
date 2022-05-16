@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="troels1.com.organisation.mypantry">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="troels1.com.organisation.mypantry"
+    tools:ignore="ImpliedTouchscreenHardware,MissingLeanbackLauncher,MissingLeanbackSupport">
 
     <application
         android:allowBackup="true"
@@ -21,12 +23,18 @@
             android:name=".myShoppingLists.MyShoppingListActivity"
             android:exported="false" />
         <activity
+            android:name=".splashScreen.SplashScreenActivity"
+            android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+
+        <activity
             android:name=".mainListVIew.MenuActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
     </application>
 </manifest>
