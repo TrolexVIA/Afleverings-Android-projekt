@@ -6,4 +6,10 @@
     <string name="Pantry">Fadebur</string>
     <string name="MyShopping">Mine Indkøbslister</string>
     <string name="NotYou">Ikke dig?</string>
+    <string name="welcome">velkommen</string>
+    <string name="error_fragment_message">Der er sket en fejl</string>
+    <string name="Add_button_pantry">Tilføj til fadebur</string>
+    <string name="Add_button_shoppinglist">Tilføj til indkøbsliste</string>
+    <string name="dismiss_error">Fjern</string>
+    <string name="prefix_user">"Bruger: "</string>
 </resources>

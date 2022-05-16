@@ -19,11 +19,11 @@ public class AddProductActivityViewModel extends AndroidViewModel {
 
     public void AddProductShopping(String name, String antal) {
         Product product = new Product(name, null, null, null, false, true, Integer.parseInt(antal));
-    repository.insertIntoLists(product);
+    repository.insertProductIntoLists(product);
     }
     public void AddProductPantry(String name, String antal) {
         Product product = new Product(name, null, null, null, true, false, Integer.parseInt(antal));
-        repository.insertIntoLists(product);
+        repository.insertProductIntoLists(product);
     }
 
 }

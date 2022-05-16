@@ -28,9 +28,9 @@ public class PantryActivityViewModel extends AndroidViewModel {
         repository.addPropertyChangeListener("EventProductPantry", (PropertyChangeEvent evt) -> this.getProductPantryRepository());
     }
 
-    public void getActivUser(String list) {
-        repository.getActivUser();
-    }
+//    public void getActivUser() {
+ //       repository.getActivUser();
+ //   }
 
     public void addPropertyChangeListener(String name, PropertyChangeListener listener) {
         propertyChangeSupport.addPropertyChangeListener(name, listener);
@@ -40,7 +40,6 @@ public class PantryActivityViewModel extends AndroidViewModel {
     public void getProductPantryRepository() {
         list = repository.getProductsPantry();
         propertyChangeSupport.firePropertyChange("EventProductPantryView", null, list);
-        Log.d("call", "jeg blev kalt. liste er: " + list.size());
     }
 
     public void loadProducts() {

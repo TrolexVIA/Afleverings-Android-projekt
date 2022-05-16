@@ -29,14 +29,14 @@ import troels1.com.organisation.mypantry.repository.interfaces.PantryRepositoryI
 public class Repository<addPropertyChangeListner> implements MenuRepositoryInterface, PantryRepositoryInterface, MyShoppingListRepositoryInterface, AddProductInterface {
 
     private static Repository instance;
-    private UserDAO userDAO;
-    private ProductDAO productDAO;
-    private ExecutorService executorService;
+    private final UserDAO userDAO;
+    private final ProductDAO productDAO;
+    private final ExecutorService executorService;
     private PropertyChangeSupport propertyChangeSupport;
     private List<Userinformation> listUserinformation = new ArrayList<>();
     private List<Product> listOfProducts = new ArrayList<>();
     private Handler mainThreadHandler;
-    private Userinformation activUser; //saettes så de andre aktiviteter ved hvilke lister de skal vise
+    private Userinformation activUser; //kan saettes så de andre aktiviteter ved hvilke lister de skal vise
 
     private Repository(Application application) {
         userDAO = UserDatabase.getInstance(application).userDAO();
@@ -61,9 +61,7 @@ public class Repository<addPropertyChangeListner> implements MenuRepositoryInter
             Log.d("call", "executable");
             List<Userinformation> list = userDAO.loadAllUsers();
             Log.d("call", "executable done");
-            mainThreadHandler.post(() -> {
-                callbackUser(list);
-            });
+            mainThreadHandler.post(() -> callbackUser(list));
         });
     }
 
@@ -76,30 +74,32 @@ public class Repository<addPropertyChangeListner> implements MenuRepositoryInter
 
     public boolean insertNewUser(Userinformation newUser) {
         executorService.execute(() -> {
-            userDAO.deleteAll();
             userDAO.insert(newUser);
         });
         return true;
     }
 
     public void deleteUser(Userinformation user) {
-        executorService.execute(() -> {
-            userDAO.delete(user);
-        });
+        executorService.execute(() -> userDAO.delete(user));
     }
 
     //property change listner
 
     public void addPropertyChangeListener(String name, PropertyChangeListener listener) {
         propertyChangeSupport.addPropertyChangeListener(name, listener);
-        if (name.equals("eventUser")) {
-            listener.propertyChange(new PropertyChangeEvent(this, "eventUser", null, listUserinformation));
-        } else if (name.equals("EventProduct")) {
-            listener.propertyChange(new PropertyChangeEvent(this, "EventProductView", null, listOfProducts));
-        } else if (name.equals("EventProductPantry")) {
-            listener.propertyChange(new PropertyChangeEvent(this, "EventProductPantry", null, listOfProducts));
-        } else {
-            Log.d("call", "Der var en fejl i propertychangelistner");
+        switch (name) {
+            case "eventUser":
+                listener.propertyChange(new PropertyChangeEvent(this, "eventUser", null, listUserinformation));
+                break;
+            case "EventProduct":
+                listener.propertyChange(new PropertyChangeEvent(this, "EventProductView", null, listOfProducts));
+                break;
+            case "EventProductPantry":
+                listener.propertyChange(new PropertyChangeEvent(this, "EventProductPantry", null, listOfProducts));
+                break;
+            default:
+                Log.d("call", "Der var en fejl i propertychangelistner");
+                break;
         }
     }
 
@@ -125,13 +125,7 @@ public class Repository<addPropertyChangeListner> implements MenuRepositoryInter
     public void loadProducts() {
         executorService.execute(() -> {
                     List<Product> lists = productDAO.loadAllProduct();
-                    mainThreadHandler.post(() -> {
-                        callbackProduct(lists);
-                    });
-                   // productDAO.insertProduct(new Product("kartoffeler",null, null, null,true,false));
-                    //productDAO.insertProduct(new Product("franske kartofler",null, null, null,true,false));
-                   // productDAO.insertProduct(new Product("Honning",null, null, null,false,true));
-                   // productDAO.insertProduct(new Product("Sæbe",null, null, null,false,true));
+                    mainThreadHandler.post(() -> callbackProduct(lists));
                 }
         );
     }
@@ -144,12 +138,6 @@ public class Repository<addPropertyChangeListner> implements MenuRepositoryInter
         propertyChangeSupport.firePropertyChange("EventProduct", null, listOfProducts);
     }
 
-    public void insertProduct(Product product) {
-        executorService.execute(() -> {
-            productDAO.insertProduct(product);
-        });
-    }
-
     @Override
     public List<Product> getProducts() {
         return listOfProducts;
@@ -160,7 +148,7 @@ public class Repository<addPropertyChangeListner> implements MenuRepositoryInter
 
     @Override
     public List<Product> getProductsPantry() {
-        Log.d("call","sender til viewmodel");
+        Log.d("call", "sender til viewmodel");
         return listOfProducts;
     }
 
@@ -170,17 +158,16 @@ public class Repository<addPropertyChangeListner> implements MenuRepositoryInter
         Log.d("call", "Pantry er bliver loaded");
         executorService.execute(() -> {
             List<Product> list = productDAO.getAllInPantry();
-            Log.d("call", "Pantry er: "+ list.size());
-            mainThreadHandler.post(() -> {
-                callbackProduct(list);
-            });
+            Log.d("call", "Pantry er: " + list.size());
+            mainThreadHandler.post(() -> callbackProduct(list));
         });
     }
-//Kommer fra AddproductActivityVM
+
+    //Kommer fra AddproductActivityVM
     @Override
-    public void insertIntoLists(Product product) {
-        executorService.execute(() -> {
-            productDAO.insertProduct(product);
-        });
+    public void insertProductIntoLists(Product product) {
+        executorService.execute(() ->
+                productDAO.insertProduct(product)
+        );
     }
 }

@@ -21,5 +21,7 @@
     <string name="dismiss_error">Dismiss</string>
     <string name="Add_button_pantry">Add to pantry</string>
     <string name="Add_button_shoppinglist">add to shoppinglist</string>
+    <string name="welcome">Welcome</string>
+    <string name="prefix_user">User:</string>
 
 </resources>
