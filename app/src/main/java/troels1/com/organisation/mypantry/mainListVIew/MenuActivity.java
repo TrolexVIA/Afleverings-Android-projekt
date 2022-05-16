@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 
 import java.beans.PropertyChangeEvent;
@@ -32,6 +34,7 @@ public class MenuActivity extends AppCompatActivity {
     private PropertyChangeSupport propertyChangeSupport;
     private List<Userinformation> list;
     private TextView menuText;
+    private Button toUserSelctFragment;
 
 
     @Override
@@ -66,40 +69,40 @@ public class MenuActivity extends AppCompatActivity {
 
 
         // Setting the right User
-        Button notYou = findViewById(R.id.insert);
-        notYou.setOnClickListener(z -> {
-                toast(viewModel.insert()); //midlertidigt sp vi kan se om det virker
-                Log.d("call", "onclick");
-                viewModel.SendUserQuery();
-            }
-        );
+    //    Button notYou = findViewById(R.id.insert);
+    //    notYou.setOnClickListener(z -> {
+    //            toast(viewModel.insert()); //midlertidigt sp vi kan se om det virker
+    //            Log.d("call", "onclick");
+    //            viewModel.SendUserQuery();
+    //        }
+    //    );
 
 
         // retrival af information fra databasen
         propertyChangeSupport = new PropertyChangeSupport(this);
         viewModel.addPropertyChangeListener("EventUserview", (PropertyChangeEvent evt) -> this.updateList());
+
+        //userselct fragment
+        toUserSelctFragment = findViewById(R.id.insert);
+        NavController navController = Navigation.findNavController(this, R.id.fragmentContainerView);
+
+        toUserSelctFragment.setOnClickListener(v-> navController.navigate(R.id.fragmentUserSelector));
+
     }
 
     public void updateList() {
         list = viewModel.getUpdate();
         Log.d("call", "updateList: viewcontroller");
-        String test = "hej ";
-        if (list == null) {
-            test += "virker ikke";
-        } else {
-            test = "";
-            for (int i = 0; i < list.size(); i++) {
-                test += list.get(i).getFirstName() + list.get(i).getLastName() + "\n";
-            }
+        if (list != null) {
+            String test = "" + list.get(0).getFirstName() + list.get(0).getLastName();
+            menuText.setText(test);
         }
-        menuText.setText(test);
     }
 
     public void toast(boolean bool) {
         if (bool == true) {
-            Toast.makeText(this, "Repository er der hul til", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Profiler er hentet", Toast.LENGTH_LONG).show();
         }
     }
-
 }
 
