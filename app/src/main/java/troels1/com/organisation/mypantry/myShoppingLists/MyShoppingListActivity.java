@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 import troels1.com.organisation.mypantry.CommonElements.ViewAdapter;
+import troels1.com.organisation.mypantry.addProducts.AddProductActivity;
 import troels1.com.organisation.mypantry.localDatabase.Entity.Product;
 import troels1.com.organisation.mypantry.mainListVIew.MenuActivity;
 import troels1.com.organisation.mypantry.R;
@@ -53,6 +54,7 @@ public class MyShoppingListActivity extends AppCompatActivity implements ViewAda
 
         //requesting inforation fra repository
         propertyChangeSupport = new PropertyChangeSupport(this);
+
         viewModel.addPropertyChangeListener("EventProductView", (PropertyChangeEvent evt) -> this.listSetup());
         viewModel.loadProducts();
 
@@ -66,6 +68,11 @@ public class MyShoppingListActivity extends AppCompatActivity implements ViewAda
         View pantryitem = findViewById(R.id.pantryTopBar);
         pantryitem.setOnClickListener(y -> {
             Intent intent = new Intent(this, PantryActivity.class);
+            startActivity(intent);
+        });
+        View listitems = findViewById(R.id.findProdukter);
+        listitems.setOnClickListener(k -> {
+            Intent intent = new Intent(this, AddProductActivity.class);
             startActivity(intent);
         });
     }

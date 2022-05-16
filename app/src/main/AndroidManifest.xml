@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyPantry">
         <activity
+            android:name=".addProducts.AddProductActivity"
+            android:exported="false" />
+        <activity
             android:name=".pantry.PantryActivity"
             android:exported="false"
             android:label="@string/title_activity_pantry"
@@ -26,5 +29,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>

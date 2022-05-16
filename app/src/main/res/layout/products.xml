@@ -2,7 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <Button
         android:id="@+id/tilføj"
@@ -11,7 +12,10 @@
         android:text="Tilføj til indkøbslisten"
         tools:layout_editor_absoluteX="86dp"
         tools:layout_editor_absoluteY="376dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"  />
 
     <TextView
         android:id="@+id/addProduct"
@@ -20,7 +24,10 @@
         android:text="Indtast produkt"
         tools:layout_editor_absoluteX="25dp"
         tools:layout_editor_absoluteY="42dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"  />
 
     <TextView
         android:id="@+id/addNumber"
@@ -29,7 +36,10 @@
         android:text="Indtast antal"
         tools:layout_editor_absoluteX="25dp"
         tools:layout_editor_absoluteY="194dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"  />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
