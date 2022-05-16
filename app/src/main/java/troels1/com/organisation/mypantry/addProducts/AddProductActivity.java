@@ -1,9 +1,11 @@
 package troels1.com.organisation.mypantry.addProducts;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -18,7 +20,8 @@ import troels1.com.organisation.mypantry.pantry.PantryActivity;
 
 public class AddProductActivity extends AppCompatActivity {
 
-    private Button tilføj;
+    private Button addShopping;
+    private Button addPantry;
     private EditText productNavn;
     private EditText productAntal;
     private AddProductActivityViewModel viewModel;
@@ -27,40 +30,69 @@ public class AddProductActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_product);
+        viewModel = new ViewModelProvider(this).get(AddProductActivityViewModel.class);
 
-    View listitem = findViewById(R.id.listTopBar);
+
+        View listitem = findViewById(R.id.listTopBar);
         listitem.setOnClickListener(x -> {
-        Intent intent = new Intent(this, MyShoppingListActivity.class);
-        startActivity(intent);
-    });
+            Intent intent = new Intent(this, MyShoppingListActivity.class);
+            startActivity(intent);
+        });
 
-    View pantryitem = findViewById(R.id.pantryTopBar);
+        View pantryitem = findViewById(R.id.pantryTopBar);
         pantryitem.setOnClickListener(y -> {
-        Intent intent = new Intent(this, PantryActivity.class);
-        startActivity(intent);
-    });
+            Intent intent = new Intent(this, PantryActivity.class);
+            startActivity(intent);
+        });
 
 
-    View menuitem = findViewById(R.id.MainMenuTopBar);
+        View menuitem = findViewById(R.id.MainMenuTopBar);
         menuitem.setOnClickListener(x -> {
-        Intent intent = new Intent(this, MenuActivity.class);
-        startActivity(intent);
-    });
+            Intent intent = new Intent(this, MenuActivity.class);
+            startActivity(intent);
+        });
 
-            tilføj = (Button)findViewById(R.id.tilføj);
-            productNavn = (EditText)findViewById(R.id.produktNavn);
-        productAntal = (EditText)findViewById(R.id.produktAntal);
+        addShopping = (Button) findViewById(R.id.tilføj);
+        addPantry = (Button) findViewById(R.id.tilføj1);
+        productNavn = (EditText) findViewById(R.id.produktNavn);
+        productAntal = (EditText) findViewById(R.id.produktAntal);
 
-            tilføj.setOnClickListener(
-                    new View.OnClickListener()
-                    {
-                        public void onClick(View view)
+        addShopping.setOnClickListener(
+                new View.OnClickListener() {
+                    public void onClick(View view) {
+                        if (TextUtils.isEmpty(productNavn.getText().toString()) || TextUtils.isEmpty(productAntal.getText().toString()))
                         {
-
+                            Toast.makeText(AddProductActivity.this,
+                                    "Please enter product details!",
+                                    Toast.LENGTH_SHORT).show();
                         }
+                        else
+                        viewModel.AddProductShopping(productNavn.getText().toString(), productAntal.getText().toString());
+                        productNavn.setText("");
+                        productAntal.setText("");
+                    }
 
 
-                    });
-        }
+                });
+
+        addPantry.setOnClickListener(
+                new View.OnClickListener() {
+                    public void onClick(View view) {
+                        if (TextUtils.isEmpty(productNavn.getText().toString()) || TextUtils.isEmpty(productAntal.getText().toString()))
+                        {
+                            Toast.makeText(AddProductActivity.this,
+                                    "Please enter product details!",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                        else
+                        {
+                        viewModel.AddProductPantry(productNavn.getText().toString(), productAntal.getText().toString());
+                        productNavn.setText("");
+                        productAntal.setText("");
+                    }
+
+                };
+                });
+    }
 }
 

@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import troels1.com.organisation.mypantry.CommonElements.ViewAdapter;
+import troels1.com.organisation.mypantry.addProducts.AddProductActivity;
 import troels1.com.organisation.mypantry.databinding.ActivityMenuViewBinding;
 import troels1.com.organisation.mypantry.databinding.ActivityPantryBinding;
 import troels1.com.organisation.mypantry.localDatabase.Entity.Product;
@@ -86,6 +87,11 @@ public class PantryActivity extends AppCompatActivity implements ViewAdapter.OnC
         View listitem = findViewById(R.id.listTopBar);
         listitem.setOnClickListener(y -> {
             Intent intent = new Intent(this, MyShoppingListActivity.class);
+            startActivity(intent);
+        });
+        View listitems = findViewById(R.id.findProdukter);
+        listitems.setOnClickListener(k -> {
+            Intent intent = new Intent(this, AddProductActivity.class);
             startActivity(intent);
         });
     }

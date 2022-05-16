@@ -11,7 +11,7 @@ import troels1.com.organisation.mypantry.localDatabase.DAO.UserDAO;
 import troels1.com.organisation.mypantry.localDatabase.Entity.Product;
 import troels1.com.organisation.mypantry.localDatabase.Entity.Userinformation;
 
-@Database(entities = {Product.class}, version = 1)
+@Database(entities = {Product.class}, version = 2)
 public abstract class ProductsDatabase extends RoomDatabase {
 
     private static ProductsDatabase instance;
