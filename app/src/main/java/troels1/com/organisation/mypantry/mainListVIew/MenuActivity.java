@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.adapters.TextViewBindingAdapter;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -22,6 +23,7 @@ import troels1.com.organisation.mypantry.CommonElements.UserAdapter;
 import troels1.com.organisation.mypantry.addProducts.AddProductActivity;
 import troels1.com.organisation.mypantry.databinding.ActivityMenuViewBinding;
 import troels1.com.organisation.mypantry.localDatabase.Entity.Userinformation;
+import troels1.com.organisation.mypantry.mainListVIew.Fragment.FragmentMain;
 import troels1.com.organisation.mypantry.myShoppingLists.MyShoppingListActivity;
 import troels1.com.organisation.mypantry.pantry.PantryActivity;
 import troels1.com.organisation.mypantry.R;
@@ -33,7 +35,6 @@ public class MenuActivity extends AppCompatActivity {
     private MenuActivityViewModel viewModel;
     private PropertyChangeSupport propertyChangeSupport;
     private List<Userinformation> list;
-    private TextView menuText;
     private Button toUserSelctFragment;
 
 
@@ -87,8 +88,6 @@ public class MenuActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.fragmentContainerView);
 
         toUserSelctFragment.setOnClickListener(v-> navController.navigate(R.id.fragmentUserSelector));
-       // menuText = findViewById(R.id.menu_textfelt_user);
-
     }
 
     public void updateList() {
@@ -96,8 +95,8 @@ public class MenuActivity extends AppCompatActivity {
         list.add(new Userinformation("test", "fragment virker"));
         Log.d("call", "updateList: viewcontroller");
         if (list != null) {
-            String test = "" + list.get(0).getFirstName() + list.get(0).getLastName();
-         //   menuText.setText(test);
+            String activUser = "" + list.get(0).getFirstName() + list.get(0).getLastName();
+    //        FragmentMain.setText(activUser);
         }
     }
 

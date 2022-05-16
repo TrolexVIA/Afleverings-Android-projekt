@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    >
 
     <item
         android:id="@+id/MainMenuTopBar"
@@ -21,6 +22,4 @@
         android:id="@+id/listTopBar"
         android:icon="@drawable/ic_notifications_black_24dp"
         android:title="Indkøb" />
-
-
 </menu>
