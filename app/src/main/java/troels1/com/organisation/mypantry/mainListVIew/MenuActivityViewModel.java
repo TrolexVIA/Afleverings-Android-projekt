@@ -47,7 +47,7 @@ public class MenuActivityViewModel extends AndroidViewModel {
         listener.propertyChange(new PropertyChangeEvent(this, "EventUserview", null, list));
     }
 
-    public boolean insert() { //temp for at se om det virker
+    public boolean insert() { //temp for at se om det virker skal slettes
         String first = "hej mia";
         String last = " det virker";
         Userinformation newUser = new Userinformation(first, last);
