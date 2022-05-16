@@ -101,7 +101,6 @@ public class PantryActivity extends AppCompatActivity implements ViewAdapter.OnC
     public void listSetup() {
         productsList = viewModel.getProductList();
         if (productsList.size() != 0) {
-            Log.d("call", productsList.get(0).getName() + "her skal der stå fisk" + productsList.get(1).getName());
             //updataing information fra viewcontroller
             adapter.changeDataset(productsList);
             adapter.notifyDataSetChanged();
