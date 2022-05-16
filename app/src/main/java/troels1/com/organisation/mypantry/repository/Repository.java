@@ -74,7 +74,6 @@ public class Repository<addPropertyChangeListner> implements MenuRepositoryInter
 
     public boolean insertNewUser(Userinformation newUser) {
         executorService.execute(() -> {
-            userDAO.deleteAll();
             userDAO.insert(newUser);
         });
         return true;

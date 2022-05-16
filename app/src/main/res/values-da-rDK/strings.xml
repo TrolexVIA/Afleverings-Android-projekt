@@ -11,4 +11,5 @@
     <string name="Add_button_pantry">Tilføj til fadebur</string>
     <string name="Add_button_shoppinglist">Tilføj til indkøbsliste</string>
     <string name="dismiss_error">Fjern</string>
+    <string name="prefix_user">"Bruger: "</string>
 </resources>

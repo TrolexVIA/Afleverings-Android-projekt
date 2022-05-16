@@ -5,6 +5,7 @@
         android:id="@+id/MainMenuTopBar"
         android:icon="@drawable/ic_home_black_24dp"
         android:title="@string/app_name"
+        android:tooltipText="@string/app_name"
         />
 
     <item

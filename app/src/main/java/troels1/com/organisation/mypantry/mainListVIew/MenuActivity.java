@@ -18,6 +18,7 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeSupport;
 import java.util.List;
 
+import troels1.com.organisation.mypantry.CommonElements.UserAdapter;
 import troels1.com.organisation.mypantry.addProducts.AddProductActivity;
 import troels1.com.organisation.mypantry.databinding.ActivityMenuViewBinding;
 import troels1.com.organisation.mypantry.localDatabase.Entity.Userinformation;
@@ -39,12 +40,12 @@ public class MenuActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_view);
-        menuText = (findViewById(R.id.menu_textfelt_user));
-
         //viewmodel til observerpattern og til at sende infromation ned i lasangen
         viewModel = new ViewModelProvider(this).get(MenuActivityViewModel.class);
         viewModel.getUpdate();
+
+        setContentView(R.layout.activity_menu_view);
+
 
         //navigation
         View listitem = findViewById(R.id.listTopBar);
@@ -86,6 +87,7 @@ public class MenuActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.fragmentContainerView);
 
         toUserSelctFragment.setOnClickListener(v-> navController.navigate(R.id.fragmentUserSelector));
+       // menuText = findViewById(R.id.menu_textfelt_user);
 
     }
 
@@ -95,9 +97,11 @@ public class MenuActivity extends AppCompatActivity {
         Log.d("call", "updateList: viewcontroller");
         if (list != null) {
             String test = "" + list.get(0).getFirstName() + list.get(0).getLastName();
-            menuText.setText(test);
+         //   menuText.setText(test);
         }
     }
+
+
 
     public void toast(boolean bool) {
         if (bool) {
