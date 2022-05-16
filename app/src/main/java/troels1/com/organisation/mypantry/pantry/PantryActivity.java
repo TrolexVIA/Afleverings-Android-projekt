@@ -1,23 +1,15 @@
 package troels1.com.organisation.mypantry.pantry;
 
-import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.tabs.TabLayout;
-
-import androidx.lifecycle.ViewModel;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.ViewPager;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeSupport;
@@ -25,15 +17,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import troels1.com.organisation.mypantry.CommonElements.ViewAdapter;
+import troels1.com.organisation.mypantry.R;
 import troels1.com.organisation.mypantry.addProducts.AddProductActivity;
-import troels1.com.organisation.mypantry.databinding.ActivityMenuViewBinding;
 import troels1.com.organisation.mypantry.databinding.ActivityPantryBinding;
 import troels1.com.organisation.mypantry.localDatabase.Entity.Product;
 import troels1.com.organisation.mypantry.mainListVIew.MenuActivity;
-import troels1.com.organisation.mypantry.mainListVIew.MenuActivityViewModel;
 import troels1.com.organisation.mypantry.myShoppingLists.MyShoppingListActivity;
-import troels1.com.organisation.mypantry.R;
-import troels1.com.organisation.mypantry.myShoppingLists.MyShoppingListActivityViewModel;
 
 
 public class PantryActivity extends AppCompatActivity implements ViewAdapter.OnClickListener {
@@ -41,7 +30,7 @@ public class PantryActivity extends AppCompatActivity implements ViewAdapter.OnC
     private ActivityPantryBinding binding;
     private PantryActivityViewModel viewModel;
     public RecyclerView pantryList;
-    private List<Product> productsList = new ArrayList<Product>();
+    private List<Product> productsList = new ArrayList<>();
     private PropertyChangeSupport propertyChangeSupport;
     private ViewAdapter adapter;
 
@@ -60,7 +49,7 @@ public class PantryActivity extends AppCompatActivity implements ViewAdapter.OnC
         pantryList.hasFixedSize();
         pantryList.setLayoutManager(new LinearLayoutManager(this));
         adapter = new ViewAdapter(productsList, this);
-        pantryList.setAdapter((RecyclerView.Adapter) adapter);
+        pantryList.setAdapter(adapter);
 
         //requesting inforation fra repository
         propertyChangeSupport = new PropertyChangeSupport(this);
@@ -101,13 +90,12 @@ public class PantryActivity extends AppCompatActivity implements ViewAdapter.OnC
     public void listSetup() {
         productsList = viewModel.getProductList();
         if (productsList.size() != 0) {
-            Log.d("call", productsList.get(0).getName() + "her skal der stå fisk" + productsList.get(1).getName());
             //updataing information fra viewcontroller
             adapter.changeDataset(productsList);
             adapter.notifyDataSetChanged();
         }
     }
-
+    //bør nok kunne et eller andet
     public void onClick(int position) {
         Toast.makeText(this, "tryk på " + position + " Virker", Toast.LENGTH_LONG).show();
     }

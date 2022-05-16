@@ -16,7 +16,6 @@ import androidx.navigation.Navigation;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeSupport;
-import java.util.ArrayList;
 import java.util.List;
 
 import troels1.com.organisation.mypantry.addProducts.AddProductActivity;
@@ -41,7 +40,7 @@ public class MenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_view);
-        menuText = (findViewById(R.id.MenuTextfelt));
+        menuText = (findViewById(R.id.menu_textfelt_user));
 
         //viewmodel til observerpattern og til at sende infromation ned i lasangen
         viewModel = new ViewModelProvider(this).get(MenuActivityViewModel.class);
@@ -92,6 +91,7 @@ public class MenuActivity extends AppCompatActivity {
 
     public void updateList() {
         list = viewModel.getUpdate();
+        list.add(new Userinformation("test", "fragment virker"));
         Log.d("call", "updateList: viewcontroller");
         if (list != null) {
             String test = "" + list.get(0).getFirstName() + list.get(0).getLastName();
@@ -100,7 +100,7 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     public void toast(boolean bool) {
-        if (bool == true) {
+        if (bool) {
             Toast.makeText(this, "Profiler er hentet", Toast.LENGTH_LONG).show();
         }
     }

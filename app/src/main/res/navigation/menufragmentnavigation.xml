@@ -7,11 +7,13 @@
 
     <fragment
         android:id="@+id/fragmentUserSelector"
+        android:name="troels1.com.organisation.mypantry.mainListVIew.Fragment.FragmentSelectUser"
         android:label="fragment_one"
         tools:layout="@layout/fragment_user_slector"/>
 
     <fragment
         android:id="@+id/fragmentMainView"
+        android:name="troels1.com.organisation.mypantry.mainListVIew.Fragment.FragmentMain"
         android:label="fragment_one"
         tools:layout="@layout/fragmentmain"/>
 

@@ -3,14 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#8BC34A"
-    tools:context=".mainListVIew.MenuActivity">
+    tools:context=".mainListVIew.Fragment.FragmentMain">
 
     <TextView
+        android:id="@+id/menu_textfelt_user"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:text="Fragment One"
+        android:text=" "
         android:textSize="60sp" />
 
 </FrameLayout>
