@@ -17,11 +17,13 @@ import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 import java.util.List;
 
+import troels1.com.organisation.mypantry.addProducts.AddProductActivity;
 import troels1.com.organisation.mypantry.databinding.ActivityMenuViewBinding;
 import troels1.com.organisation.mypantry.localDatabase.Entity.Userinformation;
 import troels1.com.organisation.mypantry.myShoppingLists.MyShoppingListActivity;
 import troels1.com.organisation.mypantry.pantry.PantryActivity;
 import troels1.com.organisation.mypantry.R;
+
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -54,6 +56,13 @@ public class MenuActivity extends AppCompatActivity {
             Intent intent = new Intent(this, PantryActivity.class);
             startActivity(intent);
         });
+
+        View listitems = findViewById(R.id.findProdukter);
+        listitems.setOnClickListener(k -> {
+            Intent intent = new Intent(this, AddProductActivity.class);
+            startActivity(intent);
+        });
+
 
 
         // Setting the right User

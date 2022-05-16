@@ -10,12 +10,17 @@
     <item
         android:id="@+id/pantryTopBar"
         android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="@string/Pantry" />
+        android:title="Fadebur" />
+
+    <item
+        android:id="@+id/findProdukter"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="Produkter" />
 
     <item
         android:id="@+id/listTopBar"
         android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="@string/MyShopping" />
+        android:title="Indkøb" />
 
 
 </menu>
