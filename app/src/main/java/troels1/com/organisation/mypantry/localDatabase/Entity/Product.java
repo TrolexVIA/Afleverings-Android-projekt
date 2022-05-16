@@ -18,6 +18,9 @@ public class Product {
     @ColumnInfo(name = "name")
     public String name;
 
+    @ColumnInfo(name = "numberOf")
+    public int antal;
+
     @ColumnInfo(name = "desrciption")
     public String description;
 
@@ -33,13 +36,14 @@ public class Product {
     @ColumnInfo(name = "inList")
     public Boolean inList;
 
-    public Product(String name, String description, String kategori, String udloebsdato, Boolean inStock, Boolean inList) {
+    public Product(String name, String description, String kategori, String udloebsdato, Boolean inStock, Boolean inList, int antal) {
         this.name = name;
         this.kategori = kategori;
         this.udloebsdato = udloebsdato;
         this.description = description;
         this.inStock = inStock;
         this.inList = inList;
+        this.antal = antal;
     }
 
     public String getName() {
@@ -49,10 +53,18 @@ public class Product {
     public void setName(String name) {
         this.name = name;
     }
+    public int getAntal() {
+        return antal;
+    }
+
+    public void setAntal(int antal) {
+        this.antal = antal;
+    }
 
     public String getDescription() {
         return description;
     }
+
 
     public void setDescription(String description) {
         this.description = description;

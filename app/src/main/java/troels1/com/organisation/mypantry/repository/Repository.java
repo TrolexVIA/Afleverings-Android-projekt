@@ -21,11 +21,12 @@ import troels1.com.organisation.mypantry.localDatabase.Entity.Product;
 import troels1.com.organisation.mypantry.localDatabase.ProductsDatabase;
 import troels1.com.organisation.mypantry.localDatabase.UserDatabase;
 import troels1.com.organisation.mypantry.localDatabase.Entity.Userinformation;
+import troels1.com.organisation.mypantry.repository.interfaces.AddProductInterface;
 import troels1.com.organisation.mypantry.repository.interfaces.MenuRepositoryInterface;
 import troels1.com.organisation.mypantry.repository.interfaces.MyShoppingListRepositoryInterface;
 import troels1.com.organisation.mypantry.repository.interfaces.PantryRepositoryInterface;
 
-public class Repository<addPropertyChangeListner> implements MenuRepositoryInterface, PantryRepositoryInterface, MyShoppingListRepositoryInterface {
+public class Repository<addPropertyChangeListner> implements MenuRepositoryInterface, PantryRepositoryInterface, MyShoppingListRepositoryInterface, AddProductInterface {
 
     private static Repository instance;
     private UserDAO userDAO;
@@ -173,6 +174,13 @@ public class Repository<addPropertyChangeListner> implements MenuRepositoryInter
             mainThreadHandler.post(() -> {
                 callbackProduct(list);
             });
+        });
+    }
+//Kommer fra AddproductActivityVM
+    @Override
+    public void insertIntoLists(Product product) {
+        executorService.execute(() -> {
+            productDAO.insertProduct(product);
         });
     }
 }

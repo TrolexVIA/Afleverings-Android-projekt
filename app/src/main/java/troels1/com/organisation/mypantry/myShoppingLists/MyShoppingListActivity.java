@@ -45,7 +45,7 @@ public class MyShoppingListActivity extends AppCompatActivity implements ViewAda
         super.onCreate(savedInstanceState);
         viewModel = new ViewModelProvider(this).get(MyShoppingListActivityViewModel.class);
         setContentView(R.layout.activity_my_shoping_list);
-        productsList.add(new Product("virker ikke", null, null, null, false, false)); //for at initiere productsList
+        productsList.add(new Product("virker ikke", null, null, null, false, false, 0)); //for at initiere productsList
         shoppingList = findViewById(R.id.rv);
         shoppingList.hasFixedSize();
         shoppingList.setLayoutManager(new LinearLayoutManager(this));
@@ -81,7 +81,8 @@ public class MyShoppingListActivity extends AppCompatActivity implements ViewAda
     public void listSetup() {
         productsList = viewModel.getProductList();
         if (productsList.size() != 0) {
-            //updataing information fra viewcontroller
+
+            //updating information fra viewcontroller
             adapter.changeDataset(productsList);
             adapter.notifyDataSetChanged();
         }

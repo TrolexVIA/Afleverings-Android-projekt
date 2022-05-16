@@ -17,4 +17,9 @@
     <string name="MyShopping">My Shopping Lists</string>
     <string name="NotYou">Not you?</string>
 
+    <string name="error_fragment_message">An error occurred</string>
+    <string name="dismiss_error">Dismiss</string>
+    <string name="Add_button_pantry">Add to pantry</string>
+    <string name="Add_button_shoppinglist">add to shoppinglist</string>
+
 </resources>
