@@ -10,7 +10,7 @@
     <string name="title_activity_shared_shoping_lists_activitity_view" translatable="false">
         SharedShopingListsActivitityView
     </string>
-    <string name="title_activity_pantry" >MyPantry</string>
+    <string name="title_activity_pantry" >Pantry</string>
     <string name="productremove_shopping">Delete from shoppinglist</string>
     <string name="productremove_pantry" >Delete from pantry</string>
     <string name="Pantry">Pantry</string>
