@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import troels1.com.organisation.mypantry.CommonElements.UserAdapter;
 import troels1.com.organisation.mypantry.R;
 
-public class FragmentSelectUser extends Fragment implements UserAdapter.OnClickListener {
+public class FragmentSelectUser extends Fragment implements View.OnLongClickListener {
 
     private RecyclerView recyclerView;
 
@@ -27,8 +27,7 @@ public class FragmentSelectUser extends Fragment implements UserAdapter.OnClickL
     }
 
     @Override
-    public void onClick(int position) {
-      //  NavController navController = Navigation.findNavController(MenuActivity.class, R.id.fragmentContainerView);
-      //  navController.navigate(R.id.fragmentMainView);
+    public boolean onLongClick(View view) {
+        return false;
     }
 }

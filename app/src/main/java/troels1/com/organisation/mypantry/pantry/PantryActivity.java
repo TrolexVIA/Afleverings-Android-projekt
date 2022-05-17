@@ -24,7 +24,7 @@ import troels1.com.organisation.mypantry.mainListVIew.MenuActivity;
 import troels1.com.organisation.mypantry.myShoppingLists.MyShoppingListActivity;
 
 
-public class PantryActivity extends AppCompatActivity implements ViewAdapter.OnClickListener {
+public class PantryActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ActivityPantryBinding binding;
     private PantryActivityViewModel viewModel;
@@ -85,5 +85,10 @@ public class PantryActivity extends AppCompatActivity implements ViewAdapter.OnC
     }
     public void onClick(int position) {
         Toast.makeText(this, "tryk på " + position + " Virker", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onClick(View view) {
+
     }
 }
