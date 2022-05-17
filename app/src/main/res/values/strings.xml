@@ -34,7 +34,9 @@
 
     <string name="Products">Products</string>
     <string name="Shoppinglist" >Shoppinglist</string>
+    <string name="delete_product">Product deleted</string>
     <string name="Welcome">Welcome!</string>
     <string name="Remove_user">Remove user</string>
+
 
 </resources>
