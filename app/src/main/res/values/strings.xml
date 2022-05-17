@@ -12,7 +12,7 @@
     </string>
     <string name="title_activity_pantry" >MyPantry</string>
     <string name="productremove_shopping">Delete from shoppinglist</string>
-    <string name="productremove_pantry" >Delete from shoppinglist</string>
+    <string name="productremove_pantry" >Delete from pantry</string>
     <string name="Pantry">Pantry</string>
     <string name="MyShopping">My Shopping Lists</string>
     <string name="NotYou">Not you?</string>
