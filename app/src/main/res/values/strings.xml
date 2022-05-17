@@ -4,13 +4,15 @@
     <string name="title_activity_main_view_model">MainActivityViewModel</string>
     <string name="title_activity_menu_view" translatable="false">MenuView</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_dashboard" translatable="false">Dashboard</string>
+    <string name="title_notifications" translatable="false">Notifications</string>
     <string name="title_activity_repository" translatable="false">Repository</string>
     <string name="title_activity_shared_shoping_lists_activitity_view" translatable="false">
         SharedShopingListsActivitityView
     </string>
-    <string name="title_activity_pantry" translatable="false">PantryActivity</string>
+    <string name="title_activity_pantry" >MyPantry</string>
+    <string name="productremove_shopping">Delete from shoppinglist</string>
+    <string name="productremove_pantry" >Delete from shoppinglist</string>
     <string name="Pantry">Pantry</string>
     <string name="MyShopping">My Shopping Lists</string>
     <string name="NotYou">Not you?</string>
@@ -30,7 +32,7 @@
     <string name="error_add_product">Please enter product details!</string>
     <string name="error_add_user">Please enter your name!</string>
 
-    <string name="Products" translatable="false">Products</string>
-    <string name="Shoppinglist" translatable="false">Shoppinglist</string>
+    <string name="Products">Products</string>
+    <string name="Shoppinglist" >Shoppinglist</string>
 
 </resources>

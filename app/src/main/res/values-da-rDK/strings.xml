@@ -20,4 +20,9 @@
     <string name="Button_AddNewUser">Tilføj ny Bruger</string>
     <string name="error_add_product">Indtast produkt detaljer!</string>
     <string name="error_add_user">Intast dit navn!</string>
+    <string name="productremove_pantry" >Slet fra fadebur</string>
+    <string name="productremove_shopping">Slet fra shoppingliste</string>
+    <string name="Products">Produkter</string>
+    <string name="Shoppinglist" >Shoppingliste</string>
+    <string name="title_activity_pantry" >MitFadebur</string>
 </resources>
