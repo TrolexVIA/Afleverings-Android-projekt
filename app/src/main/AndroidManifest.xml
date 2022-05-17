@@ -17,22 +17,16 @@
         <activity
             android:name=".addProducts.AddProductActivity"
             android:exported="false"
-            android:label="@string/Products"/>
+            android:label="@string/Products" />
         <activity
             android:name=".pantry.PantryActivity"
             android:exported="false"
-            android:label="@string/title_activity_pantry"
-            />
+            android:label="@string/title_activity_pantry" />
         <activity
             android:name=".myShoppingLists.MyShoppingListActivity"
             android:exported="false"
-            android:label="@string/Shoppinglist"
-            />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
+            android:label="@string/Shoppinglist" />
+           <activity
             android:name=".mainListVIew.MenuActivity"
             android:exported="true">
             <intent-filter>
