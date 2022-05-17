@@ -1,8 +1,6 @@
 package troels1.com.organisation.mypantry.addUser;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -10,10 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import troels1.com.organisation.mypantry.R;
-import troels1.com.organisation.mypantry.addProducts.AddProductActivity;
-import troels1.com.organisation.mypantry.addProducts.AddProductActivityViewModel;
 import troels1.com.organisation.mypantry.mainListVIew.MenuActivity;
 import troels1.com.organisation.mypantry.myShoppingLists.MyShoppingListActivity;
 import troels1.com.organisation.mypantry.pantry.PantryActivity;

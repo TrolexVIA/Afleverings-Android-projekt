@@ -13,5 +13,4 @@ public interface MenuRepositoryInterface {
 
     public List<Userinformation> getListUserinformation();
 
-    public void setActivUser(Userinformation activUser); //skal sættes op i menu
 }

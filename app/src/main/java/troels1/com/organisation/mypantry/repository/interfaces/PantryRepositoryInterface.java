@@ -8,7 +8,6 @@ import troels1.com.organisation.mypantry.localDatabase.Entity.Userinformation;
 
 public interface PantryRepositoryInterface {
 
-    public Userinformation getActivUser();
 
     public void addPropertyChangeListener(String name, PropertyChangeListener listener);
 

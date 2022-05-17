@@ -22,7 +22,6 @@ public class AddUserActivityViewModel extends AndroidViewModel {
     }
 
     public void addUserShopping(String name) {
-        //konvertere string name til to strings: fornavn og efternavn
         char[] charArray = name.toCharArray();
         ArrayList<String> tempArray = new ArrayList<>();
         String temp = "";

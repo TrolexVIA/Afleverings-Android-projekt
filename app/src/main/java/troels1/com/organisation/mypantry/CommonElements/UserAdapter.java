@@ -1,8 +1,6 @@
 package troels1.com.organisation.mypantry.CommonElements;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +20,6 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolderUser
     private List<Userinformation> users;
     private UserAdapter.OnClickListener pOnClickListener;
     private UserAdapterRepositoryInterface repository;
-    private PropertyChangeSupport propertyChangeSupport;
 
     public UserAdapter(OnClickListener onClickListener) {
         repository = Repository.getInstance(null);
@@ -33,7 +30,6 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolderUser
 
     public void setUsers() {
         users = repository.getListUserinformation();
-        Log.d("call", "Useradapter: userupdate " + users.size());
         this.notifyDataSetChanged();
     }
 
