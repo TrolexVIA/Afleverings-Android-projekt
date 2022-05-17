@@ -16,12 +16,12 @@ import troels1.com.organisation.mypantry.R;
 
 public class FragmentMain extends Fragment {
 
-    public TextView activUserTextView;
+    public static TextView activUserTextView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragmentmain, container, false);
-      //  activUserTextView = R.layout(fragmentmain@id/menu_textfelt_user);
+        activUserTextView = view.findViewById(R.id.menu_textfelt_user);
         return view;
     }
 }

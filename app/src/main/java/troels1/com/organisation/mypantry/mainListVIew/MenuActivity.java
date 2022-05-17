@@ -96,7 +96,7 @@ public class MenuActivity extends AppCompatActivity {
         Log.d("call", "updateList: viewcontroller");
         if (list != null) {
             String activUser = "" + list.get(0).getFirstName() + list.get(0).getLastName();
-    //        FragmentMain.setText(activUser);
+           FragmentMain.activUserTextView.setText(activUser);
         }
     }
 
