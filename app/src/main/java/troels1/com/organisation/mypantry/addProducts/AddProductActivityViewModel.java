@@ -11,7 +11,7 @@ import troels1.com.organisation.mypantry.repository.interfaces.AddProductInterfa
 
 public class AddProductActivityViewModel extends AndroidViewModel {
     private AddProductInterface repository;
-    
+
     public AddProductActivityViewModel(@NonNull Application application) {
         super(application);
         repository = Repository.getInstance(application);
@@ -19,11 +19,15 @@ public class AddProductActivityViewModel extends AndroidViewModel {
 
     public void addProductShopping(String name, String antal) {
         Product product = new Product(name, null, null, null, false, true, Integer.parseInt(antal));
-    repository.insertProductIntoLists(product);
+        repository.insertProductIntoLists(product);
     }
+
     public void addProductPantry(String name, String antal) {
         Product product = new Product(name, null, null, null, true, false, Integer.parseInt(antal));
         repository.insertProductIntoLists(product);
     }
 
+    public boolean deleteProduct(String name, String number, boolean inStock) {
+       return repository.deleteProduct(name, inStock);
+    }
 }

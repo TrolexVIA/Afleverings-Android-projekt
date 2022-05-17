@@ -136,11 +136,11 @@ public class Repository<addPropertyChangeListner> implements MenuRepositoryInter
         );
     }
 
-    public boolean deleteProduct(String name) {
+    public boolean deleteProduct(String name, boolean inStock) {
         boolean tjeck = false;
         int productnumber = -1;
         for (int i = 0; i < listUserinformation.size(); i++) {
-            if (listOfProducts.get(i).getName().equals(name)) {
+            if (listOfProducts.get(i).getName().equals(name) && listOfProducts.get(i).inStock == inStock) {
                 tjeck = true;
                 productnumber = i;
             }
