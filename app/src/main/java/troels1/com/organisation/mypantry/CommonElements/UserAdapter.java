@@ -2,34 +2,39 @@ package troels1.com.organisation.mypantry.CommonElements;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeSupport;
 import java.util.List;
 
 import troels1.com.organisation.mypantry.R;
 import troels1.com.organisation.mypantry.localDatabase.Entity.Userinformation;
 import troels1.com.organisation.mypantry.repository.Repository;
+import troels1.com.organisation.mypantry.repository.interfaces.UserAdapterRepositoryInterface;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolderUser> {
 
     private List<Userinformation> users;
     private UserAdapter.OnClickListener pOnClickListener;
-    private Repository repository;
+    private UserAdapterRepositoryInterface repository;
     private PropertyChangeSupport propertyChangeSupport;
 
     public UserAdapter(OnClickListener onClickListener) {
         repository = Repository.getInstance(null);
         this.users = repository.getListUserinformation();
         this.pOnClickListener = onClickListener;
-
+        repository.addPropertyChangeListener("eventUser", (PropertyChangeEvent event) ->  this.setUsers());
     }
 
-    public void changeDataset(List<Userinformation> list) {
-        users = list;
+    public void setUsers() {
+        users = repository.getListUserinformation();
+        Log.d("call", "Useradapter: userupdate " + users.size());
+        this.notifyDataSetChanged();
     }
 
     public int getItemCount() {

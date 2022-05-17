@@ -62,10 +62,10 @@ public class AddProductActivity extends AppCompatActivity {
                 view -> {
                     if (TextUtils.isEmpty(productNavn.getText().toString()) || TextUtils.isEmpty(productAntal.getText().toString())) {
                         Toast.makeText(AddProductActivity.this,
-                                "Please enter product details!",
+                                getString(R.string.error_add_product),
                                 Toast.LENGTH_SHORT).show();
                     } else
-                        viewModel.AddProductShopping(productNavn.getText().toString(), productAntal.getText().toString());
+                        viewModel.addProductShopping(productNavn.getText().toString(), productAntal.getText().toString());
                     productNavn.setText("");
                     productAntal.setText("");
                 });
@@ -74,10 +74,10 @@ public class AddProductActivity extends AppCompatActivity {
                 view -> {
                     if (TextUtils.isEmpty(productNavn.getText().toString()) || TextUtils.isEmpty(productAntal.getText().toString())) {
                         Toast.makeText(AddProductActivity.this,
-                                "Please enter product details!",
+                                getString(R.string.error_add_product),
                                 Toast.LENGTH_SHORT).show();
                     } else {
-                        viewModel.AddProductPantry(productNavn.getText().toString(), productAntal.getText().toString());
+                        viewModel.addProductPantry(productNavn.getText().toString(), productAntal.getText().toString());
                         productNavn.setText("");
                         productAntal.setText("");
                     }

@@ -3,16 +3,14 @@
     <string name="changed">Changed</string>
     <string name="title_activity_main_view_model">MainActivityViewModel</string>
     <string name="title_activity_menu_view" translatable="false">MenuView</string>
-    <string name="title_home" translatable="false">Home</string>
-    <string name="title_dashboard" translatable="false">Dashboard</string>
-    <string name="title_notifications" translatable="false">Notifications</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
     <string name="title_activity_repository" translatable="false">Repository</string>
     <string name="title_activity_shared_shoping_lists_activitity_view" translatable="false">
         SharedShopingListsActivitityView
     </string>
     <string name="title_activity_pantry" translatable="false">PantryActivity</string>
-    <string name="tab_text_1" translatable="false">Tab 1</string>
-    <string name="tab_text_2" translatable="false">Tab 2</string>
     <string name="Pantry">Pantry</string>
     <string name="MyShopping">My Shopping Lists</string>
     <string name="NotYou">Not you?</string>
@@ -23,6 +21,15 @@
     <string name="Add_button_shoppinglist">add to shoppinglist</string>
     <string name="welcome">Welcome</string>
     <string name="prefix_user">User:</string>
+
+    <string name="New_User">New User?</string>
+    <string name="Textfield_NameTheProduct">Input the name of the product</string>
+    <string name="Textfield_Number">Input the number of the product</string>
+    <string name="Textfield_inputUsername">What is your name?</string>
+    <string name="Button_AddNewUser">Add new User</string>
+    <string name="error_add_product">Please enter product details!</string>
+    <string name="error_add_user">Please enter your name!</string>
+
     <string name="Products" translatable="false">Products</string>
     <string name="Shoppinglist" translatable="false">Shoppinglist</string>
 
