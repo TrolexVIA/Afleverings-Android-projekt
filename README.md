@@ -12,6 +12,8 @@ Appen har et enkelt design, for at være egnet til alle segmenter. Vi forstiller
 
 Når appen er klar til launch vil den ville markedsført på diverse kanaler for storforbrugere af reklameaviser.
 
+Linket til videogennemgang af projektet:
+https://youtu.be/Tikv5WEaIaY
 
 
 
