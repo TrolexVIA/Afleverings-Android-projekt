@@ -62,7 +62,7 @@ public class Repository<addPropertyChangeListner> implements MenuRepositoryInter
         executorService.execute(() -> {
             Log.d("call", "executable");
             List<Userinformation> list = userDAO.loadAllUsers();
-            Log.d("call", "executable done");
+            Log.d("call", "executable done list size" + list.size());
             mainThreadHandler.post(() -> callbackUser(list));
         });
     }
@@ -77,6 +77,7 @@ public class Repository<addPropertyChangeListner> implements MenuRepositoryInter
     public void insertNewUser(Userinformation newUser) {
         executorService.execute(() -> {
             userDAO.insert(newUser);
+            Log.d("call","new user added");
         });
     }
 

@@ -34,7 +34,7 @@ public class MenuActivityViewModel extends AndroidViewModel {
 
     private void updateList() {
        list =  repositoryIF.getListUserinformation();
-        Log.d("call", "updateList: viewmodel ");
+        Log.d("call", "ViewModel: updateUserList " + list.size());
        propertyChangeSupport.firePropertyChange("EventUserview", null, list);
     }
 

@@ -20,8 +20,7 @@
         <activity
             android:name=".pantry.PantryActivity"
             android:exported="false"
-            android:label="@string/title_activity_pantry"
-            android:theme="@style/Theme.MyPantry.NoActionBar" />
+            android:label="@string/title_activity_pantry"/>
         <activity
             android:name=".myShoppingLists.MyShoppingListActivity"
             android:exported="false" />

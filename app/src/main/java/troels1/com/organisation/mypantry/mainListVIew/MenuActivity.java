@@ -34,13 +34,12 @@ public class MenuActivity extends AppCompatActivity {
     private List<Userinformation> list;
     private Button toUserSelctFragment;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //viewmodel til observerpattern og til at sende infromation ned i lasangen
         viewModel = new ViewModelProvider(this).get(MenuActivityViewModel.class);
-        viewModel.getUpdate();
+        viewModel.SendUserQuery();
 
         setContentView(R.layout.activity_menu_view);
 
@@ -83,18 +82,11 @@ public class MenuActivity extends AppCompatActivity {
 
     public void updateList() {
         list = viewModel.getUpdate();
-        list.add(new Userinformation("test", "fragment virker"));
-        Log.d("call", "updateList: viewcontroller");
-        if (list != null) {
-            String activUser = "" + list.get(0).getFirstName() + list.get(0).getLastName();
+        Log.d("call", " viewcontroller: updateList " + list.size());
+        if (list.size() > 0) {
+           String activUser = "" + list.get(0).getFirstName() + " " +  list.get(0).getLastName();
            FragmentMain.activUserTextView.setText(activUser);
         }
     }
-
- //   public void toast(boolean bool) {
- //       if (bool) {
- //           Toast.makeText(this, "Profiler er hentet", Toast.LENGTH_LONG).show();
- //       }
-//    }
 }
 
