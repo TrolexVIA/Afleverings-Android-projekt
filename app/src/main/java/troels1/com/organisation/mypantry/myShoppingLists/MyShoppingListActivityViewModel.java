@@ -34,7 +34,7 @@ public class MyShoppingListActivityViewModel extends AndroidViewModel {
     }
 
     public void loadProducts() {
-       repository.loadProducts();
+       repository.loadProductsShoping();
     }
 
     public void getProductListRepository() {

@@ -1,6 +1,8 @@
 package troels1.com.organisation.mypantry.CommonElements;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +21,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolderUser
 
     private List<Userinformation> users;
     private UserAdapter.OnClickListener pOnClickListener;
-    private UserAdapterRepositoryInterface repository;
+    private final UserAdapterRepositoryInterface repository;
 
     public UserAdapter(OnClickListener onClickListener) {
         repository = Repository.getInstance(null);
@@ -47,7 +49,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolderUser
 
     @Override
     public void onBindViewHolder(@NonNull UserAdapter.ViewHolderUser viewholder, int position) {
-        viewholder.productName.setText(R.string.prefix_user + users.get(position).getFirstName() + " " + users.get(position).getLastName());
+        viewholder.productName.setText("Username: " + users.get(position).getFirstName() + " " + users.get(position).getLastName());
     }
 
 
