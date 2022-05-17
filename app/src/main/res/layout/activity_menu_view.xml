@@ -6,26 +6,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFCE1"
-    android:paddingTop="?attr/actionBarSize">
+    android:orientation="vertical"
+    android:paddingTop="40dp">
 
     <Button
         android:id="@+id/SelectUserButton"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_marginTop="56dp"
         android:text="@string/NotYou"
         app:cornerRadius="30dp"
         app:layout_constraintEnd_toStartOf="@+id/NewUserButton"
-        app:layout_constraintHorizontal_bias="0.266"
+
+        app:layout_constraintHorizontal_bias="0.423"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/NewUserButton"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="52dp"
+        android:layout_marginEnd="28dp"
         android:text="@string/New_User"
         app:cornerRadius="30dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,8 +34,8 @@
     <fragment
         android:id="@+id/fragmentContainerView"
         android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="409dp"
-        android:layout_height="464dp"
+        android:layout_width="match_parent"
+        android:layout_height="540dp"
         app:defaultNavHost="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,15 +52,5 @@
         app:menu="@menu/bottom_nav_menu"
         app:labelVisibilityMode="labeled"
         android:background="#FFFCE1"/>
-
-    <TextView
-        android:id="@+id/welcome"
-        android:layout_width="191dp"
-        android:layout_height="39dp"
-        android:layout_marginBottom="548dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
