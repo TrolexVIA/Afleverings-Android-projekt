@@ -45,18 +45,36 @@ public class AddUserActivity extends AppCompatActivity {
 
 
         addUser = findViewById(R.id.add_user_button);
+        deleteUser = findViewById(R.id.remove)
         userNavn = findViewById(R.id.add_user_textfield);
+
 
         addUser.setOnClickListener(
                 view -> {
-                    if (TextUtils.isEmpty(userNavn.getText().toString())) {
-                        Toast.makeText(AddUserActivity.this,
-                                getString(R.string.error_add_user),
-                                Toast.LENGTH_SHORT).show();
-                    } else
+                    if (feltchecker()) {
                         viewModel.addUserShopping(userNavn.getText().toString());
-                    userNavn.setText("");
+                        userNavn.setText("");
+                    }
                 });
+
+       deleteUser .setOnClickListener(
+                view -> {
+                    if (feltchecker()){
+                        viewModel.addUserShopping(userNavn.getText().toString());
+                        userNavn.setText("");
+                    }
+                });
+    }
+
+    public boolean feltchecker() {
+        if (TextUtils.isEmpty(userNavn.getText().toString())) {
+            Toast.makeText(AddUserActivity.this,
+                    getString(R.string.error_add_user),
+                    Toast.LENGTH_SHORT).show();
+            return false;
+        } else {
+            return true;
+        }
     }
 }
 

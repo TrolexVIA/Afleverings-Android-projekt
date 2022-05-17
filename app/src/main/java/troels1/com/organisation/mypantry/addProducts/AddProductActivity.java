@@ -18,11 +18,9 @@ import troels1.com.organisation.mypantry.pantry.PantryActivity;
 
 public class AddProductActivity extends AppCompatActivity {
 
-    private Button addShopping;
-    private Button addPantry;
+    private AddProductActivityViewModel viewModel;
     private EditText productNavn;
     private EditText productAntal;
-    private AddProductActivityViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,36 +51,69 @@ public class AddProductActivity extends AppCompatActivity {
             overridePendingTransition(R.anim.slide, R.anim.slide);
         });
 
-        addShopping = (Button) findViewById(R.id.tilføj);
-        addPantry = (Button) findViewById(R.id.tilføj1);
+        Button addShopping = (Button) findViewById(R.id.tilføj);
+        Button addPantry = (Button) findViewById(R.id.tilføj1);
         productNavn = (EditText) findViewById(R.id.produktNavn);
         productAntal = (EditText) findViewById(R.id.produktAntal);
 
+        Button removeShopping = (Button) findViewById(R.id.remove_shopping);
+        Button removeInStock = (Button) findViewById(R.id.remove_pantry);
+
         addShopping.setOnClickListener(
                 view -> {
-                    if (TextUtils.isEmpty(productNavn.getText().toString()) || TextUtils.isEmpty(productAntal.getText().toString())) {
-                        Toast.makeText(AddProductActivity.this,
-                                getString(R.string.error_add_product),
-                                Toast.LENGTH_SHORT).show();
-                    } else
+                    if (feltChecker()) {
                         viewModel.addProductShopping(productNavn.getText().toString(), productAntal.getText().toString());
-                    productNavn.setText("");
-                    productAntal.setText("");
+                        productNavn.setText("");
+                        productAntal.setText("");
+                    }
                 });
 
         addPantry.setOnClickListener(
                 view -> {
-                    if (TextUtils.isEmpty(productNavn.getText().toString()) || TextUtils.isEmpty(productAntal.getText().toString())) {
-                        Toast.makeText(AddProductActivity.this,
-                                getString(R.string.error_add_product),
-                                Toast.LENGTH_SHORT).show();
-                    } else {
+                    if (feltChecker()) {
                         viewModel.addProductPantry(productNavn.getText().toString(), productAntal.getText().toString());
                         productNavn.setText("");
                         productAntal.setText("");
                     }
-
                 });
+
+        removeInStock.setOnClickListener(
+                view -> {
+                    if (feltChecker()) {
+                        boolean toast = viewModel.deleteProduct(productNavn.getText().toString(), productAntal.getText().toString(), true);
+                        productNavn.setText("");
+                        productAntal.setText("");
+                        if (toast) {
+                            Toast.makeText(AddProductActivity.this,
+                                    getString(R.string.delete_product),
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+        removeShopping.setOnClickListener(
+                view -> {
+                    if (feltChecker()) {
+                        boolean toast = viewModel.deleteProduct(productNavn.getText().toString(), productAntal.getText().toString(), false);
+                        productNavn.setText("");
+                        productAntal.setText("");
+                        if (toast) {
+                            Toast.makeText(AddProductActivity.this,
+                                    getString(R.string.delete_product),
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
+
+    public boolean feltChecker() {
+        if (TextUtils.isEmpty(productNavn.getText().toString()) || TextUtils.isEmpty(productAntal.getText().toString())) {
+            Toast.makeText(AddProductActivity.this,
+                    getString(R.string.error_add_product),
+                    Toast.LENGTH_SHORT).show();
+            return false;
+        } else {
+            return true;
+        }
     }
 }
 

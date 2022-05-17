@@ -34,5 +34,6 @@
 
     <string name="Products">Products</string>
     <string name="Shoppinglist" >Shoppinglist</string>
+    <string name="delete_product">Product deleted</string>
 
 </resources>
