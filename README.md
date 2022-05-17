@@ -1,5 +1,5 @@
 # Afleverings-Android-projekt
-android projekt med Mia og Troels
+android projekt med Mia Klug 274638 og Troels Albertsen 296177
 
 # Idé
 
@@ -37,7 +37,8 @@ Som bruger vil jeg gerne have mulighed for at oprette bruger (My Pantry)
 
 Som bruger vil jeg gerne have mulighed for at se liste brugere (My Pantry)
 
-IKKE implementret
+
+IKKE implementret endnu
 
 Som en bruger vil jeg gerne have mulighed for at se alle oprettede produkter. (produkter)
 
@@ -53,10 +54,6 @@ Som en bruger vil jeg gerne have mulighed for at dele min liste med andre så de
 
 Som en bruger vil jeg gerne have mulighed for at dele min liste med andre så de kan både se og redigere den. (man kan dele inde fra de enkkelte lister)
 
-
-
-
-# Kanban board
 
 
 # Produckt Backlog:
