@@ -33,6 +33,7 @@ public class AddUserActivityViewModel extends AndroidViewModel {
                 tempArray.add(temp);
                 temp = "";
             }
+            tempArray.add(temp);
         }
         String lastname = "";
         for (int i = 1; i < tempArray.size(); i++) {
