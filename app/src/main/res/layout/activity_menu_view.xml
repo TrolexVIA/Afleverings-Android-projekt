@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,9 +12,11 @@
         android:id="@+id/SelectUserButton"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
+        android:layout_marginTop="56dp"
         android:text="@string/NotYou"
         app:cornerRadius="30dp"
         app:layout_constraintEnd_toStartOf="@+id/NewUserButton"
+        app:layout_constraintHorizontal_bias="0.266"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -21,9 +24,10 @@
         android:id="@+id/NewUserButton"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginEnd="50dp"
-        app:cornerRadius="30dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="52dp"
         android:text="@string/New_User"
+        app:cornerRadius="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -48,5 +52,15 @@
         app:menu="@menu/bottom_nav_menu"
         app:labelVisibilityMode="labeled"
         android:background="#FFFCE1"/>
+
+    <TextView
+        android:id="@+id/welcome"
+        android:layout_width="191dp"
+        android:layout_height="39dp"
+        android:layout_marginBottom="548dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

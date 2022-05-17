@@ -26,4 +26,6 @@
     <string name="Shoppinglist" >Shoppingliste</string>
     <string name="title_activity_pantry" >MitFadebur</string>
     <string name="delete_product">Produkt fjernet</string>
+    <string name="Welcome">Velkommen!</string>
+    <string name="Remove_user">Fjern bruger</string>
 </resources>
