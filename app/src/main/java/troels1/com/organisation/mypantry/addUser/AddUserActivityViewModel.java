@@ -21,7 +21,15 @@ public class AddUserActivityViewModel extends AndroidViewModel {
 
     }
 
-    public void addUserShopping(String name) {
+    public boolean addUser(String name) {
+        return repository.insertNewUser(convertStringToUser(name));
+    }
+
+    public boolean deleteUser(String toString) {
+       return repository.deleteUser(convertStringToUser(toString));
+    }
+
+    public Userinformation convertStringToUser(String name) {
         char[] charArray = name.toCharArray();
         ArrayList<String> tempArray = new ArrayList<>();
         String temp = "";
@@ -41,6 +49,6 @@ public class AddUserActivityViewModel extends AndroidViewModel {
         Userinformation newUser = new Userinformation(
                 tempArray.get(0), lastname
         );
-        repository.insertNewUser(newUser);
+    return newUser;
     }
 }

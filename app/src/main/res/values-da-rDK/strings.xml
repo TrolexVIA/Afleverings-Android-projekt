@@ -28,4 +28,8 @@
     <string name="delete_product">Produkt fjernet</string>
     <string name="Welcome">Velkommen!</string>
     <string name="Remove_user">Fjern bruger</string>
+    <string name="delete_user">Bruger Fjernet</string>
+    <string name="add_product">Produkt tilføjet</string>
+    <string name="User_added">Bruger tilføjet</string>
+    <string name="Welcome_User">Velkommen</string>
 </resources>

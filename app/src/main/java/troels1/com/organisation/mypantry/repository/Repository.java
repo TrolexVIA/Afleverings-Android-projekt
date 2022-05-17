@@ -28,7 +28,7 @@ import troels1.com.organisation.mypantry.repository.interfaces.MyShoppingListRep
 import troels1.com.organisation.mypantry.repository.interfaces.PantryRepositoryInterface;
 import troels1.com.organisation.mypantry.repository.interfaces.UserAdapterRepositoryInterface;
 
-public class Repository<addPropertyChangeListner> implements MenuRepositoryInterface, PantryRepositoryInterface, MyShoppingListRepositoryInterface, AddProductInterface, UserAdapterRepositoryInterface, AddUserRepositoryInterface {
+public class Repository implements MenuRepositoryInterface, PantryRepositoryInterface, MyShoppingListRepositoryInterface, AddProductInterface, UserAdapterRepositoryInterface, AddUserRepositoryInterface {
 
 
     private static Repository instance;
@@ -72,19 +72,19 @@ public class Repository<addPropertyChangeListner> implements MenuRepositoryInter
     // }
 
     //Menu CRUD
-
-    public void insertNewUser(Userinformation newUser) {
+    public boolean insertNewUser(Userinformation newUser) {
         executorService.execute(() -> {
             userDAO.insert(newUser);
         });
+        return true;
     }
 
-    public boolean deleteUser(String firstname, String lastname) {
-        executorService.execute(() -> userDAO.delete(firstname, lastname));
+    public boolean deleteUser(Userinformation userdelte) {
         boolean tjeck = false;
         for (int i = 0; i < listUserinformation.size(); i++) {
-            if (listUserinformation.get(i).getFirstName().equals(firstname) && listUserinformation.get(i).getLastName().equals(lastname)) {
+            if (listUserinformation.get(i).getFirstName().equals(userdelte.getFirstName()) && listUserinformation.get(i).getLastName().equals(userdelte.getLastName())) {
                 tjeck = true;
+                executorService.execute(() -> userDAO.delete(userdelte.getFirstName(), userdelte.getLastName()));
             }
         }
         return tjeck;
@@ -139,7 +139,7 @@ public class Repository<addPropertyChangeListner> implements MenuRepositoryInter
     public boolean deleteProduct(String name, boolean inStock) {
         boolean tjeck = false;
         int productnumber = -1;
-        for (int i = 0; i < listUserinformation.size(); i++) {
+        for (int i = 0; i < listOfProducts.size(); i++) {
             if (listOfProducts.get(i).getName().equals(name) && listOfProducts.get(i).inStock == inStock) {
                 tjeck = true;
                 productnumber = i;
@@ -185,9 +185,10 @@ public class Repository<addPropertyChangeListner> implements MenuRepositoryInter
 
     //Kommer fra AddproductActivityVM
     @Override
-    public void insertProductIntoLists(Product product) {
+    public boolean insertProductIntoLists(Product product) {
         executorService.execute(() ->
                 productDAO.insertProduct(product)
         );
+        return true;
     }
 }
