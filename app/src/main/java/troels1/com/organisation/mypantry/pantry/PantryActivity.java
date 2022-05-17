@@ -2,7 +2,6 @@ package troels1.com.organisation.mypantry.pantry;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -43,7 +42,7 @@ public class PantryActivity extends AppCompatActivity implements ViewAdapter.OnC
         binding = ActivityPantryBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-//        FloatingActionButton fab = binding.fab;
+
 
         pantryList = findViewById(R.id.rvPantry);
         pantryList.hasFixedSize();
@@ -51,22 +50,10 @@ public class PantryActivity extends AppCompatActivity implements ViewAdapter.OnC
         adapter = new ViewAdapter(productsList, this);
         pantryList.setAdapter(adapter);
 
-        //requesting inforation fra repository
         propertyChangeSupport = new PropertyChangeSupport(this);
         viewModel.addPropertyChangeListener("EventProductPantryView", (PropertyChangeEvent evt) -> this.listSetup());
         viewModel.loadProducts();
 
-
-        //floating button
- //       fab.setOnClickListener(new View.OnClickListener() {
- //           @Override
- //           public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-  //                      .setAction("Action", null).show();
-  //          }
-  //      });
-
-        //navigation
         View menuitem = findViewById(R.id.MainMenuTopBar);
         menuitem.setOnClickListener(x -> {
             Intent intent = new Intent(this, MenuActivity.class);
@@ -89,16 +76,13 @@ public class PantryActivity extends AppCompatActivity implements ViewAdapter.OnC
     }
 
 
-    //sender update request til adapter
     public void listSetup() {
         productsList = viewModel.getProductList();
         if (productsList.size() != 0) {
-            //updataing information fra viewcontroller
             adapter.changeDataset(productsList);
             adapter.notifyDataSetChanged();
         }
     }
-    //bør nok kunne et eller andet
     public void onClick(int position) {
         Toast.makeText(this, "tryk på " + position + " Virker", Toast.LENGTH_LONG).show();
     }

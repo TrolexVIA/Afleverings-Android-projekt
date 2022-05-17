@@ -1,7 +1,6 @@
 package troels1.com.organisation.mypantry.mainListVIew;
 
 import android.app.Application;
-import android.util.Log;
 
 import androidx.lifecycle.AndroidViewModel;
 
@@ -34,7 +33,6 @@ public class MenuActivityViewModel extends AndroidViewModel {
 
     private void updateList() {
        list =  repositoryIF.getListUserinformation();
-        Log.d("call", "ViewModel: updateUserList " + list.size());
        propertyChangeSupport.firePropertyChange("EventUserview", null, list);
     }
 

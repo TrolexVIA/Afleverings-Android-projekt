@@ -1,8 +1,7 @@
 package troels1.com.organisation.mypantry.mainListVIew;
 
 import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
+import android.os.Bundle;;
 import android.view.View;
 import android.widget.Button;
 
@@ -37,14 +36,11 @@ public class MenuActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //viewmodel til observerpattern og til at sende infromation ned i lasangen
         viewModel = new ViewModelProvider(this).get(MenuActivityViewModel.class);
         viewModel.SendUserQuery();
 
         setContentView(R.layout.activity_menu_view);
 
-
-        //navigation
         View listitem = findViewById(R.id.listTopBar);
         listitem.setOnClickListener(x -> {
             Intent intent = new Intent(this, MyShoppingListActivity.class);
@@ -72,23 +68,20 @@ public class MenuActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        // retrival af information fra databasen
         propertyChangeSupport = new PropertyChangeSupport(this);
         viewModel.addPropertyChangeListener("EventUserview", (PropertyChangeEvent evt) -> this.updateList());
 
-        //userselct fragment
         toUserSelctFragment = findViewById(R.id.SelectUserButton);
         NavController navController = Navigation.findNavController(this, R.id.fragmentContainerView);
 
-        toUserSelctFragment.setOnClickListener(v-> navController.navigate(R.id.fragmentUserSelector));
+        toUserSelctFragment.setOnClickListener(v -> navController.navigate(R.id.fragmentUserSelector));
     }
 
     public void updateList() {
         list = viewModel.getUpdate();
-        Log.d("call", " viewcontroller: updateList " + list.size());
         if (list.size() > 0) {
-           String activUser = "" + list.get(0).getFirstName() + " " +  list.get(0).getLastName();
-           FragmentMain.activUserTextView.setText(activUser);
+            String activUser = "" + list.get(0).getFirstName() + " " + list.get(0).getLastName();
+            FragmentMain.activUserTextView.setText(activUser);
         }
     }
 }

@@ -41,8 +41,7 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewholder, int position) {
-        viewholder.productName.setText(products.get(position).getName() +": "+ products.get(position).getAntal());
-        // den her der trækker informationen ud
+        viewholder.productName.setText(products.get(position).getName() +": "+ products.get(position).getDescription());
     }
 
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

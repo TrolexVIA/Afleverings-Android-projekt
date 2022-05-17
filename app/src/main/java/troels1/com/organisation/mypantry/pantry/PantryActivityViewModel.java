@@ -1,7 +1,6 @@
 package troels1.com.organisation.mypantry.pantry;
 
 import android.app.Application;
-import android.util.Log;
 
 import androidx.lifecycle.AndroidViewModel;
 
@@ -28,9 +27,6 @@ public class PantryActivityViewModel extends AndroidViewModel {
         repository.addPropertyChangeListener("EventProductPantry", (PropertyChangeEvent evt) -> this.getProductPantryRepository());
     }
 
-//    public void getActivUser() {
- //       repository.getActivUser();
- //   }
 
     public void addPropertyChangeListener(String name, PropertyChangeListener listener) {
         propertyChangeSupport.addPropertyChangeListener(name, listener);

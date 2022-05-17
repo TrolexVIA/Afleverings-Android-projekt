@@ -14,7 +14,6 @@ import troels1.com.organisation.mypantry.pantry.PantryActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import android.util.Log;
 import android.view.View;
 
 import android.widget.Toast;
@@ -31,8 +30,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class MyShoppingListActivity extends AppCompatActivity implements ViewAdapter.OnClickListener {
 
-
-    private ActivityMenuViewBinding binding;
     private MyShoppingListActivityViewModel viewModel;
     public RecyclerView shoppingList;
     private List<Product> productsList = new ArrayList<Product>();
@@ -52,13 +49,11 @@ public class MyShoppingListActivity extends AppCompatActivity implements ViewAda
         adapter = new ViewAdapter(productsList, this);
         shoppingList.setAdapter((RecyclerView.Adapter) adapter);
 
-        //requesting inforation fra repository
         propertyChangeSupport = new PropertyChangeSupport(this);
 
         viewModel.addPropertyChangeListener("EventProductView", (PropertyChangeEvent evt) -> this.listSetup());
         viewModel.loadProducts();
 
-        //navigation
         View menuitem = findViewById(R.id.MainMenuTopBar);
         menuitem.setOnClickListener(x -> {
             Intent intent = new Intent(this, MenuActivity.class);
@@ -80,12 +75,12 @@ public class MyShoppingListActivity extends AppCompatActivity implements ViewAda
         });
     }
 
-    //sender update request til adapter
+
     public void listSetup() {
         productsList = viewModel.getProductList();
         if (productsList.size() != 0) {
 
-            //updating information fra viewcontroller
+
             adapter.changeDataset(productsList);
             adapter.notifyDataSetChanged();
         }
@@ -95,4 +90,5 @@ public class MyShoppingListActivity extends AppCompatActivity implements ViewAda
     public void onClick(int position) {
         Toast.makeText(this, "tryk på " + position + " Virker", Toast.LENGTH_LONG).show();
     }
+
 }

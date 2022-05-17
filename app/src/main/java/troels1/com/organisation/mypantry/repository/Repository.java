@@ -61,24 +61,21 @@ public class Repository<addPropertyChangeListner> implements MenuRepositoryInter
     //Menu Userinformation
     public void SendUserQuery() {
         executorService.execute(() -> {
-            Log.d("call", "executable");
             List<Userinformation> list = userDAO.loadAllUsers();
-            Log.d("call", "executable done list size" + list.size());
             mainThreadHandler.post(() -> callbackUser(list));
         });
     }
 
-    @Override
-    public void setActivUser(Userinformation activUser) {
-        this.activUser = activUser;
-    }
+
+    //public void setActivUser(Userinformation activUser) {
+     //   this.activUser = activUser;
+   // }
 
     //Menu CRUD
 
     public void insertNewUser(Userinformation newUser) {
         executorService.execute(() -> {
             userDAO.insert(newUser);
-            Log.d("call","new user added");
         });
     }
 
@@ -111,7 +108,6 @@ public class Repository<addPropertyChangeListner> implements MenuRepositoryInter
     }
 
     public void callbackUser(List<Userinformation> list) {
-        Log.d("callback", "callbackUser: repository");
         listUserinformation = list;
         propertyChangeSupport.firePropertyChange("eventUser", null, listUserinformation);
     }
@@ -135,7 +131,6 @@ public class Repository<addPropertyChangeListner> implements MenuRepositoryInter
 
     // Myshopping metoder
     public void callbackProduct(List<Product> list) {
-        Log.d("callback", "callbackUser: repository");
         listOfProducts = list;
         propertyChangeSupport.firePropertyChange("EventProductPantry", null, listOfProducts);
         propertyChangeSupport.firePropertyChange("EventProduct", null, listOfProducts);
@@ -151,17 +146,14 @@ public class Repository<addPropertyChangeListner> implements MenuRepositoryInter
 
     @Override
     public List<Product> getProductsPantry() {
-        Log.d("call", "sender til viewmodel");
         return listOfProducts;
     }
 
     //retunere alle hvor inPantry er True
     @Override
     public void loadProductsPantry() {
-        Log.d("call", "Pantry er bliver loaded");
         executorService.execute(() -> {
             List<Product> list = productDAO.getAllInPantry();
-            Log.d("call", "Pantry er: " + list.size());
             mainThreadHandler.post(() -> callbackProduct(list));
         });
     }

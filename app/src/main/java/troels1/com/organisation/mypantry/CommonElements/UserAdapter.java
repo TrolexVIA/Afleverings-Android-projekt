@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeSupport;
 import java.util.List;
 
 import troels1.com.organisation.mypantry.R;
@@ -27,12 +28,10 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolderUser
         this.users = repository.getListUserinformation();
         this.pOnClickListener = onClickListener;
         repository.addPropertyChangeListener("eventUser", (PropertyChangeEvent event) ->  this.setUsers());
-
     }
 
     public void setUsers() {
         users = repository.getListUserinformation();
-        Log.d("call", "Useradapter: userupdate " + users.size());
         this.notifyDataSetChanged();
     }
 
