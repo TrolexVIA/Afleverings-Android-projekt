@@ -35,12 +35,14 @@ public class AddProductActivity extends AppCompatActivity {
         listitem.setOnClickListener(x -> {
             Intent intent = new Intent(this, MyShoppingListActivity.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide, R.anim.slide);
         });
 
         View pantryitem = findViewById(R.id.pantryTopBar);
         pantryitem.setOnClickListener(y -> {
             Intent intent = new Intent(this, PantryActivity.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide, R.anim.slide);
         });
 
 
@@ -48,6 +50,7 @@ public class AddProductActivity extends AppCompatActivity {
         menuitem.setOnClickListener(x -> {
             Intent intent = new Intent(this, MenuActivity.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide, R.anim.slide);
         });
 
         addShopping = (Button) findViewById(R.id.tilføj);
