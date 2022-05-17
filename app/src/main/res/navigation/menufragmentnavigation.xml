@@ -9,7 +9,7 @@
         android:id="@+id/fragmentUserSelector"
         android:name="troels1.com.organisation.mypantry.mainListVIew.Fragment.FragmentSelectUser"
         android:label="fragment_one"
-        tools:layout="@layout/fragment_user_slector"/>
+        tools:layout="@layout/fragment_user_select"/>
 
     <fragment
         android:id="@+id/fragmentMainView"

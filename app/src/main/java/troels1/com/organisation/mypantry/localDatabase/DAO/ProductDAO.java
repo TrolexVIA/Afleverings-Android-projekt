@@ -31,4 +31,7 @@ public interface ProductDAO {
 
     @Query("Select * from Product where inStock = 1")
     public List<Product> getAllInPantry();
+
+    @Query("Select * from Product where inList = 1")
+    List<Product> loadProductShopping();
 }

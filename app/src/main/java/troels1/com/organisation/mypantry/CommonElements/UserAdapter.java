@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeSupport;
 import java.util.List;
 
 import troels1.com.organisation.mypantry.R;
@@ -21,14 +20,14 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolderUser
 
     private List<Userinformation> users;
     private UserAdapter.OnClickListener pOnClickListener;
-    private UserAdapterRepositoryInterface repository;
-    private PropertyChangeSupport propertyChangeSupport;
+    private final UserAdapterRepositoryInterface repository;
 
     public UserAdapter(OnClickListener onClickListener) {
         repository = Repository.getInstance(null);
         this.users = repository.getListUserinformation();
         this.pOnClickListener = onClickListener;
         repository.addPropertyChangeListener("eventUser", (PropertyChangeEvent event) ->  this.setUsers());
+
     }
 
     public void setUsers() {
@@ -51,7 +50,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolderUser
 
     @Override
     public void onBindViewHolder(@NonNull UserAdapter.ViewHolderUser viewholder, int position) {
-        viewholder.productName.setText(R.string.prefix_user + users.get(position).getFirstName() + " " + users.get(position).getLastName());
+        viewholder.productName.setText("Username: " + users.get(position).getFirstName() + " " + users.get(position).getLastName());
     }
 
 

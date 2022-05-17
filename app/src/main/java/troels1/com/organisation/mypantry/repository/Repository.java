@@ -125,9 +125,9 @@ public class Repository<addPropertyChangeListner> implements MenuRepositoryInter
 
     // MyShoppingList CRUD
 
-    public void loadProducts() {
+    public void loadProductsShoping() {
         executorService.execute(() -> {
-                    List<Product> lists = productDAO.loadAllProduct();
+                    List<Product> lists = productDAO.loadProductShopping();
                     mainThreadHandler.post(() -> callbackProduct(lists));
                 }
         );
