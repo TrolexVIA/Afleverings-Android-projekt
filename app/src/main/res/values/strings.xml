@@ -40,7 +40,7 @@
     <string name="delete_user">User deleted</string>
     <string name="add_product">Product added</string>
     <string name="User_added">User added</string>
-    <string name="Welcome_User">Welcome</string>
+    <string name="Welcome_User">"Welcome "</string>
 
 
 </resources>
