@@ -16,8 +16,8 @@ public interface UserDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     public void insert(Userinformation user);
 
-    @Delete
-    public void delete(Userinformation user);
+    @Query("delete from Userinformation where first_name = :firstname and last_name = :lastname")
+    public void delete(String firstname, String lastname);
 
     @Query("Select * from Userinformation")
     public List<Userinformation> loadAllUsers();

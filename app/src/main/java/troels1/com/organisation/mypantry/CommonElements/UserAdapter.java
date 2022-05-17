@@ -20,13 +20,13 @@ import troels1.com.organisation.mypantry.repository.interfaces.UserAdapterReposi
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolderUser> {
 
     private List<Userinformation> users;
-    private UserAdapter.OnClickListener pOnClickListener;
+    private View.OnLongClickListener onClickListener;
     private final UserAdapterRepositoryInterface repository;
 
-    public UserAdapter(OnClickListener onClickListener) {
+    public UserAdapter(View.OnLongClickListener onClickListener) {
         repository = Repository.getInstance(null);
         this.users = repository.getListUserinformation();
-        this.pOnClickListener = onClickListener;
+        this.onClickListener = onClickListener;
         repository.addPropertyChangeListener("eventUser", (PropertyChangeEvent event) ->  this.setUsers());
     }
 
@@ -43,7 +43,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolderUser
     public UserAdapter.ViewHolderUser onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.recyclerview, parent, false);
-        return new UserAdapter.ViewHolderUser(view, pOnClickListener);
+        return new UserAdapter.ViewHolderUser(view, onClickListener);
     }
 
 
@@ -53,25 +53,21 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolderUser
     }
 
 
-    class ViewHolderUser extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView productName;
-        UserAdapter.OnClickListener OnClickListener;
+    class ViewHolderUser extends RecyclerView.ViewHolder implements View.OnLongClickListener {
+        private TextView productName;
+        private View.OnLongClickListener onClickListener;
 
-        ViewHolderUser(View itemView,UserAdapter.OnClickListener onClickListener) {
+        ViewHolderUser(View itemView,View.OnLongClickListener onClickListener) {
             super(itemView);
             productName = itemView.findViewById(R.id.productName);
-            this.OnClickListener = onClickListener;
-
-            itemView.setOnClickListener(this);
+            this.onClickListener = onClickListener;
+            itemView.setOnLongClickListener(this);
         }
 
         @Override
-        public void onClick(View v) {
-            pOnClickListener.onClick(getAdapterPosition());
+        public boolean onLongClick(View view) {
+            onClickListener.onLongClick(view);
+            return false;
         }
-    }
-
-    public interface OnClickListener {
-        void onClick(int position);
     }
 }

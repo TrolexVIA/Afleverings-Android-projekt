@@ -28,7 +28,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-public class MyShoppingListActivity extends AppCompatActivity implements ViewAdapter.OnClickListener {
+public class MyShoppingListActivity extends AppCompatActivity implements View.OnClickListener {
 
     private MyShoppingListActivityViewModel viewModel;
     public RecyclerView shoppingList;
@@ -91,4 +91,8 @@ public class MyShoppingListActivity extends AppCompatActivity implements ViewAda
         Toast.makeText(this, "tryk på " + position + " Virker", Toast.LENGTH_LONG).show();
     }
 
+    @Override
+    public void onClick(View view) {
+
+    }
 }

@@ -18,9 +18,9 @@ import java.util.concurrent.Executors;
 import troels1.com.organisation.mypantry.localDatabase.DAO.ProductDAO;
 import troels1.com.organisation.mypantry.localDatabase.DAO.UserDAO;
 import troels1.com.organisation.mypantry.localDatabase.Entity.Product;
+import troels1.com.organisation.mypantry.localDatabase.Entity.Userinformation;
 import troels1.com.organisation.mypantry.localDatabase.ProductsDatabase;
 import troels1.com.organisation.mypantry.localDatabase.UserDatabase;
-import troels1.com.organisation.mypantry.localDatabase.Entity.Userinformation;
 import troels1.com.organisation.mypantry.repository.interfaces.AddProductInterface;
 import troels1.com.organisation.mypantry.repository.interfaces.AddUserRepositoryInterface;
 import troels1.com.organisation.mypantry.repository.interfaces.MenuRepositoryInterface;
@@ -68,8 +68,8 @@ public class Repository<addPropertyChangeListner> implements MenuRepositoryInter
 
 
     //public void setActivUser(Userinformation activUser) {
-     //   this.activUser = activUser;
-   // }
+    //   this.activUser = activUser;
+    // }
 
     //Menu CRUD
 
@@ -79,8 +79,15 @@ public class Repository<addPropertyChangeListner> implements MenuRepositoryInter
         });
     }
 
-    public void deleteUser(Userinformation user) {
-        executorService.execute(() -> userDAO.delete(user));
+    public boolean deleteUser(String firstname, String lastname) {
+        executorService.execute(() -> userDAO.delete(firstname, lastname));
+        boolean tjeck = false;
+        for (int i = 0; i < listUserinformation.size(); i++) {
+            if (listUserinformation.get(i).getFirstName().equals(firstname) && listUserinformation.get(i).getLastName().equals(lastname)) {
+                tjeck = true;
+            }
+        }
+        return tjeck;
     }
 
     //property change listner
@@ -127,6 +134,24 @@ public class Repository<addPropertyChangeListner> implements MenuRepositoryInter
                     mainThreadHandler.post(() -> callbackProduct(lists));
                 }
         );
+    }
+
+    public boolean deleteProduct(String name) {
+        boolean tjeck = false;
+        int productnumber = -1;
+        for (int i = 0; i < listUserinformation.size(); i++) {
+            if (listOfProducts.get(i).getName().equals(name)) {
+                tjeck = true;
+                productnumber = i;
+            }
+        }
+        if (tjeck) {
+            int finalProductnumber = productnumber;
+            executorService.execute(() -> {
+                productDAO.deleteProduct(listOfProducts.get(finalProductnumber));
+            });
+        }
+        return tjeck;
     }
 
     // Myshopping metoder

@@ -17,11 +17,11 @@ import troels1.com.organisation.mypantry.localDatabase.Entity.Product;
 public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.ViewHolder> {
 
     private List<Product> products;
-    private OnClickListener pOnClickListener;
+    private View.OnClickListener onClickListener;
 
-    public ViewAdapter(List<Product> products, OnClickListener onClickListener) {
+    public ViewAdapter(List<Product> products, View.OnClickListener onClickListener) {
         this.products = products;
-        this.pOnClickListener = onClickListener;
+        this.onClickListener = onClickListener;
     }
 
     public void changeDataset(List<Product> list) {
@@ -36,37 +36,34 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.ViewHolder> {
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.recyclerview, parent, false);
-        return new ViewHolder(view, pOnClickListener);
+        return new ViewHolder(view, onClickListener);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewholder, int position) {
         viewholder.productName.setText(products.get(position).getName() +": "+ products.get(position).getAntal());
+
     }
 
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView productName;
         ImageView productIcon;
-        OnClickListener OnClickListener;
+        View.OnClickListener onClickListener;
 
-        ViewHolder(View itemView, OnClickListener onClickListener) {
+        ViewHolder(View itemView, View.OnClickListener onClickListener) {
             super(itemView);
             productName = itemView.findViewById(R.id.productName);
             productIcon = itemView.findViewById(R.id.productIcon);
-            this.OnClickListener = onClickListener;
+            this.onClickListener = onClickListener;
 
             itemView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
-            pOnClickListener.onClick(getAdapterPosition());
+            onClickListener.onClick(v);
         }
-    }
-
-    public interface OnClickListener {
-        void onClick(int position);
     }
 }
 
