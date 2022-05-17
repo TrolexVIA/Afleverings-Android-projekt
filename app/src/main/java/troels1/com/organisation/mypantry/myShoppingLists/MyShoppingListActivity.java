@@ -63,17 +63,20 @@ public class MyShoppingListActivity extends AppCompatActivity implements ViewAda
         menuitem.setOnClickListener(x -> {
             Intent intent = new Intent(this, MenuActivity.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide, R.anim.slide);
         });
 
         View pantryitem = findViewById(R.id.pantryTopBar);
         pantryitem.setOnClickListener(y -> {
             Intent intent = new Intent(this, PantryActivity.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide, R.anim.slide);
         });
         View listitems = findViewById(R.id.findProdukter);
         listitems.setOnClickListener(k -> {
             Intent intent = new Intent(this, AddProductActivity.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide, R.anim.slide);
         });
     }
 

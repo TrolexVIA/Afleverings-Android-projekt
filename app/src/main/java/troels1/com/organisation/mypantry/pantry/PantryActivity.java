@@ -71,17 +71,20 @@ public class PantryActivity extends AppCompatActivity implements ViewAdapter.OnC
         menuitem.setOnClickListener(x -> {
             Intent intent = new Intent(this, MenuActivity.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide, R.anim.slide);
         });
 
         View listitem = findViewById(R.id.listTopBar);
         listitem.setOnClickListener(y -> {
             Intent intent = new Intent(this, MyShoppingListActivity.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide, R.anim.slide);
         });
         View listitems = findViewById(R.id.findProdukter);
         listitems.setOnClickListener(k -> {
             Intent intent = new Intent(this, AddProductActivity.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide, R.anim.slide);
         });
     }
 

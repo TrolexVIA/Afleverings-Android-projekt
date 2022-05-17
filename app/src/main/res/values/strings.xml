@@ -21,6 +21,7 @@
     <string name="Add_button_shoppinglist">add to shoppinglist</string>
     <string name="welcome">Welcome</string>
     <string name="prefix_user">User:</string>
+
     <string name="New_User">New User?</string>
     <string name="Textfield_NameTheProduct">Input the name of the product</string>
     <string name="Textfield_Number">Input the number of the product</string>
@@ -28,5 +29,8 @@
     <string name="Button_AddNewUser">Add new User</string>
     <string name="error_add_product">Please enter product details!</string>
     <string name="error_add_user">Please enter your name!</string>
+
+    <string name="Products" translatable="false">Products</string>
+    <string name="Shoppinglist" translatable="false">Shoppinglist</string>
 
 </resources>
