@@ -13,15 +13,18 @@
         android:theme="@style/Theme.MyPantry">
         <activity
             android:name=".addProducts.AddProductActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/Products"/>
         <activity
             android:name=".pantry.PantryActivity"
             android:exported="false"
             android:label="@string/title_activity_pantry"
-            android:theme="@style/Theme.MyPantry.NoActionBar" />
+            />
         <activity
             android:name=".myShoppingLists.MyShoppingListActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/Shoppinglist"
+            />
 
         <activity
             android:name=".mainListVIew.MenuActivity"
