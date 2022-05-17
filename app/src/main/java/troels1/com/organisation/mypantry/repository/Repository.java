@@ -30,6 +30,7 @@ import troels1.com.organisation.mypantry.repository.interfaces.UserAdapterReposi
 
 public class Repository<addPropertyChangeListner> implements MenuRepositoryInterface, PantryRepositoryInterface, MyShoppingListRepositoryInterface, AddProductInterface, UserAdapterRepositoryInterface, AddUserRepositoryInterface {
 
+
     private static Repository instance;
     private final UserDAO userDAO;
     private final ProductDAO productDAO;

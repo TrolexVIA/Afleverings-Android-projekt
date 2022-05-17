@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import troels1.com.organisation.mypantry.CommonElements.UserAdapter;
 import troels1.com.organisation.mypantry.R;
 
-
 public class FragmentMain extends Fragment {
 
     public static TextView activUserTextView;
