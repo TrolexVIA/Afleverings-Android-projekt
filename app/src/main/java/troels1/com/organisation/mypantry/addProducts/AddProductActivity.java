@@ -62,18 +62,24 @@ public class AddProductActivity extends AppCompatActivity {
         addShopping.setOnClickListener(
                 view -> {
                     if (feltChecker()) {
-                        viewModel.addProductShopping(productNavn.getText().toString(), productAntal.getText().toString());
+                        boolean toast = viewModel.addProductShopping(productNavn.getText().toString(), productAntal.getText().toString());
                         productNavn.setText("");
                         productAntal.setText("");
+                        if (toast) {
+                            toast(getString(R.string.add_product));
+                        }
                     }
                 });
 
         addPantry.setOnClickListener(
                 view -> {
                     if (feltChecker()) {
-                        viewModel.addProductPantry(productNavn.getText().toString(), productAntal.getText().toString());
+                        boolean toast = viewModel.addProductPantry(productNavn.getText().toString(), productAntal.getText().toString());
                         productNavn.setText("");
                         productAntal.setText("");
+                        if (toast) {
+                            toast(getString(R.string.add_product));
+                        }
                     }
                 });
 
@@ -84,9 +90,8 @@ public class AddProductActivity extends AppCompatActivity {
                         productNavn.setText("");
                         productAntal.setText("");
                         if (toast) {
-                            Toast.makeText(AddProductActivity.this,
-                                    getString(R.string.delete_product),
-                                    Toast.LENGTH_SHORT).show();
+                            toast(getString(R.string.delete_product));
+
                         }
                     }
                 });
@@ -97,23 +102,27 @@ public class AddProductActivity extends AppCompatActivity {
                         productNavn.setText("");
                         productAntal.setText("");
                         if (toast) {
-                            Toast.makeText(AddProductActivity.this,
-                                    getString(R.string.delete_product),
-                                    Toast.LENGTH_SHORT).show();
+                            toast(getString(R.string.delete_product));
                         }
+
                     }
                 });
     }
 
     public boolean feltChecker() {
         if (TextUtils.isEmpty(productNavn.getText().toString()) || TextUtils.isEmpty(productAntal.getText().toString())) {
-            Toast.makeText(AddProductActivity.this,
-                    getString(R.string.error_add_product),
-                    Toast.LENGTH_SHORT).show();
+            toast(getString(R.string.error_add_product));
             return false;
         } else {
             return true;
         }
     }
+
+    public void toast(String toastMessage) {
+        Toast.makeText(AddProductActivity.this,
+                toastMessage,
+                Toast.LENGTH_SHORT).show();
+    }
 }
+
 

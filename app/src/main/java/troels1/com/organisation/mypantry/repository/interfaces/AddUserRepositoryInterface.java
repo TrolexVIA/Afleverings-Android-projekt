@@ -4,7 +4,7 @@ import troels1.com.organisation.mypantry.localDatabase.Entity.Userinformation;
 
 public interface AddUserRepositoryInterface {
 
-    void insertNewUser(Userinformation newUser);
+    boolean insertNewUser(Userinformation newUser);
 
-    boolean deleteUser(String firstname, String lastname);
+    boolean deleteUser(Userinformation deleteuser);
 }

@@ -80,7 +80,7 @@ public class MenuActivity extends AppCompatActivity {
     public void updateList() {
         list = viewModel.getUpdate();
         if (list.size() > 0) {
-            String activUser = "" + list.get(0).getFirstName() + " " + list.get(0).getLastName();
+            String activUser = getString(R.string.Welcome_User) + list.get(0).getFirstName() + " " + list.get(0).getLastName() + "!";
             FragmentMain.activUserTextView.setText(activUser);
         }
     }
