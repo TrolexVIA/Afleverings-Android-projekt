@@ -17,11 +17,11 @@ public class AddProductActivityViewModel extends AndroidViewModel {
         repository = Repository.getInstance(application);
     }
 
-    public void AddProductShopping(String name, String antal) {
+    public void addProductShopping(String name, String antal) {
         Product product = new Product(name, null, null, null, false, true, Integer.parseInt(antal));
     repository.insertProductIntoLists(product);
     }
-    public void AddProductPantry(String name, String antal) {
+    public void addProductPantry(String name, String antal) {
         Product product = new Product(name, null, null, null, true, false, Integer.parseInt(antal));
         repository.insertProductIntoLists(product);
     }

@@ -13,7 +13,5 @@ public interface MenuRepositoryInterface {
 
     public List<Userinformation> getListUserinformation();
 
-    public boolean insertNewUser(Userinformation newUser);
-
     public void setActivUser(Userinformation activUser); //skal sættes op i menu
 }

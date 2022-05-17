@@ -12,4 +12,12 @@
     <string name="Add_button_shoppinglist">Tilføj til indkøbsliste</string>
     <string name="dismiss_error">Fjern</string>
     <string name="prefix_user">"Bruger: "</string>
+    <string name="New_User">Ny Bruger?</string>
+    <string name="title_home">Hjem</string>
+    <string name="Textfield_NameTheProduct">Skriv navnet på produktet</string>
+    <string name="Textfield_Number">Skriv antallet af productet</string>
+    <string name="Textfield_inputUsername">Hvad er dit navn?</string>
+    <string name="Button_AddNewUser">Tilføj ny Bruger</string>
+    <string name="error_add_product">Intast product detaljer!</string>
+    <string name="error_add_user">Intast dit navn!</string>
 </resources>

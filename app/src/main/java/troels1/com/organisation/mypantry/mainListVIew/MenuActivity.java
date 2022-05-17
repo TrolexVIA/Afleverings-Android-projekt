@@ -5,11 +5,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.adapters.TextViewBindingAdapter;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -19,8 +16,8 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeSupport;
 import java.util.List;
 
-import troels1.com.organisation.mypantry.CommonElements.UserAdapter;
 import troels1.com.organisation.mypantry.addProducts.AddProductActivity;
+import troels1.com.organisation.mypantry.addUser.AddUserActivity;
 import troels1.com.organisation.mypantry.databinding.ActivityMenuViewBinding;
 import troels1.com.organisation.mypantry.localDatabase.Entity.Userinformation;
 import troels1.com.organisation.mypantry.mainListVIew.Fragment.FragmentMain;
@@ -67,24 +64,18 @@ public class MenuActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-
-
-        // Setting the right User
-    //    Button notYou = findViewById(R.id.insert);
-    //    notYou.setOnClickListener(z -> {
-    //            toast(viewModel.insert()); //midlertidigt sp vi kan se om det virker
-    //            Log.d("call", "onclick");
-    //            viewModel.SendUserQuery();
-    //        }
-    //    );
-
+        Button newUser = findViewById(R.id.NewUserButton);
+        newUser.setOnClickListener(z -> {
+            Intent intent = new Intent(this, AddUserActivity.class);
+            startActivity(intent);
+        });
 
         // retrival af information fra databasen
         propertyChangeSupport = new PropertyChangeSupport(this);
         viewModel.addPropertyChangeListener("EventUserview", (PropertyChangeEvent evt) -> this.updateList());
 
         //userselct fragment
-        toUserSelctFragment = findViewById(R.id.insert);
+        toUserSelctFragment = findViewById(R.id.SelectUserButton);
         NavController navController = Navigation.findNavController(this, R.id.fragmentContainerView);
 
         toUserSelctFragment.setOnClickListener(v-> navController.navigate(R.id.fragmentUserSelector));
@@ -100,12 +91,10 @@ public class MenuActivity extends AppCompatActivity {
         }
     }
 
-
-
-    public void toast(boolean bool) {
-        if (bool) {
-            Toast.makeText(this, "Profiler er hentet", Toast.LENGTH_LONG).show();
-        }
-    }
+ //   public void toast(boolean bool) {
+ //       if (bool) {
+ //           Toast.makeText(this, "Profiler er hentet", Toast.LENGTH_LONG).show();
+ //       }
+//    }
 }
 

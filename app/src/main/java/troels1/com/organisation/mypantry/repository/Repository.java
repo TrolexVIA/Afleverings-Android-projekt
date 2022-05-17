@@ -22,11 +22,13 @@ import troels1.com.organisation.mypantry.localDatabase.ProductsDatabase;
 import troels1.com.organisation.mypantry.localDatabase.UserDatabase;
 import troels1.com.organisation.mypantry.localDatabase.Entity.Userinformation;
 import troels1.com.organisation.mypantry.repository.interfaces.AddProductInterface;
+import troels1.com.organisation.mypantry.repository.interfaces.AddUserRepositoryInterface;
 import troels1.com.organisation.mypantry.repository.interfaces.MenuRepositoryInterface;
 import troels1.com.organisation.mypantry.repository.interfaces.MyShoppingListRepositoryInterface;
 import troels1.com.organisation.mypantry.repository.interfaces.PantryRepositoryInterface;
+import troels1.com.organisation.mypantry.repository.interfaces.UserAdapterRepositoryInterface;
 
-public class Repository<addPropertyChangeListner> implements MenuRepositoryInterface, PantryRepositoryInterface, MyShoppingListRepositoryInterface, AddProductInterface {
+public class Repository<addPropertyChangeListner> implements MenuRepositoryInterface, PantryRepositoryInterface, MyShoppingListRepositoryInterface, AddProductInterface, UserAdapterRepositoryInterface, AddUserRepositoryInterface {
 
     private static Repository instance;
     private final UserDAO userDAO;
@@ -72,11 +74,10 @@ public class Repository<addPropertyChangeListner> implements MenuRepositoryInter
 
     //Menu CRUD
 
-    public boolean insertNewUser(Userinformation newUser) {
+    public void insertNewUser(Userinformation newUser) {
         executorService.execute(() -> {
             userDAO.insert(newUser);
         });
-        return true;
     }
 
     public void deleteUser(Userinformation user) {

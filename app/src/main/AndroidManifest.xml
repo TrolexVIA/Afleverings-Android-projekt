@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyPantry">
         <activity
+            android:name=".addUser.AddUserActivity"
+            android:exported="false" />
+        <activity
             android:name=".addProducts.AddProductActivity"
             android:exported="false" />
         <activity
@@ -25,16 +28,15 @@
         <activity
             android:name=".splashScreen.SplashScreenActivity"
             android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-        </activity>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".mainListVIew.MenuActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
     </application>
+
 </manifest>

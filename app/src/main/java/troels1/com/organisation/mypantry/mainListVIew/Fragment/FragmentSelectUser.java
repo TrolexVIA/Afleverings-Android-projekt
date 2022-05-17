@@ -6,15 +6,21 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.beans.PropertyChangeSupport;
+
 import troels1.com.organisation.mypantry.CommonElements.UserAdapter;
 import troels1.com.organisation.mypantry.R;
+import troels1.com.organisation.mypantry.mainListVIew.MenuActivity;
 
 public class FragmentSelectUser extends Fragment implements UserAdapter.OnClickListener {
 
     private RecyclerView recyclerView;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_user_slector, container, false);
@@ -23,12 +29,11 @@ public class FragmentSelectUser extends Fragment implements UserAdapter.OnClickL
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.setAdapter(new UserAdapter(this));
         return inflater.inflate(R.layout.fragment_user_slector, container, false);
-
     }
 
     @Override
     public void onClick(int position) {
-
+      //  NavController navController = Navigation.findNavController(MenuActivity.class, R.id.fragmentContainerView);
+      //  navController.navigate(R.id.fragmentMainView);
     }
 }
-

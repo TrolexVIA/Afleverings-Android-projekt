@@ -4,40 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".addProducts.AddProductActivity"
-    android:background="#FFFCE1">
-
+    tools:context=".addUser.AddUserActivity">
 
     <Button
-        android:id="@+id/tilføj"
+        android:id="@+id/add_user_button"
         android:layout_width="284dp"
         android:layout_height="64dp"
-        android:text="@string/Add_button_shoppinglist"
+        android:text="@string/Button_AddNewUser"
         app:cornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.568" />
-
-    <Button
-        android:id="@+id/tilføj1"
-        android:layout_width="284dp"
-        android:layout_height="64dp"
-        android:text="@string/Add_button_pantry"
-        app:cornerRadius="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.756" />
+        app:layout_constraintVertical_bias="0.499" />
 
     <TextView
-        android:id="@+id/addProduct"
+        android:id="@+id/add_user_textview"
         android:layout_width="356dp"
         android:layout_height="81dp"
-        android:text="@string/Textfield_NameTheProduct"
+        android:text="@string/Textfield_inputUsername"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -45,37 +31,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.082" />
 
-    <TextView
-        android:id="@+id/addNumber"
-        android:layout_width="356dp"
-        android:layout_height="80dp"
-        android:text="@string/Textfield_Number"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.355" />
-
     <EditText
-        android:id="@+id/produktNavn"
+        android:id="@+id/add_user_textfield"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="88dp"
         android:ems="10"
         android:inputType="text"
-        app:layout_constraintHorizontal_bias="0.134"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/produktAntal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="232dp"
-        android:ems="10"
-        android:inputType="number"
         app:layout_constraintHorizontal_bias="0.134"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -93,7 +55,5 @@
         app:layout_constraintRight_toRightOf="parent"
         app:menu="@menu/bottom_nav_menu"
 
-    />
-
-
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

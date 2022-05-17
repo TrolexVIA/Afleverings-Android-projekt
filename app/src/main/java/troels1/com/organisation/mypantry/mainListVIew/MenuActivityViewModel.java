@@ -46,8 +46,4 @@ public class MenuActivityViewModel extends AndroidViewModel {
         propertyChangeSupport.addPropertyChangeListener(name, listener);
         listener.propertyChange(new PropertyChangeEvent(this, "EventUserview", null, list));
     }
-
-    public boolean insert(Userinformation newUser) {
-        return repositoryIF.insertNewUser(newUser);
-    }
 }
